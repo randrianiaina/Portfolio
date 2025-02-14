@@ -215,6 +215,37 @@
                 padding: 1.5rem;
             }
         }
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .interest-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--light-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .certifications {
+            margin-top: 1rem;
+        }
+
+        .certification-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .certification-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
@@ -226,11 +257,12 @@
                 </div>
                 <div class="profile-info">
                     <h1>HERIZO NOMENJANAHARY RANDRIANIANA</h1>
-                    <h2>Data Analyst & Développeur Full Stack</h2>
+                    <h2>Analyste Programmeur | Développeur PHP, Java & SQL</h2>
                     <div class="contact-info">
                         <span class="badge"><i class="fas fa-phone"></i> +261344972670</span>
                         <span class="badge"><i class="fas fa-envelope"></i> menja.herizo@gmail.com</span>
                         <span class="badge"><i class="fas fa-map-marker-alt"></i> Antananarivo, Madagascar</span>
+                        <span class="badge"><i class="fab fa-linkedin"></i> linkedin.com/in/herizo-randrianaina</span>
                     </div>
                 </div>
             </div>
@@ -243,7 +275,7 @@
                 <i class="fas fa-user-circle"></i>
                 <h2>À Propos</h2>
             </div>
-            <p>Analyste de données expérimenté avec plus de 5 ans d'expérience, spécialisé dans l'optimisation des processus métier et la prise de décision basée sur les données. Expert en Power BI, SQL, et développement web moderne.</p>
+            <p>Spécialisé en développement PHP et Java, avec une expertise en bases de données SQL (SQL Anywhere, PostgreSQL, TSQL, Ms SQL) et traitement de données. Expérimenté dans la conception de projets e-commerce et ERP, ainsi que dans la maintenance informatique et la gestion de la qualité. Mon objectif est de concevoir des solutions numériques performantes et innovantes, adaptées aux besoins des utilisateurs.</p>
         </section>
 
         <section class="section">
@@ -253,30 +285,34 @@
             </div>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Data Analytics</h3>
+                    <h3>Langages & Frameworks</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">ETL</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Développement Web</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PHP Symfony</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Symfony</span>
                         <span class="skill-tag">ReactJS</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Outils & Frameworks</h3>
+                    <h3>Base de données & Outils</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">SQL Anywhere</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">TSQL</span>
+                        <span class="skill-tag">MS SQL</span>
+                        <span class="skill-tag">SSIS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Outils</h3>
+                    <div class="skill-tags">
                         <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">AWS</span>
                         <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">BSens</span>
                     </div>
                 </div>
             </div>
@@ -288,25 +324,39 @@
                 <h2>Expérience Professionnelle</h2>
             </div>
             <div class="experience-item">
-                <h3 class="experience-title">Analyste programmeur - Groupe edl</h3>
-                <div class="experience-date">01/2024 - Présent | Andraharo, Antananarivo</div>
+                <h3 class="experience-title">Analyste Programmeur - Groupe EDL</h3>
+                <div class="experience-date">2024 - Présent | Antananarivo</div>
                 <div class="experience-description">
                     <ul>
-                        <li>Développement d'applications web avec PHP Symfony et ReactJS</li>
-                        <li>Administration et gestion de l'ERP BSens</li>
-                        <li>Création de tableaux de bord Power BI</li>
-                        <li>Configuration et maintenance de ManageEngine</li>
+                        <li>Réorganisation de la structure des bases de données pour garantir une adéquation parfaite aux besoins métiers</li>
+                        <li>Développement de tableaux de bord dynamiques et interactifs pour les KPIs stratégiques</li>
+                        <li>Développement de requêtes SQL complexes pour l'analyse approfondie</li>
+                        <li>Administration d'outils ITSM et gestion des incidents (ManageEngine)</li>
                     </ul>
                 </div>
             </div>
+            
             <div class="experience-item">
-                <h3 class="experience-title">Concepteur développeur d'applications - Software overseas academy</h3>
-                <div class="experience-date">04/2023 - 11/2023 | Ankadimbahoaka, Antananarivo</div>
+                <h3 class="experience-title">Développeur Chef de Projet - Software Overseas Academy</h3>
+                <div class="experience-date">2023 | Antananarivo</div>
                 <div class="experience-description">
                     <ul>
-                        <li>Développement d'applications sur mesure avec Symfony et ReactJS</li>
-                        <li>Mise en place de pipelines CI/CD</li>
-                        <li>Collaboration agile avec les équipes digitales</li>
+                        <li>Direction d'équipes de développeurs sur des projets innovants</li>
+                        <li>Collaboration avec les parties prenantes pour identifier les besoins stratégiques</li>
+                        <li>Conception d'architectures logicielles robustes et évolutives</li>
+                        <li>Mise en place de pipelines CI/CD avec Docker</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3 class="experience-title">Assistant Chargé de la Qualité - Oworkers</h3>
+                <div class="experience-date">2020 - 2021 | Antananarivo</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Développement d'outils d'évaluation des performances</li>
+                        <li>Analyse des données de qualité pour l'optimisation des processus</li>
+                        <li>Facilitation de l'adoption de nouvelles technologies</li>
                     </ul>
                 </div>
             </div>
@@ -315,31 +365,34 @@
         <section class="section">
             <div class="section-title">
                 <i class="fas fa-graduation-cap"></i>
-                <h2>Formation</h2>
+                <h2>Formation & Certifications</h2>
             </div>
             <div class="experience-item">
-                <h3 class="experience-title">Master 1, base de données génie logiel</h3>
-                <div class="experience-date">12/2023 - 11/2024 | Antananarivo</div>
-                <p>Centre national de télé-enseignement de Madagascar</p>
+                <h3 class="experience-title">Master 1 – Base de Données et Génie Logiciel</h3>
+                <div class="experience-date">2023 - 2025 | CNTEMAD Madagascar</div>
             </div>
             <div class="experience-item">
-                <h3 class="experience-title">Licence, informatique: réseau et systèmes</h3>
-                <div class="experience-date">01/2012 - 10/2015 | Antananarivo</div>
-                <p>Centre national de télé-enseignement de Madagascar</p>
+                <h3 class="experience-title">Concepteur Développeur d'Applications Numériques</h3>
+                <div class="experience-date">2022 - 2023 | Inclusiv Academy</div>
+            </div>
+            <div class="certifications">
+                <h3>Certifications</h3>
+                <div class="certification-item">Zoho creator - Young Creator Program - 2025</div>
+                <div class="certification-item">Concepteur Développeur d'Applications Numériques - Inclusiv Academy - 2022/2023</div>
             </div>
         </section>
 
         <section class="section">
             <div class="section-title">
                 <i class="fas fa-globe"></i>
-                <h2>Langues et Compétences Personnelles</h2>
+                <h2>Langues et Soft Skills</h2>
             </div>
             <div class="languages-skills">
                 <div>
                     <h3>Langues</h3>
                     <div class="language-item">
                         <span>Français</span>
-                        <span class="language-level">Bilingue</span>
+                        <span class="language-level">Courant</span>
                     </div>
                     <div class="language-item">
                         <span>Anglais</span>
@@ -349,18 +402,30 @@
                 <div>
                     <h3>Soft Skills</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Agile</span>
-                        <span class="skill-tag">Gestion de stress</span>
-                        <span class="skill-tag">Communication efficace</span>
+                        <span class="skill-tag">Travail D'équipe</span>
+                        <span class="skill-tag">Résolution De Problèmes</span>
+                        <span class="skill-tag">Esprit Critique</span>
+                        <span class="skill-tag">Communication Efficace</span>
                         <span class="skill-tag">Adaptabilité</span>
-                        <span class="skill-tag">Force de proposition</span>
-                        <span class="skill-tag">Autonomie</span>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
+        <section class="section">
+            <div class="section-title">
+                <i class="fas fa-heart"></i>
+                <h2>Centres d'Intérêt</h2>
+            </div>
+            <div class="interests">
+                <div class="interest-item"><i class="fas fa-hiking"></i> Randonnée</div>
+                <div class="interest-item"><i class="fas fa-utensils"></i> Cuisine</div>
+                <div class="interest-item"><i class="fas fa-gamepad"></i> Jeux Vidéos</div>
+                <div class="interest-item"><i class="fas fa-plane"></i> Voyage</div>
+                <div class="interest-item"><i class="fas fa-users"></i> Passer Du Temps Avec Ma Famille</div>
+            </div>
+        </section>
+    </main>
     <script>
         // Animation smooth scroll pour la navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

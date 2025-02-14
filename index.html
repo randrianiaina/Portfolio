@@ -3,54 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Herizo Nomenjanahary Randrianaina</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .section { display: none; padding: 20px; }
-        .active { display: block; }
-        nav a { margin: 10px; cursor: pointer; text-decoration: none; color: blue; }
-    </style>
+    <title>Portfolio | Développeur Fullstack</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a onclick="showSection('home')">Accueil</a>
-        <a onclick="showSection('experiences')">Expériences</a>
-        <a onclick="showSection('skills')">Compétences</a>
-        <a onclick="showSection('contact')">Contact</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mon Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">À Propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    
-    <div id="home" class="section active">
-        <h1>Herizo Nomenjanahary Randrianaina</h1>
-        <p>Analyste de données | Développeur PHP, Java & SQL</p>
-    </div>
-    
-    <div id="experiences" class="section">
-        <h2>Expériences Professionnelles</h2>
-        <p><strong>Analyste Programmeur - Groupe EDL</strong><br>Réorganisation de bases de données, développement SQL et dashboards interactifs.</p>
-        <p><strong>Développeur Chef de Projet - Software Overseas Academy</strong><br>Développement d'applications et gestion d'équipes de développeurs.</p>
-    </div>
-    
-    <div id="skills" class="section">
-        <h2>Compétences</h2>
-        <ul>
-            <li>PHP (Symfony), Java</li>
-            <li>SQL (PostgreSQL, SQL Server, SQL Anywhere)</li>
-            <li>Développement d'API RESTful</li>
-            <li>Power BI, DAX, ETL (SSIS)</li>
-        </ul>
-    </div>
-    
-    <div id="contact" class="section">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:menja.herizo@gmail.com">menja.herizo@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/herizo-randrianiaina" target="_blank">linkedin.com/in/herizo-randrianiaina</a></p>
-    </div>
-    
-    <script>
-        function showSection(id) {
-            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        }
-    </script>
+
+    <!-- Header -->
+    <header class="header text-center">
+        <div class="container">
+            <h1>Bienvenue, je suis [Ton Nom]</h1>
+            <p>Développeur Fullstack | PHP, Java, Spring Boot, C#</p>
+            <a href="#contact" class="btn btn-primary">Me Contacter</a>
+        </div>
+    </header>
+
+    <!-- Section À Propos -->
+    <section id="about" class="container text-center py-5">
+        <h2>À Propos</h2>
+        <p>Ingénieur en développement informatique avec 3 à 5 ans d'expérience en développement fullstack. Passionné par la conception et l'optimisation des solutions logicielles.</p>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="skills" class="bg-light py-5">
+        <div class="container text-center">
+            <h2>Compétences</h2>
+            <div class="row">
+                <div class="col-md-4"><strong>Back-end :</strong> PHP, Java, Spring Boot, C#</div>
+                <div class="col-md-4"><strong>Front-end :</strong> JavaScript, Vue.js, React</div>
+                <div class="col-md-4"><strong>BDD :</strong> MySQL, PostgreSQL, Sybase SQL Anywhere</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projects" class="container py-5">
+        <h2 class="text-center">Projets</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="projet1.jpg" class="card-img-top" alt="Projet 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestion de flotte de taxis</h5>
+                        <p class="card-text">Développement d'une application de gestion pour les taxis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="projet2.jpg" class="card-img-top" alt="Projet 2">
+                    <div class="card-body">
+                        <h5 class="card-title">CRM pour PME</h5>
+                        <p class="card-text">Conception d'un CRM personnalisé pour les entreprises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <h2>Contact</h2>
+            <p>Email : <a href="mailto:contact@tonmail.com" class="text-white">contact@tonmail.com</a></p>
+            <p>LinkedIn : <a href="https://linkedin.com/in/tonprofil" class="text-white">Mon Profil</a></p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

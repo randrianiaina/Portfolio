@@ -3,69 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Nomenjanahary Herizo Randrianaina</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio - Herizo Nomenjanahary Randrianaina</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .section { display: none; padding: 20px; }
+        .active { display: block; }
+        nav a { margin: 10px; cursor: pointer; text-decoration: none; color: blue; }
+    </style>
 </head>
 <body>
-
-    <header>
-        <h1>Nomenjanahary Herizo Randrianaina</h1>
-        <p>Développeur Fullstack | PHP, Java, SQL</p>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#formation">Formation</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="accueil">
-        <h2>Bienvenue</h2>
-        <p>Spécialisé en développement PHP et Java, avec une expertise en bases de données SQL.</p>
-    </section>
-
-    <section id="experience">
-        <h2>Expérience Professionnelle</h2>
-        <div class="job">
-            <h3>Analyste Programmeur</h3>
-            <p><strong>Groupe EDL - Antananarivo</strong> | 2024 - Présent</p>
-            <p>Développement en PHP/Symfony, gestion de bases de données et optimisation des performances.</p>
-        </div>
-        <div class="job">
-            <h3>Développeur & Chef de Projet</h3>
-            <p><strong>Software Overseas Academy</strong> | 2023</p>
-            <p>Gestion d’équipe, architecture logicielle et développement PHP/Java.</p>
-        </div>
-    </section>
-
-    <section id="competences">
+    <nav>
+        <a onclick="showSection('home')">Accueil</a>
+        <a onclick="showSection('experiences')">Expériences</a>
+        <a onclick="showSection('skills')">Compétences</a>
+        <a onclick="showSection('contact')">Contact</a>
+    </nav>
+    
+    <div id="home" class="section active">
+        <h1>Herizo Nomenjanahary Randrianaina</h1>
+        <p>Analyste de données | Développeur PHP, Java & SQL</p>
+    </div>
+    
+    <div id="experiences" class="section">
+        <h2>Expériences Professionnelles</h2>
+        <p><strong>Analyste Programmeur - Groupe EDL</strong><br>Réorganisation de bases de données, développement SQL et dashboards interactifs.</p>
+        <p><strong>Développeur Chef de Projet - Software Overseas Academy</strong><br>Développement d'applications et gestion d'équipes de développeurs.</p>
+    </div>
+    
+    <div id="skills" class="section">
         <h2>Compétences</h2>
         <ul>
-            <li>Langages : PHP, Java, SQL (SQL Anywhere, PostgreSQL, MySQL)</li>
-            <li>Frameworks : Symfony, CodeIgniter</li>
-            <li>Outils : Git, Visual Studio Code, Postman, Jira</li>
-            <li>Soft Skills : Travail en équipe, résolution de problèmes, communication efficace</li>
+            <li>PHP (Symfony), Java</li>
+            <li>SQL (PostgreSQL, SQL Server, SQL Anywhere)</li>
+            <li>Développement d'API RESTful</li>
+            <li>Power BI, DAX, ETL (SSIS)</li>
         </ul>
-    </section>
-
-    <section id="formation">
-        <h2>Formation</h2>
-        <p><strong>Master 1 – Base de Données et Génie Logiciel</strong> | CNTEMAD (2023 - 2025)</p>
-        <p><strong>Licence – Informatique : Réseau et Systèmes</strong> | CNTEMAD (2012 - 2015)</p>
-    </section>
-
-    <section id="contact">
+    </div>
+    
+    <div id="contact" class="section">
         <h2>Contact</h2>
-        <p>Email : <a href="mailto:menja.herizo@gmail.com">menja.herizo@gmail.com</a></p>
-        <p>LinkedIn : <a href="https://www.linkedin.com/in/herizo-randria" target="_blank">Profil LinkedIn</a></p>
-    </section>
-
-    <footer>
-        <p>© 2025 Nomenjanahary Herizo Randrianaina - Tous droits réservés.</p>
-    </footer>
-
+        <p>Email: <a href="mailto:menja.herizo@gmail.com">menja.herizo@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/herizo-randrianiaina" target="_blank">linkedin.com/in/herizo-randrianiaina</a></p>
+    </div>
+    
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 </body>
 </html>

@@ -251,7 +251,63 @@ window.addEventListener('scroll', () => {
     document.querySelector('.scroll-progress').style.width = scrolled + "%";
 });
 
+// --- SPLASH SCREEN LOGIC ---
+function initSplashScreen() {
+    const splash = document.getElementById('splash-screen');
+    const progressBar = document.getElementById('load-progress');
+    const splashText = document.getElementById('splash-text');
+    let progress = 0;
+
+    const interval = setInterval(() => {
+        progress += Math.random() * 30;
+        if (progress > 100) progress = 100;
+        
+        progressBar.style.width = progress + '%';
+        
+        if (progress < 40) splashText.textContent = "Loading Core Modules...";
+        else if (progress < 80) splashText.textContent = "Initializing 3D World...";
+        else splashText.textContent = "Welcome to Herizo OS";
+
+        if (progress === 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                splash.classList.add('hidden');
+            }, 500);
+        }
+    }, 200);
+}
+
+// --- CONTACT FORM LOGIC ---
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = contactForm.querySelector('button');
+        const originalText = btn.innerHTML;
+        
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${window.portfolioTranslations[currentLang].contact_sending}`;
+        
+        // Simulate API Call
+        setTimeout(() => {
+            btn.innerHTML = `<i class="fas fa-check"></i> ${window.portfolioTranslations[currentLang].contact_sent}`;
+            btn.style.background = '#22c55e';
+            
+            // Premium Toast (Simple Alert for now, but stylized)
+            alert(currentLang === 'fr' ? "Message envoyé avec succès ! Herizo vous recontactera bientôt." : "Message sent successfully! Herizo will get back to you soon.");
+            
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                contactForm.reset();
+            }, 3000);
+        }, 2000);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    initSplashScreen();
     updateLanguage(currentLang);
     setTimeout(type, 1000);
 });

@@ -195,6 +195,76 @@ const projectDetails = {
             solution: "Python scripts using smtplib for emails and schedule/APScheduler for robust task scheduling.",
             stack: ["Python", "Smtplib", "Pandas", "APScheduler"]
         }
+    },
+    proj15: {
+        fr: {
+            title: "Mekkala Seaview",
+            challenge: "Refléter le luxe et l'exclusivité d'une résidence via un design WordPress haut de gamme.",
+            solution: "Customisation poussée de thèmes, optimisation des médias pour un chargement rapide et SEO local.",
+            stack: ["WordPress", "Elementor", "SEO", "Speed Optimization"]
+        },
+        en: {
+            title: "Mekkala Seaview",
+            challenge: "Reflect the luxury and exclusivity of a residence through a high-end WordPress design.",
+            solution: "Deep theme customization, media optimization for fast loading, and local SEO.",
+            stack: ["WordPress", "Elementor", "SEO", "Speed Optimization"]
+        }
+    },
+    proj16: {
+        fr: {
+            title: "SP Villa Management",
+            challenge: "Créer un portail de services clair pour la gestion de propriétés de prestige.",
+            solution: "Architecture WordPress orientée conversion avec formulaires de contact avancés et galerie haute résolution.",
+            stack: ["WordPress", "Custom CSS", "Lead Gen"]
+        },
+        en: {
+            title: "SP Villa Management",
+            challenge: "Create a clear service portal for prestige property management.",
+            solution: "Conversion-oriented WordPress architecture with advanced contact forms and high-resolution gallery.",
+            stack: ["WordPress", "Custom CSS", "Lead Gen"]
+        }
+    },
+    proj17: {
+        fr: {
+            title: "Watairloo",
+            challenge: "Lancer une boutique Shopify performante avec un tunnel d'achat simplifié.",
+            solution: "Configuration Shopify, personnalisation du Liquid et intégration d'outils marketing analytics.",
+            stack: ["Shopify", "Liquid", "E-commerce", "Marketing"]
+        },
+        en: {
+            title: "Watairloo",
+            challenge: "Launch a high-performance Shopify store with a simplified checkout funnel.",
+            solution: "Shopify configuration, Liquid customization, and integration of marketing analytics tools.",
+            stack: ["Shopify", "Liquid", "E-commerce", "Marketing"]
+        }
+    },
+    proj18: {
+        fr: {
+            title: "AOPIA Prévention",
+            challenge: "Diffuser des informations de santé publique de manière accessible et structurée.",
+            solution: "Développement WordPress sémantique avec focus sur l'accessibilité et l'organisation de contenus denses.",
+            stack: ["WordPress", "Accessibility", "Information Design"]
+        },
+        en: {
+            title: "AOPIA Prevention",
+            challenge: "Disseminate public health information in an accessible and structured way.",
+            solution: "Semantic WordPress development with a focus on accessibility and organization of dense content.",
+            stack: ["WordPress", "Accessibility", "Information Design"]
+        }
+    },
+    proj19: {
+        fr: {
+            title: "Nova Kindergarten",
+            challenge: "Créer un lien numérique rassurant et informatif entre l'école et les parents.",
+            solution: "Design coloré et intuitif sous WordPress, multilingue et responsive pour un accès mobile prioritaire.",
+            stack: ["WordPress", "Multilingual", "UI/UX"]
+        },
+        en: {
+            title: "Nova Kindergarten",
+            challenge: "Create a reassuring and informative digital link between the school and parents.",
+            solution: "Colorful and intuitive WordPress design, multilingual and responsive for priority mobile access.",
+            stack: ["WordPress", "Multilingual", "UI/UX"]
+        }
     }
 };
 

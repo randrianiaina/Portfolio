@@ -1,24 +1,24 @@
 // Project Details Data
 const projectDetails = {
-    proj1: { fr: { title: "Analyses des Besoins (AOPIA-LIKE)", challenge: "Gérer des workflows complexes.", solution: "Architecture NestJS + Playwright.", stack: ["NestJS", "Vue.js", "PostgreSQL"] }, en: { title: "Needs Analysis (AOPIA-LIKE)", challenge: "Manage complex workflows.", solution: "NestJS + Playwright architecture.", stack: ["NestJS", "Vue.js", "PostgreSQL"] } },
-    proj2: { fr: { title: "Wizi Learn", challenge: "Apprentissage cross-platform.", solution: "Flutter + React + Laravel.", stack: ["Flutter", "React", "Laravel"] }, en: { title: "Wizi Learn", challenge: "Cross-platform learning.", solution: "Flutter + React + Laravel.", stack: ["Flutter", "React", "Laravel"] } },
-    proj3: { fr: { title: "QuizThème AI", challenge: "Génération auto de quiz via IA.", solution: "Next.js + OpenAI API.", stack: ["Next.js", "OpenAI", "Tailwind"] }, en: { title: "QuizTheme AI", challenge: "Auto quiz generation via AI.", solution: "Next.js + OpenAI API.", stack: ["Next.js", "OpenAI", "Tailwind"] } },
-    proj4: { fr: { title: "AOPIA CRM & CTI", challenge: "Intégration Aircall.", solution: "Webhooks & API Aircall.", stack: ["NestJS", "Aircall", "Redis"] }, en: { title: "AOPIA CRM & CTI", challenge: "Aircall integration.", solution: "Webhooks & Aircall API.", stack: ["NestJS", "Aircall", "Redis"] } },
-    proj5: { fr: { title: "TAL.IA", challenge: "Analyse logs CRM via LLM.", solution: "GPT-4 + Python engine.", stack: ["Python", "OpenAI", "FastAPI"] }, en: { title: "TAL.IA", challenge: "CRM logs analysis via LLM.", solution: "GPT-4 + Python engine.", stack: ["Python", "OpenAI", "FastAPI"] } },
-    proj6: { fr: { title: "POS-Flutter", challenge: "Stock offline synchronisé.", solution: "Flutter + SQLite + WebSockets.", stack: ["Flutter", "Node.js", "SQLite"] }, en: { title: "POS-Flutter", challenge: "Synced offline stock.", solution: "Flutter + SQLite + WebSockets.", stack: ["Flutter", "Node.js", "SQLite"] } },
-    proj7: { fr: { title: "LingoLive AI", challenge: "Conversation vocale Gemini Live.", solution: "Interaction temps réel & analyse prononciation.", stack: ["Next.js", "Gemini Live", "Web Speech"] }, en: { title: "LingoLive AI", challenge: "Gemini Live voice chat.", solution: "Real-time interaction & pronunciation analysis.", stack: ["Next.js", "Gemini Live", "Web Speech"] } },
-    proj8: { fr: { title: "TalentPlan", challenge: "Gestion projet agence web.", solution: "Next.js + Firebase Realtime.", stack: ["Next.js", "Firebase", "Tailwind"] }, en: { title: "TalentPlan", challenge: "Web agency project management.", solution: "Next.js + Firebase Realtime.", stack: ["Next.js", "Firebase", "Tailwind"] } },
-    proj9: { fr: { title: "Wizi Learn Audio", challenge: "Conversion quiz en audio.", solution: "IA Voice Gen + MP3 Export.", stack: ["Next.js", "TTS API", "Web Audio"] }, en: { title: "Wizi Learn Audio", challenge: "Convert quiz to audio.", solution: "IA Voice Gen + MP3 Export.", stack: ["Next.js", "TTS API", "Web Audio"] } },
-    proj10: { fr: { title: "OCR IA Vision", challenge: "Extraction HTML fidèle.", solution: "Tesseract + GPT Vision.", stack: ["Next.js", "OpenAI Vision", "Tesseract"] }, en: { title: "AI Vision OCR", challenge: "Faithful HTML extraction.", solution: "Tesseract + GPT Vision.", stack: ["Next.js", "OpenAI Vision", "Tesseract"] } },
-    proj11: { fr: { title: "Nathie Rose Portfolio", challenge: "Protection contenu & Geo-blocking.", solution: "Back-office + Edge Functions.", stack: ["Next.js", "Edge", "Cloudinary"] }, en: { title: "Nathie Rose Portfolio", challenge: "Content protection & Geo-blocking.", solution: "Back-office + Edge Functions.", stack: ["Next.js", "Edge", "Cloudinary"] } },
-    proj12: { fr: { title: "Shurt - URL & Landing", challenge: "Tunnels de conversion sociaux.", solution: "Short URL + Dynamic Landings.", stack: ["Next.js", "Firebase", "GeoIP"] }, en: { title: "Shurt - URL & Landing", challenge: "Social conversion funnels.", solution: "Short URL + Dynamic Landings.", stack: ["Next.js", "Firebase", "GeoIP"] } },
-    proj13: { fr: { title: "MESR - Symfony", challenge: "Gestion académique Ministère.", solution: "Symfony ACL & Workflows.", stack: ["Symfony", "PHP 8", "Docker"] }, en: { title: "MESR - Symfony", challenge: "Ministry academic management.", solution: "Symfony ACL & Workflows.", stack: ["Symfony", "PHP 8", "Docker"] } },
-    proj14: { fr: { title: "PyAuto Task & Mail", challenge: "Automatisation de rapports.", solution: "Python + Smtplib + Schedule.", stack: ["Python", "Smtplib", "APScheduler"] }, en: { title: "PyAuto Task & Mail", challenge: "Reporting automation.", solution: "Python + Smtplib + Schedule.", stack: ["Python", "Smtplib", "APScheduler"] } },
-    proj15: { fr: { title: "Mekkala Seaview", challenge: "Luxe WordPress.", solution: "Design premium & SEO.", stack: ["WordPress", "Elementor"] }, en: { title: "Mekkala Seaview", challenge: "Luxury WordPress.", solution: "Premium design & SEO.", stack: ["WordPress", "Elementor"] } },
-    proj16: { fr: { title: "SP Villa", challenge: "Gestion conciergerie.", solution: "Site vitrine optimisé.", stack: ["WordPress", "CSS"] }, en: { title: "SP Villa", challenge: "Concierge management.", solution: "Optimized showcase site.", stack: ["WordPress", "CSS"] } },
-    proj17: { fr: { title: "Watairloo", challenge: "Shopify E-commerce.", solution: "Tunnel de vente optimisé.", stack: ["Shopify", "Liquid"] }, en: { title: "Watairloo", challenge: "Shopify E-commerce.", solution: "Optimized sales funnel.", stack: ["Shopify", "Liquid"] } },
-    proj18: { fr: { title: "AOPIA Prévention", challenge: "Santé publique.", solution: "Portail institutionnel accessible.", stack: ["WordPress"] }, en: { title: "AOPIA Prevention", challenge: "Public health.", solution: "Accessible institutional portal.", stack: ["WordPress"] } },
-    proj19: { fr: { title: "Nova Kindergarten", challenge: "Éducation internationale.", solution: "Design intuitif & multilingue.", stack: ["WordPress"] }, en: { title: "Nova Kindergarten", challenge: "International education.", solution: "Intuitive & multilingual design.", stack: ["WordPress"] } }
+    proj1: { category: 'crm', fr: { title: "Analyses des Besoins (AOPIA-LIKE)", challenge: "Gérer des workflows complexes.", solution: "Architecture NestJS + Playwright.", stack: ["NestJS", "Vue.js", "PostgreSQL"] }, en: { title: "Needs Analysis (AOPIA-LIKE)", challenge: "Manage complex workflows.", solution: "NestJS + Playwright architecture.", stack: ["NestJS", "Vue.js", "PostgreSQL"] } },
+    proj2: { category: 'mobile', fr: { title: "Wizi Learn", challenge: "Apprentissage cross-platform.", solution: "Flutter + React + Laravel.", stack: ["Flutter", "React", "Laravel"] }, en: { title: "Wizi Learn", challenge: "Cross-platform learning.", solution: "Flutter + React + Laravel.", stack: ["Flutter", "React", "Laravel"] } },
+    proj3: { category: 'ai', fr: { title: "QuizThème AI", challenge: "Génération auto de quiz via IA.", solution: "Next.js + OpenAI API.", stack: ["Next.js", "OpenAI", "Tailwind"] }, en: { title: "QuizTheme AI", challenge: "Auto quiz generation via AI.", solution: "Next.js + OpenAI API.", stack: ["Next.js", "OpenAI", "Tailwind"] } },
+    proj4: { category: 'crm', fr: { title: "AOPIA CRM & CTI", challenge: "Intégration Aircall.", solution: "Webhooks & API Aircall.", stack: ["NestJS", "Aircall", "Redis"] }, en: { title: "AOPIA CRM & CTI", challenge: "Aircall integration.", solution: "Webhooks & Aircall API.", stack: ["NestJS", "Aircall", "Redis"] } },
+    proj5: { category: 'ai', fr: { title: "TAL.IA", challenge: "Analyse logs CRM via LLM.", solution: "GPT-4 + Python engine.", stack: ["Python", "OpenAI", "FastAPI"] }, en: { title: "TAL.IA", challenge: "CRM logs analysis via LLM.", solution: "GPT-4 + Python engine.", stack: ["Python", "OpenAI", "FastAPI"] } },
+    proj6: { category: 'mobile', fr: { title: "POS-Flutter", challenge: "Stock offline synchronisé.", solution: "Flutter + SQLite + WebSockets.", stack: ["Flutter", "Node.js", "SQLite"] }, en: { title: "POS-Flutter", challenge: "Synced offline stock.", solution: "Flutter + SQLite + WebSockets.", stack: ["Flutter", "Node.js", "SQLite"] } },
+    proj7: { category: 'ai', fr: { title: "LingoLive AI", challenge: "Conversation vocale Gemini Live.", solution: "Interaction temps réel & analyse prononciation.", stack: ["Next.js", "Gemini Live", "Web Speech"] }, en: { title: "LingoLive AI", challenge: "Gemini Live voice chat.", solution: "Real-time interaction & pronunciation analysis.", stack: ["Next.js", "Gemini Live", "Web Speech"] } },
+    proj8: { category: 'crm', fr: { title: "TalentPlan", challenge: "Gestion projet agence web.", solution: "Next.js + Firebase Realtime.", stack: ["Next.js", "Firebase", "Tailwind"] }, en: { title: "TalentPlan", challenge: "Web agency project management.", solution: "Next.js + Firebase Realtime.", stack: ["Next.js", "Firebase", "Tailwind"] } },
+    proj9: { category: 'ai', fr: { title: "Wizi Learn Audio", challenge: "Conversion quiz en audio.", solution: "IA Voice Gen + MP3 Export.", stack: ["Next.js", "TTS API", "Web Audio"] }, en: { title: "Wizi Learn Audio", challenge: "Convert quiz to audio.", solution: "IA Voice Gen + MP3 Export.", stack: ["Next.js", "TTS API", "Web Audio"] } },
+    proj10: { category: 'ai', fr: { title: "OCR IA Vision", challenge: "Extraction HTML fidèle.", solution: "Tesseract + GPT Vision.", stack: ["Next.js", "OpenAI Vision", "Tesseract"] }, en: { title: "AI Vision OCR", challenge: "Faithful HTML extraction.", solution: "Tesseract + GPT Vision.", stack: ["Next.js", "OpenAI Vision", "Tesseract"] } },
+    proj11: { category: 'web', fr: { title: "Nathie Rose Portfolio", challenge: "Protection contenu & Geo-blocking.", solution: "Back-office + Edge Functions.", stack: ["Next.js", "Edge", "Cloudinary"] }, en: { title: "Nathie Rose Portfolio", challenge: "Content protection & Geo-blocking.", solution: "Back-office + Edge Functions.", stack: ["Next.js", "Edge", "Cloudinary"] } },
+    proj12: { category: 'web', fr: { title: "Shurt - URL & Landing", challenge: "Tunnels de conversion sociaux.", solution: "Short URL + Dynamic Landings.", stack: ["Next.js", "Firebase", "GeoIP"] }, en: { title: "Shurt - URL & Landing", challenge: "Social conversion funnels.", solution: "Short URL + Dynamic Landings.", stack: ["Next.js", "Firebase", "GeoIP"] } },
+    proj13: { category: 'crm', fr: { title: "MESR - Symfony", challenge: "Gestion académique Ministère.", solution: "Symfony ACL & Workflows.", stack: ["Symfony", "PHP 8", "Docker"] }, en: { title: "MESR - Symfony", challenge: "Ministry academic management.", solution: "Symfony ACL & Workflows.", stack: ["Symfony", "PHP 8", "Docker"] } },
+    proj14: { category: 'crm', fr: { title: "PyAuto Task & Mail", challenge: "Automatisation de rapports.", solution: "Python + Smtplib + Schedule.", stack: ["Python", "Smtplib", "APScheduler"] }, en: { title: "PyAuto Task & Mail", challenge: "Reporting automation.", solution: "Python + Smtplib + Schedule.", stack: ["Python", "Smtplib", "APScheduler"] } },
+    proj15: { category: 'web', fr: { title: "Mekkala Seaview", challenge: "Luxe WordPress.", solution: "Design premium & SEO.", stack: ["WordPress", "Elementor"] }, en: { title: "Mekkala Seaview", challenge: "Luxury WordPress.", solution: "Premium design & SEO.", stack: ["WordPress", "Elementor"] } },
+    proj16: { category: 'web', fr: { title: "SP Villa", challenge: "Gestion conciergerie.", solution: "Site vitrine optimisé.", stack: ["WordPress", "CSS"] }, en: { title: "SP Villa", challenge: "Concierge management.", solution: "Optimized showcase site.", stack: ["WordPress", "CSS"] } },
+    proj17: { category: 'web', fr: { title: "Watairloo", challenge: "Shopify E-commerce.", solution: "Tunnel de vente optimisé.", stack: ["Shopify", "Liquid"] }, en: { title: "Watairloo", challenge: "Shopify E-commerce.", solution: "Optimized sales funnel.", stack: ["Shopify", "Liquid"] } },
+    proj18: { category: 'web', fr: { title: "AOPIA Prévention", challenge: "Santé publique.", solution: "Portail institutionnel accessible.", stack: ["WordPress"] }, en: { title: "AOPIA Prevention", challenge: "Public health.", solution: "Accessible institutional portal.", stack: ["WordPress"] } },
+    proj19: { category: 'web', fr: { title: "Nova Kindergarten", challenge: "Éducation internationale.", solution: "Design intuitif & multilingue.", stack: ["WordPress"] }, en: { title: "Nova Kindergarten", challenge: "International education.", solution: "Intuitive & multilingual design.", stack: ["WordPress"] } }
 };
 
 // i18n & Basic UI
@@ -231,6 +231,34 @@ function handleCommand(cmd) {
     }
     terminalBody.appendChild(resp);
     terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+// --- PROJECT FILTERING LOGIC ---
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+if (filterButtons.length > 0) {
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
+            
+            // Update active state
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.classList.add('active'), 50);
+                } else {
+                    card.style.display = 'none';
+                    card.classList.remove('active');
+                }
+            });
+        });
+    });
 }
 
 const typedTextSpan = document.querySelector(".typed-text");

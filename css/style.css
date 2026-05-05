@@ -890,3 +890,42 @@ footer {
     transform: translateY(-5px);
     background: var(--accent-hover);
 }
+
+/* 3D Immersion Mode */
+.scene-3d {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+body.mode-3d-active {
+    perspective: 2000px;
+    overflow-x: hidden;
+}
+
+body.mode-3d-active .scene-3d {
+    transform: rotateY(-15deg) rotateX(5deg) scale(0.9);
+}
+
+body.mode-3d-active section {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+/* Layered depth for sections */
+body.mode-3d-active .hero { transform: translateZ(100px); }
+body.mode-3d-active #about { transform: translateZ(50px); }
+body.mode-3d-active #skills { transform: translateZ(150px); }
+body.mode-3d-active #projects { transform: translateZ(80px); }
+body.mode-3d-active #experience { transform: translateZ(120px); }
+body.mode-3d-active #testimonials { transform: translateZ(60px); }
+body.mode-3d-active .terminal-section { transform: translateZ(200px); }
+
+/* In 3D mode, make backgrounds more glass-like */
+body.mode-3d-active .glass {
+    box-shadow: 0 50px 100px rgba(0,0,0,0.3);
+}
+
+#mode-3d-toggle.active {
+    background: var(--accent);
+    color: white;
+}

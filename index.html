@@ -15,6 +15,8 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
 </head>
 <body data-theme="light">
     <!-- Navigation -->
@@ -170,6 +172,37 @@
                             <button class="btn btn-outline" style="margin-top: 1rem;" data-i18n="proj_more">En savoir plus</button>
                         </div>
                     </div>
+                    <!-- Project 4: AOPIA CRM & CTI -->
+                    <div class="project-card reveal" onclick="openModal('proj4')">
+                        <div class="project-img">
+                            <img src="image/annuaire.png" alt="AOPIA CRM & CTI">
+                        </div>
+                        <div class="project-info">
+                            <h3 data-i18n="proj4_title">AOPIA CRM & CTI</h3>
+                            <p data-i18n="proj4_desc">Architecture backend pour CRM avec intégration CTI avancée...</p>
+                            <div class="project-tags">
+                                <span class="tag">NestJS</span>
+                                <span class="tag">CTI</span>
+                            </div>
+                            <button class="btn btn-outline" style="margin-top: 1rem;" data-i18n="proj_more">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section" style="background: var(--bg-primary);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="testi_title">Témoignages</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="glass testimonial-card reveal">
+                        <p data-i18n="testi1_text">"Un expert technique capable de traduire des besoins complexes en solutions fluides."</p>
+                        <div class="testi-author" data-i18n="testi1_author">Directeur Opérationnel - Groupe EDL</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -245,5 +278,10 @@
 
     <script src="js/translations.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>

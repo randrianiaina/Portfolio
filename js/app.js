@@ -27,6 +27,20 @@ const projectDetails = {
             solution: "Cross-platform development with Flutter (Mobile) and React (Web). Robust Laravel backend managing content, users, and analytics.",
             stack: ["Flutter", "React", "Laravel", "MySQL", "Redis"]
         }
+    },
+    proj4: {
+        fr: {
+            title: "AOPIA CRM & CTI",
+            challenge: "Fusionner les outils de communication (Aircall) avec le CRM pour supprimer les doubles saisies et automatiser le suivi des appels.",
+            solution: "Intégration profonde via Webhooks et API Aircall. Développement de Screen Pops personnalisés et automatisation des relances mail post-appel.",
+            stack: ["NestJS", "Aircall API", "Webhooks", "Redis"]
+        },
+        en: {
+            title: "AOPIA CRM & CTI",
+            challenge: "Merge communication tools (Aircall) with the CRM to eliminate double entries and automate call tracking.",
+            solution: "Deep integration via Webhooks and Aircall API. Development of custom Screen Pops and post-call automated email follow-ups.",
+            stack: ["NestJS", "Aircall API", "Webhooks", "Redis"]
+        }
     }
 };
 

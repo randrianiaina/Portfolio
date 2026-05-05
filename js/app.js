@@ -101,7 +101,12 @@ const projectDetails = {
 };
 
 // i18n Logic
-let currentLang = localStorage.getItem('lang') || 'fr';
+function getBrowserLang() {
+    const lang = navigator.language || navigator.userLanguage;
+    return lang.startsWith('en') ? 'en' : 'fr';
+}
+
+let currentLang = localStorage.getItem('lang') || getBrowserLang();
 
 function updateLanguage(lang) {
     currentLang = lang;
@@ -206,6 +211,17 @@ function handleCommand(cmd) {
         case 'contact':
             response.innerHTML = 'Email: menja.herizo@gmail.com | Phone: +261 34 49 726 70';
             break;
+        case 'share':
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Herizo Randrianaina Portfolio',
+                    url: window.location.href
+                });
+                response.innerHTML = 'Sharing window opened.';
+            } else {
+                response.innerHTML = 'Sharing not supported on this browser. URL: ' + window.location.href;
+            }
+            break;
         case 'theme':
             document.getElementById('theme-toggle').click();
             response.innerHTML = 'Theme toggled successfully.';
@@ -216,6 +232,20 @@ function handleCommand(cmd) {
     terminalBody.appendChild(response);
     terminalBody.scrollTop = terminalBody.scrollHeight;
 }
+
+// Back to Top Logic
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTop.style.display = 'flex';
+    } else {
+        backToTop.style.display = 'none';
+    }
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 // Language Toggle Event
 document.getElementById('lang-toggle').addEventListener('click', () => {
@@ -268,8 +298,84 @@ function erase() {
     }
 }
 
+// Custom Cursor Logic
+const cursor = document.querySelector('.custom-cursor');
+const follower = document.querySelector('.cursor-follower');
+const progress = document.querySelector('.scroll-progress');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    
+    setTimeout(() => {
+        follower.style.left = e.clientX + 'px';
+        follower.style.top = e.clientY + 'px';
+    }, 50);
+});
+
+// Cursor Hover Effects
+const links = document.querySelectorAll('a, button, .project-card, .timeline-item');
+links.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+        follower.style.width = '60px';
+        follower.style.height = '60px';
+        follower.style.borderColor = 'var(--accent)';
+        follower.style.background = 'rgba(13, 148, 136, 0.1)';
+    });
+    link.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        follower.style.width = '30px';
+        follower.style.height = '30px';
+        follower.style.background = 'transparent';
+    });
+});
+
+// Scroll Progress Logic
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    progress.style.width = scrolled + "%";
+});
+
+// Simple Particles Effect
+function createParticles() {
+    const container = document.getElementById('particles-js');
+    if (!container) return;
+    
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 5 + 2;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        
+        const duration = Math.random() * 20 + 10;
+        particle.style.animation = `float ${duration}s linear infinite`;
+        
+        container.appendChild(particle);
+    }
+}
+
+// Add Float Animation to CSS
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes float {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+        50% { transform: translateY(-100px) rotate(180deg); opacity: 0.05; }
+        100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
+
 document.addEventListener("DOMContentLoaded", function() {
     updateLanguage(currentLang);
+    createParticles();
     if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
 

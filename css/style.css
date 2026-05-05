@@ -36,6 +36,62 @@
 
 html {
     scroll-behavior: smooth;
+    cursor: none; /* Hide default cursor */
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.cursor-follower {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+}
+
+/* Scroll Progress */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--accent);
+    z-index: 10000;
+}
+
+/* Particles Container */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.15;
+    pointer-events: none;
 }
 
 body {
@@ -515,72 +571,150 @@ footer {
     transform: translateY(0);
 }
 
-/* ATS Print Styles */
+/* ATS Print Styles - Professional CV Redesign */
 @media print {
-    body {
-        background: white !important;
-        color: black !important;
-        font-family: Arial, sans-serif !important;
-        font-size: 11pt !important;
+    @page {
+        margin: 1cm;
+        size: A4;
     }
 
-    .navbar, .theme-toggle, .cv-btn, .hero-btns, .project-img, .social-links, footer, .btn, .underline {
+    body {
+        background: white !important;
+        color: #1a1a1a !important;
+        font-family: 'Inter', Arial, sans-serif !important;
+        font-size: 10pt !important;
+        line-height: 1.4 !important;
+        cursor: default !important;
+    }
+
+    /* Hide Web-only elements */
+    .navbar, .theme-toggle, .cv-btn, .hero-btns, .project-img, .social-links, 
+    footer, .btn, .underline, .custom-cursor, .cursor-follower, .scroll-progress,
+    .particles-container, .terminal-section, .modal-overlay, #back-to-top,
+    .project-card button {
         display: none !important;
     }
 
     .container {
         max-width: 100% !important;
         padding: 0 !important;
+        margin: 0 !important;
     }
 
+    /* Professional Header for Print */
+    .hero {
+        height: auto !important;
+        padding: 0 0 2rem 0 !important;
+        border-bottom: 2px solid #2563eb !important;
+        margin-bottom: 2rem !important;
+        display: block !important;
+    }
+
+    .hero h1 {
+        font-size: 24pt !important;
+        color: #1a1a1a !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .hero p {
+        font-size: 14pt !important;
+        color: #4b5563 !important;
+        font-weight: 600 !important;
+    }
+
+    /* Layout: Two Columns for Print */
     .section {
         padding: 1rem 0 !important;
         page-break-inside: avoid;
     }
 
-    h1, h2, h3 {
-        color: black !important;
-        page-break-after: avoid;
+    h2 {
+        font-size: 16pt !important;
+        color: #2563eb !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        padding-bottom: 0.3rem !important;
+        margin-bottom: 1rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
     }
 
-    .hero {
-        height: auto !important;
+    .about-card {
+        background: transparent !important;
+        border: none !important;
         padding: 0 !important;
     }
 
-    .hero h1 {
-        font-size: 24pt !important;
+    /* Skills: Compact Grid for Print */
+    .skills-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 1.5rem !important;
     }
 
-    .glass {
-        background: transparent !important;
-        backdrop-filter: none !important;
-        border: none !important;
-        box-shadow: none !important;
+    .skill-item {
+        font-size: 9pt !important;
+        margin-bottom: 0.3rem !important;
     }
 
-    .experience-card, .project-card {
-        background: transparent !important;
-        box-shadow: none !important;
-        border-bottom: 1px solid #ccc !important;
-        padding: 0.5rem 0 !important;
+    .skill-item i {
+        display: none !important; /* Icons don't always print well */
     }
 
+    /* Experience: Professional Timeline for Print */
+    .timeline::before { display: none !important; }
+    
+    .experience-card {
+        margin-bottom: 1.5rem !important;
+        border-left: 3px solid #2563eb !important;
+        padding-left: 1rem !important;
+    }
+
+    .experience-card h3 {
+        font-size: 12pt !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .experience-card .date {
+        font-weight: 700 !important;
+        color: #2563eb !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Projects: Clean List for Print */
     .project-grid {
         display: block !important;
     }
 
     .project-card {
-        margin-bottom: 1rem !important;
+        border: none !important;
+        border-bottom: 1px solid #eee !important;
+        padding: 1rem 0 !important;
+        page-break-inside: avoid !important;
     }
 
-    .timeline::before, .timeline-item::before {
-        display: none !important;
+    .project-card h3 {
+        font-size: 12pt !important;
+        color: #1a1a1a !important;
     }
 
-    .timeline-item {
-        padding-left: 0 !important;
-        border-bottom: 1px solid #eee;
+    .tag {
+        border: 1px solid #ddd !important;
+        color: #666 !important;
+        background: transparent !important;
+        font-size: 8pt !important;
+    }
+
+    /* Stats: Hide circles, show as text */
+    .stats-grid {
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+    
+    .stat-circle {
+        border: none !important;
+        font-weight: 700 !important;
+        height: auto !important;
+        width: auto !important;
     }
 }
 
@@ -729,4 +863,30 @@ footer {
     font-style: normal;
     font-weight: 700;
     color: var(--accent);
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 6rem;
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: none;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 999;
+    transition: var(--transition);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    background: var(--accent-hover);
 }

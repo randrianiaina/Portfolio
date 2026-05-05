@@ -19,6 +19,12 @@
     <meta name="theme-color" content="#2563eb">
 </head>
 <body data-theme="light">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-content">
@@ -34,6 +40,9 @@
                 <button id="lang-toggle" class="theme-toggle" title="Switch Language">
                     <span id="lang-text">EN</span>
                 </button>
+                <button id="mode-3d-toggle" class="theme-toggle" title="Mode 3D Immersion">
+                    <i class="fas fa-cube"></i>
+                </button>
                 <button id="theme-toggle" class="theme-toggle" title="Changer de thème">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -45,7 +54,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <div id="scene-3d" class="scene-3d">
+        <header class="hero">
+        <div id="particles-js" class="particles-container"></div>
         <div class="container hero-content reveal">
             <h1><span data-i18n="hero_hi">Bonjour, je suis</span> <br><span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
             <p data-i18n="hero_subtitle">Développeur Fullstack orienté Produit & Hybride IT/Infra. Expert en solutions métier complexes.</p>
@@ -335,6 +346,11 @@
             <p>&copy; 2026 Herizo Randrianaina. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="js/translations.js"></script>
     <script src="js/app.js"></script>

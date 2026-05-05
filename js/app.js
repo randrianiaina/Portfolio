@@ -1,3 +1,35 @@
+// Project Details Data
+const projectDetails = {
+    proj1: {
+        fr: {
+            title: "Analyses des Besoins (AOPIA-LIKE)",
+            challenge: "Gérer des workflows de formation complexes avec des règles de dépendances strictes et une génération de rapports haute fidélité.",
+            solution: "Architecture NestJS modulaire avec moteur de règles personnalisé. Intégration de Playwright pour la génération PDF et Vue.js pour un workflow utilisateur fluide.",
+            stack: ["NestJS", "Vue.js", "PostgreSQL", "Playwright", "Docker"]
+        },
+        en: {
+            title: "Needs Analysis (AOPIA-LIKE)",
+            challenge: "Manage complex training workflows with strict dependency rules and high-fidelity report generation.",
+            solution: "Modular NestJS architecture with custom rules engine. Playwright integration for PDF generation and Vue.js for a smooth user workflow.",
+            stack: ["NestJS", "Vue.js", "PostgreSQL", "Playwright", "Docker"]
+        }
+    },
+    proj2: {
+        fr: {
+            title: "Wizi Learn",
+            challenge: "Créer une expérience d'apprentissage cohérente sur Web et Mobile avec un backend unique et performant.",
+            solution: "Développement cross-platform avec Flutter (Mobile) et React (Web). Backend Laravel robuste gérant le contenu, les utilisateurs et les analytics.",
+            stack: ["Flutter", "React", "Laravel", "MySQL", "Redis"]
+        },
+        en: {
+            title: "Wizi Learn",
+            challenge: "Create a consistent learning experience across Web and Mobile with a single, high-performance backend.",
+            solution: "Cross-platform development with Flutter (Mobile) and React (Web). Robust Laravel backend managing content, users, and analytics.",
+            stack: ["Flutter", "React", "Laravel", "MySQL", "Redis"]
+        }
+    }
+};
+
 // i18n Logic
 let currentLang = localStorage.getItem('lang') || 'fr';
 
@@ -29,11 +61,90 @@ function updateLanguage(lang) {
         document.getElementById('lang-text').textContent = 'EN';
     }
 
-    // Refresh Typed Effect
-    charIndex = 0;
-    textArrayIndex = 0;
-    typedTextSpan.textContent = "";
     updateTypedArray();
+}
+
+// Modal Logic
+function openModal(projKey) {
+    const data = projectDetails[projKey][currentLang];
+    const modalData = document.getElementById('modal-data');
+    const labels = window.portfolioTranslations[currentLang];
+
+    modalData.innerHTML = `
+        <h2 style="color: var(--accent); margin-bottom: 1.5rem;">${data.title}</h2>
+        <div style="margin-bottom: 2rem;">
+            <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);"><i class="fas fa-exclamation-triangle"></i> ${labels.modal_challenge}</h4>
+            <p>${data.challenge}</p>
+        </div>
+        <div style="margin-bottom: 2rem;">
+            <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);"><i class="fas fa-check-circle"></i> ${labels.modal_solution}</h4>
+            <p>${data.solution}</p>
+        </div>
+        <div>
+            <h4 style="margin-bottom: 1rem; color: var(--text-primary);">Tech Stack</h4>
+            <div class="project-tags">
+                ${data.stack.map(tech => `<span class="tag">${tech}</span>`).join('')}
+            </div>
+        </div>
+    `;
+    document.getElementById('modal-overlay').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('modal-overlay').style.display = 'none';
+}
+
+// Terminal Logic
+const terminalBody = document.getElementById('terminal-body');
+const terminalInput = document.getElementById('terminal-input');
+
+if (terminalInput) {
+    terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const cmd = terminalInput.value.toLowerCase().trim();
+            handleCommand(cmd);
+            terminalInput.value = '';
+        }
+    });
+}
+
+function handleCommand(cmd) {
+    const output = document.createElement('div');
+    output.style.marginBottom = '0.5rem';
+    output.innerHTML = `<span style="color: #f87171;">$</span> ${cmd}`;
+    terminalBody.appendChild(output);
+
+    const response = document.createElement('div');
+    response.style.color = '#94a3b8';
+    response.style.marginBottom = '1rem';
+
+    switch(cmd) {
+        case 'help':
+            response.innerHTML = 'Available commands: help, whoami, projects, clear, contact, theme';
+            break;
+        case 'whoami':
+            response.innerHTML = currentLang === 'fr' 
+                ? 'Herizo Randrianaina: Développeur Fullstack orienté Produit & IT Manager hybride.' 
+                : 'Herizo Randrianaina: Product-Oriented Fullstack Developer & Hybrid IT Manager.';
+            break;
+        case 'projects':
+            response.innerHTML = 'Listing top projects... [Analyses des Besoins, Wizi Learn, AOPIA CRM]';
+            break;
+        case 'clear':
+            terminalBody.innerHTML = '';
+            return;
+        case 'contact':
+            response.innerHTML = 'Email: menja.herizo@gmail.com | Phone: +261 34 49 726 70';
+            break;
+        case 'theme':
+            document.getElementById('theme-toggle').click();
+            response.innerHTML = 'Theme toggled successfully.';
+            break;
+        default:
+            response.innerHTML = `Command not found: ${cmd}. Type 'help' for options.`;
+    }
+    terminalBody.appendChild(response);
+    terminalBody.scrollTop = terminalBody.scrollHeight;
 }
 
 // Language Toggle Event
@@ -49,9 +160,9 @@ const cursorSpan = document.querySelector(".cursor");
 let textArray = [];
 function updateTypedArray() {
     if (currentLang === 'fr') {
-        textArray = ["Analyste Programmeur", "Développeur PHP/Java", "Expert SQL & ERP", "Spécialiste CTI & Réseaux"];
+        textArray = ["Développeur Fullstack", "Architecte Logiciel", "Expert CTI & IT", "Analyste Produit"];
     } else {
-        textArray = ["Analyst Programmer", "PHP/Java Developer", "SQL & ERP Expert", "CTI & Network Specialist"];
+        textArray = ["Fullstack Developer", "Software Architect", "CTI & IT Expert", "Product Analyst"];
     }
 }
 
@@ -92,50 +203,29 @@ document.addEventListener("DOMContentLoaded", function() {
     if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
-// 3D Tilt Effect for Project Cards
+// 3D Tilt Effect
 const cards = document.querySelectorAll('.project-card');
 cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
     });
-    
     card.addEventListener('mouseleave', () => {
         card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
     });
 });
 
-// Magnetic Buttons
-const magneticBtns = document.querySelectorAll('.btn-primary, .cv-btn');
-magneticBtns.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = `translate(0px, 0px)`;
-    });
-});
-
-// Theme Toggle Logic
+// Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 const icon = themeToggle.querySelector('i');
 
-// Check for saved theme
 const savedTheme = localStorage.getItem('theme') || 'light';
 body.setAttribute('data-theme', savedTheme);
 updateThemeIcon(savedTheme);
@@ -143,7 +233,6 @@ updateThemeIcon(savedTheme);
 themeToggle.addEventListener('click', () => {
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
@@ -157,16 +246,6 @@ function updateThemeIcon(theme) {
     }
 }
 
-// Navbar Scroll Effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
 // Reveal on Scroll
 const revealElements = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
@@ -176,35 +255,6 @@ const revealObserver = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.1 });
-
 revealElements.forEach(el => revealObserver.observe(el));
 
-// CV Export Logic
-function exportToPDF() {
-    window.print();
-}
-
-// Form Submission (Simulated)
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = contactForm.querySelector('button');
-        const originalText = btn.innerHTML;
-        
-        btn.innerHTML = currentLang === 'fr' ? '<i class="fas fa-circle-notch fa-spin"></i> Envoi...' : '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
-        btn.disabled = true;
-        
-        setTimeout(() => {
-            btn.innerHTML = currentLang === 'fr' ? '<i class="fas fa-check"></i> Envoyé !' : '<i class="fas fa-check"></i> Sent!';
-            btn.style.background = '#22c55e';
-            contactForm.reset();
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 3000);
-        }, 1500);
-    });
-}
+function exportToPDF() { window.print(); }

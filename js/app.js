@@ -41,6 +41,62 @@ const projectDetails = {
             solution: "Deep integration via Webhooks and Aircall API. Development of custom Screen Pops and post-call automated email follow-ups.",
             stack: ["NestJS", "Aircall API", "Webhooks", "Redis"]
         }
+    },
+    proj5: {
+        fr: {
+            title: "TAL.IA",
+            challenge: "Extraire des insights exploitables à partir de milliers de logs CRM non structurés.",
+            solution: "Utilisation de l'API OpenAI (GPT-4) pour classifier et résumer automatiquement les interactions clients. Interface de dashboarding en React.",
+            stack: ["OpenAI API", "Python", "React", "Node.js"]
+        },
+        en: {
+            title: "TAL.IA",
+            challenge: "Extract actionable insights from thousands of unstructured CRM logs.",
+            solution: "Using OpenAI API (GPT-4) to automatically classify and summarize customer interactions. Dashboarding interface in React.",
+            stack: ["OpenAI API", "Python", "React", "Node.js"]
+        }
+    },
+    proj6: {
+        fr: {
+            title: "POS-Flutter",
+            challenge: "Garantir une synchronisation parfaite des stocks en temps réel sur plusieurs points de vente avec un mode hors-ligne.",
+            solution: "Développement en Flutter avec SQLite local pour le offline et synchronisation automatique avec un backend Node.js via WebSockets.",
+            stack: ["Flutter", "Dart", "Node.js", "SQLite", "WebSockets"]
+        },
+        en: {
+            title: "POS-Flutter",
+            challenge: "Ensure perfect real-time inventory synchronization across multiple points of sale with an offline mode.",
+            solution: "Flutter development with local SQLite for offline use and automatic synchronization with a Node.js backend via WebSockets.",
+            stack: ["Flutter", "Dart", "Node.js", "SQLite", "WebSockets"]
+        }
+    },
+    proj7: {
+        fr: {
+            title: "Lingo-Live",
+            challenge: "Gérer la planification et la diffusion vidéo en direct pour des centaines d'apprenants simultanés.",
+            solution: "Intégration d'API WebRTC et gestion des calendriers complexes avec une logique de fuseaux horaires automatisée.",
+            stack: ["React", "WebRTC", "Express", "MongoDB"]
+        },
+        en: {
+            title: "Lingo-Live",
+            challenge: "Manage scheduling and live video streaming for hundreds of simultaneous learners.",
+            solution: "WebRTC API integration and complex calendar management with automated timezone logic.",
+            stack: ["React", "WebRTC", "Express", "MongoDB"]
+        }
+    },
+    proj8: {
+        fr: {
+            title: "Taskosaur",
+            challenge: "Créer un outil de gestion de tâches hautement personnalisable sans sacrifier la performance de l'interface.",
+            solution: "Utilisation de React-Query pour le caching et une architecture Redux optimisée. Backend en Express avec une structure de base de données relationnelle flexible.",
+            stack: ["React", "React-Query", "Express", "MySQL"]
+        },
+        en: {
+            title: "Taskosaur",
+            challenge: "Create a highly customizable task management tool without sacrificing interface performance.",
+            solution: "Using React-Query for caching and an optimized Redux architecture. Express backend with a flexible relational database structure.",
+            stack: ["React", "React-Query", "Express", "MySQL"]
+        }
     }
 };
 

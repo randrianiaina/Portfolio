@@ -153,6 +153,20 @@ const projectDetails = {
             solution: "Development of a custom back-office with IP-based access rights management and protection against right-click/forced downloads.",
             stack: ["React", "Next.js", "Edge Functions", "Cloudinary"]
         }
+    },
+    proj12: {
+        fr: {
+            title: "Shurt - URL & Landing",
+            challenge: "Optimiser les tunnels de conversion depuis les réseaux sociaux vers les messageries instantanées tout en filtrant le trafic par géographie.",
+            solution: "Système de raccourcissement d'URL avec génération dynamique de Landing Pages et QR Codes. Intégration de statistiques en temps réel et géo-fencing IP.",
+            stack: ["Next.js", "Firebase", "QR Code API", "Geo-location"]
+        },
+        en: {
+            title: "Shurt - URL & Landing",
+            challenge: "Optimize conversion funnels from social media to instant messaging while filtering traffic by geography.",
+            solution: "URL shortening system with dynamic Landing Page and QR Code generation. Real-time statistics integration and IP geo-fencing.",
+            stack: ["Next.js", "Firebase", "QR Code API", "Geo-location"]
+        }
     }
 };
 

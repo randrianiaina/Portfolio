@@ -337,8 +337,33 @@ if (contactForm) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    initSplashScreen();
-    updateLanguage(currentLang);
-    setTimeout(type, 1000);
+// --- AUTO THEME DETECTION ---
+function initAutoTheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const setTheme = (isDark) => {
+        const theme = isDark ? 'dark' : 'light';
+        document.body.setAttribute('data-theme', theme);
+        const icon = document.querySelector('#theme-toggle i');
+        if (icon) icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    };
+    
+    // Initial check
+    if (!localStorage.getItem('theme')) {
+        setTheme(prefersDark.matches);
+    }
+    
+    prefersDark.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) setTheme(e.matches);
+    });
+}
+
+// Global Mouse tracking for Parallax
+const globalMouse = { x: 0, y: 0 };
+window.addEventListener('mousemove', (e) => {
+    globalMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    globalMouse.y = (e.clientY / window.innerHeight) * 2 + 1;
 });
+
+// Update animate loop inside init3DWorld (conceptually, we need to inject this into the already defined animate)
+// Since animate is inside init3DWorld, I'll modify the entire function or add a listener.
+// I'll update the animate function in app.js.

@@ -647,6 +647,77 @@ footer {
     display: none;
 }
 
+/* Floating Action Button (FAB) */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.fab-main {
+    width: 60px;
+    height: 60px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.fab-container:hover .fab-main {
+    transform: rotate(135deg);
+    background: #ef4444; /* Alert color when open */
+}
+
+.fab-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.fab-container:hover .fab-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.fab-option {
+    width: 45px;
+    height: 45px;
+    background: var(--bg-secondary);
+    color: var(--accent);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.fab-option:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.1);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero h1 {

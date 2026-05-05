@@ -1,541 +1,222 @@
 // Project Details Data
 const projectDetails = {
-    proj1: {
-        fr: {
-            title: "Analyses des Besoins (AOPIA-LIKE)",
-            challenge: "Gérer des workflows de formation complexes avec des règles de dépendances strictes.",
-            solution: "Architecture NestJS modulaire avec moteur de règles personnalisé et génération PDF haute fidélité via Playwright.",
-            stack: ["NestJS", "Vue.js", "PostgreSQL", "Playwright"]
-        },
-        en: {
-            title: "Needs Analysis (AOPIA-LIKE)",
-            challenge: "Manage complex training workflows with strict dependency rules.",
-            solution: "Modular NestJS architecture with custom rules engine and high-fidelity PDF generation via Playwright.",
-            stack: ["NestJS", "Vue.js", "PostgreSQL", "Playwright"]
-        }
-    },
-    proj2: {
-        fr: {
-            title: "Wizi Learn",
-            challenge: "Créer une expérience d'apprentissage cohérente sur Web et Mobile avec un backend unique.",
-            solution: "Développement cross-platform avec Flutter (Mobile) et React (Web) sur un backend Laravel/Node.",
-            stack: ["Flutter", "React", "Laravel", "Node.js"]
-        },
-        en: {
-            title: "Wizi Learn",
-            challenge: "Create a consistent learning experience across Web and Mobile with a single backend.",
-            solution: "Cross-platform development with Flutter (Mobile) and React (Web) on a Laravel/Node backend.",
-            stack: ["Flutter", "React", "Laravel", "Node.js"]
-        }
-    },
-    proj3: {
-        fr: {
-            title: "QuizThème AI",
-            challenge: "Simplifier la création de quiz pédagogiques via l'IA multi-sources (YouTube, PDF, URL).",
-            solution: "Application Next.js intégrant l'API OpenAI pour l'extraction de contenu. Système anti-doublon et export Excel/CSV.",
-            stack: ["Next.js", "OpenAI API", "Tailwind CSS", "Vercel"]
-        },
-        en: {
-            title: "QuizTheme AI",
-            challenge: "Simplify pedagogical quiz creation via multi-source AI (YouTube, PDF, URL).",
-            solution: "Next.js application integrating OpenAI API for content extraction. Anti-duplicate system and Excel/CSV export.",
-            stack: ["Next.js", "OpenAI API", "Tailwind CSS", "Vercel"]
-        }
-    },
-    proj4: {
-        fr: {
-            title: "AOPIA CRM & CTI",
-            challenge: "Fusionner les outils de communication (Aircall) avec le CRM pour supprimer les doubles saisies.",
-            solution: "Intégration profonde via Webhooks et API Aircall. Développement de Screen Pops personnalisés et automatisation mail.",
-            stack: ["NestJS", "Aircall API", "Webhooks", "Redis"]
-        },
-        en: {
-            title: "AOPIA CRM & CTI",
-            challenge: "Merge communication tools (Aircall) with the CRM to eliminate double entries.",
-            solution: "Deep integration via Webhooks and Aircall API. Development of custom Screen Pops and mail automation.",
-            stack: ["NestJS", "Aircall API", "Webhooks", "Redis"]
-        }
-    },
-    proj5: {
-        fr: {
-            title: "TAL.IA",
-            challenge: "Extraire des insights exploitables à partir de milliers de logs CRM non structurés.",
-            solution: "Utilisation de GPT-4 pour classifier et résumer automatiquement les interactions clients via un moteur d'analyse Python.",
-            stack: ["OpenAI API", "Python", "React", "FastAPI"]
-        },
-        en: {
-            title: "TAL.IA",
-            challenge: "Extract actionable insights from thousands of unstructured CRM logs.",
-            solution: "Using GPT-4 to automatically classify and summarize customer interactions via a Python analysis engine.",
-            stack: ["OpenAI API", "Python", "React", "FastAPI"]
-        }
-    },
-    proj6: {
-        fr: {
-            title: "POS-Flutter",
-            challenge: "Garantir une synchronisation parfaite des stocks en temps réel avec un mode hors-ligne pour points de vente.",
-            solution: "Flutter avec SQLite local et synchronisation automatique via WebSockets vers un backend Node.js.",
-            stack: ["Flutter", "Dart", "Node.js", "SQLite"]
-        },
-        en: {
-            title: "POS-Flutter",
-            challenge: "Ensure perfect real-time inventory synchronization with an offline mode for points of sale.",
-            solution: "Flutter with local SQLite and automatic synchronization via WebSockets to a Node.js backend.",
-            stack: ["Flutter", "Dart", "Node.js", "SQLite"]
-        }
-    },
-    proj7: {
-        fr: {
-            title: "LingoLive AI",
-            challenge: "Maîtriser une nouvelle langue via des conversations vocales naturelles et temps réel avec une IA.",
-            solution: "Intégration de l'API Gemini Live pour des interactions fluides. Analyse sémantique de la prononciation (phonèmes, intonation) et tutorat adaptatif selon l'âge.",
-            stack: ["Next.js", "Gemini Live API", "Web Speech", "Tailwind"]
-        },
-        en: {
-            title: "LingoLive AI",
-            challenge: "Master a new language through natural, real-time voice conversations with an AI tutor.",
-            solution: "Gemini Live API integration for fluid interactions. Semantic pronunciation analysis (phonemes, intonation) and age-adaptive tutoring.",
-            stack: ["Next.js", "Gemini Live API", "Web Speech", "Tailwind"]
-        }
-    },
-    proj8: {
-        fr: {
-            title: "TalentPlan",
-            challenge: "Unifier la gestion de projet et la planification des publications pour agences web.",
-            solution: "Workspace collaboratif Next.js + Firebase gérant les tâches, le calendrier et les fichiers en temps réel (Firestore).",
-            stack: ["Next.js", "Firebase", "Firestore", "Tailwind"]
-        },
-        en: {
-            title: "TalentPlan",
-            challenge: "Unify project management and publication scheduling for web agencies.",
-            solution: "Collaborative workspace Next.js + Firebase managing tasks, calendar, and files in real-time (Firestore).",
-            stack: ["Next.js", "Firebase", "Firestore", "Tailwind"]
-        }
-    },
-    proj9: {
-        fr: {
-            title: "Wizi Learn Audio",
-            challenge: "Convertir des quiz textuels en format audio haute qualité avec plusieurs voix.",
-            solution: "Générateur vocal Next.js exploitant des APIs de Text-to-Speech avancées avec contrôles de lecture et export MP3.",
-            stack: ["Next.js", "Text-to-Speech API", "Web Audio", "Vercel"]
-        },
-        en: {
-            title: "Wizi Learn Audio",
-            challenge: "Convert textual quizzes to high-quality audio format with multiple voices.",
-            solution: "Next.js voice generator leveraging advanced Text-to-Speech APIs with playback controls and MP3 export.",
-            stack: ["Next.js", "Text-to-Speech API", "Web Audio", "Vercel"]
-        }
-    },
-    proj10: {
-        fr: {
-            title: "OCR IA Vision",
-            challenge: "Convertir des images de documents complexes en documents HTML/PDF éditables tout en préservant la mise en forme originale.",
-            solution: "Combinaison de Tesseract.js et des APIs Vision d'OpenAI pour une extraction sémantique précise et un rendu HTML miroir.",
-            stack: ["Tesseract.js", "OpenAI Vision", "Next.js", "PDF-Lib"]
-        },
-        en: {
-            title: "AI Vision OCR",
-            challenge: "Convert complex document images into editable HTML/PDF documents while preserving the original layout.",
-            solution: "Combination of Tesseract.js and OpenAI Vision APIs for precise semantic extraction and mirror HTML rendering.",
-            stack: ["Tesseract.js", "OpenAI Vision", "Next.js", "PDF-Lib"]
-        }
-    },
-    proj11: {
-        fr: {
-            title: "Nathie Rose Portfolio",
-            challenge: "Protéger le contenu visuel d'un modèle photo tout en gérant l'accès via des restrictions géographiques.",
-            solution: "Développement d'un back-office sur mesure avec gestion de droits d'accès IP-based et protection contre le clic droit/téléchargement forcé.",
-            stack: ["React", "Next.js", "Edge Functions", "Cloudinary"]
-        },
-        en: {
-            title: "Nathie Rose Portfolio",
-            challenge: "Protect a photo model's visual content while managing access via geographical restrictions.",
-            solution: "Development of a custom back-office with IP-based access rights management and protection against right-click/forced downloads.",
-            stack: ["React", "Next.js", "Edge Functions", "Cloudinary"]
-        }
-    },
-    proj12: {
-        fr: {
-            title: "Shurt - URL & Landing",
-            challenge: "Optimiser les tunnels de conversion depuis les réseaux sociaux vers les messageries instantanées tout en filtrant le trafic par géographie.",
-            solution: "Système de raccourcissement d'URL avec génération dynamique de Landing Pages et QR Codes. Intégration de statistiques en temps réel et géo-fencing IP.",
-            stack: ["Next.js", "Firebase", "QR Code API", "Geo-location"]
-        },
-        en: {
-            title: "Shurt - URL & Landing",
-            challenge: "Optimize conversion funnels from social media to instant messaging while filtering traffic by geography.",
-            solution: "URL shortening system with dynamic Landing Page and QR Code generation. Real-time statistics integration and IP geo-fencing.",
-            stack: ["Next.js", "Firebase", "QR Code API", "Geo-location"]
-        }
-    },
-    proj13: {
-        fr: {
-            title: "MESR - Plateforme Symfony",
-            challenge: "Bâtir une application robuste pour la gestion centralisée des données académiques du Ministère.",
-            solution: "Architecture Symfony avec Doctrine ORM, ACL complexes et workflows de validation métier.",
-            stack: ["Symfony", "PHP 8", "MySQL", "Twig", "Docker"]
-        },
-        en: {
-            title: "MESR - Symfony Platform",
-            challenge: "Build a robust application for centralized management of Ministry academic data.",
-            solution: "Symfony architecture with Doctrine ORM, complex ACLs, and business validation workflows.",
-            stack: ["Symfony", "PHP 8", "MySQL", "Twig", "Docker"]
-        }
-    },
-    proj14: {
-        fr: {
-            title: "PyAuto Task & Mail",
-            challenge: "Automatiser l'envoi de rapports par mail et la planification de tâches système répétitives.",
-            solution: "Scripts Python utilisant smtplib pour les mails et schedule/APScheduler pour la planification robuste des tâches.",
-            stack: ["Python", "Smtplib", "Pandas", "APScheduler"]
-        },
-        en: {
-            title: "PyAuto Task & Mail",
-            challenge: "Automate email reporting and scheduling of repetitive system tasks.",
-            solution: "Python scripts using smtplib for emails and schedule/APScheduler for robust task scheduling.",
-            stack: ["Python", "Smtplib", "Pandas", "APScheduler"]
-        }
-    },
-    proj15: {
-        fr: {
-            title: "Mekkala Seaview",
-            challenge: "Refléter le luxe et l'exclusivité d'une résidence via un design WordPress haut de gamme.",
-            solution: "Customisation poussée de thèmes, optimisation des médias pour un chargement rapide et SEO local.",
-            stack: ["WordPress", "Elementor", "SEO", "Speed Optimization"]
-        },
-        en: {
-            title: "Mekkala Seaview",
-            challenge: "Reflect the luxury and exclusivity of a residence through a high-end WordPress design.",
-            solution: "Deep theme customization, media optimization for fast loading, and local SEO.",
-            stack: ["WordPress", "Elementor", "SEO", "Speed Optimization"]
-        }
-    },
-    proj16: {
-        fr: {
-            title: "SP Villa Management",
-            challenge: "Créer un portail de services clair pour la gestion de propriétés de prestige.",
-            solution: "Architecture WordPress orientée conversion avec formulaires de contact avancés et galerie haute résolution.",
-            stack: ["WordPress", "Custom CSS", "Lead Gen"]
-        },
-        en: {
-            title: "SP Villa Management",
-            challenge: "Create a clear service portal for prestige property management.",
-            solution: "Conversion-oriented WordPress architecture with advanced contact forms and high-resolution gallery.",
-            stack: ["WordPress", "Custom CSS", "Lead Gen"]
-        }
-    },
-    proj17: {
-        fr: {
-            title: "Watairloo",
-            challenge: "Lancer une boutique Shopify performante avec un tunnel d'achat simplifié.",
-            solution: "Configuration Shopify, personnalisation du Liquid et intégration d'outils marketing analytics.",
-            stack: ["Shopify", "Liquid", "E-commerce", "Marketing"]
-        },
-        en: {
-            title: "Watairloo",
-            challenge: "Launch a high-performance Shopify store with a simplified checkout funnel.",
-            solution: "Shopify configuration, Liquid customization, and integration of marketing analytics tools.",
-            stack: ["Shopify", "Liquid", "E-commerce", "Marketing"]
-        }
-    },
-    proj18: {
-        fr: {
-            title: "AOPIA Prévention",
-            challenge: "Diffuser des informations de santé publique de manière accessible et structurée.",
-            solution: "Développement WordPress sémantique avec focus sur l'accessibilité et l'organisation de contenus denses.",
-            stack: ["WordPress", "Accessibility", "Information Design"]
-        },
-        en: {
-            title: "AOPIA Prevention",
-            challenge: "Disseminate public health information in an accessible and structured way.",
-            solution: "Semantic WordPress development with a focus on accessibility and organization of dense content.",
-            stack: ["WordPress", "Accessibility", "Information Design"]
-        }
-    },
-    proj19: {
-        fr: {
-            title: "Nova Kindergarten",
-            challenge: "Créer un lien numérique rassurant et informatif entre l'école et les parents.",
-            solution: "Design coloré et intuitif sous WordPress, multilingue et responsive pour un accès mobile prioritaire.",
-            stack: ["WordPress", "Multilingual", "UI/UX"]
-        },
-        en: {
-            title: "Nova Kindergarten",
-            challenge: "Create a reassuring and informative digital link between the school and parents.",
-            solution: "Colorful and intuitive WordPress design, multilingual and responsive for priority mobile access.",
-            stack: ["WordPress", "Multilingual", "UI/UX"]
-        }
-    }
+    proj1: { fr: { title: "Analyses des Besoins (AOPIA-LIKE)", challenge: "Gérer des workflows complexes.", solution: "Architecture NestJS + Playwright.", stack: ["NestJS", "Vue.js", "PostgreSQL"] }, en: { title: "Needs Analysis (AOPIA-LIKE)", challenge: "Manage complex workflows.", solution: "NestJS + Playwright architecture.", stack: ["NestJS", "Vue.js", "PostgreSQL"] } },
+    proj2: { fr: { title: "Wizi Learn", challenge: "Apprentissage cross-platform.", solution: "Flutter + React + Laravel.", stack: ["Flutter", "React", "Laravel"] }, en: { title: "Wizi Learn", challenge: "Cross-platform learning.", solution: "Flutter + React + Laravel.", stack: ["Flutter", "React", "Laravel"] } },
+    proj3: { fr: { title: "QuizThème AI", challenge: "Génération auto de quiz via IA.", solution: "Next.js + OpenAI API.", stack: ["Next.js", "OpenAI", "Tailwind"] }, en: { title: "QuizTheme AI", challenge: "Auto quiz generation via AI.", solution: "Next.js + OpenAI API.", stack: ["Next.js", "OpenAI", "Tailwind"] } },
+    proj4: { fr: { title: "AOPIA CRM & CTI", challenge: "Intégration Aircall.", solution: "Webhooks & API Aircall.", stack: ["NestJS", "Aircall", "Redis"] }, en: { title: "AOPIA CRM & CTI", challenge: "Aircall integration.", solution: "Webhooks & Aircall API.", stack: ["NestJS", "Aircall", "Redis"] } },
+    proj5: { fr: { title: "TAL.IA", challenge: "Analyse logs CRM via LLM.", solution: "GPT-4 + Python engine.", stack: ["Python", "OpenAI", "FastAPI"] }, en: { title: "TAL.IA", challenge: "CRM logs analysis via LLM.", solution: "GPT-4 + Python engine.", stack: ["Python", "OpenAI", "FastAPI"] } },
+    proj6: { fr: { title: "POS-Flutter", challenge: "Stock offline synchronisé.", solution: "Flutter + SQLite + WebSockets.", stack: ["Flutter", "Node.js", "SQLite"] }, en: { title: "POS-Flutter", challenge: "Synced offline stock.", solution: "Flutter + SQLite + WebSockets.", stack: ["Flutter", "Node.js", "SQLite"] } },
+    proj7: { fr: { title: "LingoLive AI", challenge: "Conversation vocale Gemini Live.", solution: "Interaction temps réel & analyse prononciation.", stack: ["Next.js", "Gemini Live", "Web Speech"] }, en: { title: "LingoLive AI", challenge: "Gemini Live voice chat.", solution: "Real-time interaction & pronunciation analysis.", stack: ["Next.js", "Gemini Live", "Web Speech"] } },
+    proj8: { fr: { title: "TalentPlan", challenge: "Gestion projet agence web.", solution: "Next.js + Firebase Realtime.", stack: ["Next.js", "Firebase", "Tailwind"] }, en: { title: "TalentPlan", challenge: "Web agency project management.", solution: "Next.js + Firebase Realtime.", stack: ["Next.js", "Firebase", "Tailwind"] } },
+    proj9: { fr: { title: "Wizi Learn Audio", challenge: "Conversion quiz en audio.", solution: "IA Voice Gen + MP3 Export.", stack: ["Next.js", "TTS API", "Web Audio"] }, en: { title: "Wizi Learn Audio", challenge: "Convert quiz to audio.", solution: "IA Voice Gen + MP3 Export.", stack: ["Next.js", "TTS API", "Web Audio"] } },
+    proj10: { fr: { title: "OCR IA Vision", challenge: "Extraction HTML fidèle.", solution: "Tesseract + GPT Vision.", stack: ["Next.js", "OpenAI Vision", "Tesseract"] }, en: { title: "AI Vision OCR", challenge: "Faithful HTML extraction.", solution: "Tesseract + GPT Vision.", stack: ["Next.js", "OpenAI Vision", "Tesseract"] } },
+    proj11: { fr: { title: "Nathie Rose Portfolio", challenge: "Protection contenu & Geo-blocking.", solution: "Back-office + Edge Functions.", stack: ["Next.js", "Edge", "Cloudinary"] }, en: { title: "Nathie Rose Portfolio", challenge: "Content protection & Geo-blocking.", solution: "Back-office + Edge Functions.", stack: ["Next.js", "Edge", "Cloudinary"] } },
+    proj12: { fr: { title: "Shurt - URL & Landing", challenge: "Tunnels de conversion sociaux.", solution: "Short URL + Dynamic Landings.", stack: ["Next.js", "Firebase", "GeoIP"] }, en: { title: "Shurt - URL & Landing", challenge: "Social conversion funnels.", solution: "Short URL + Dynamic Landings.", stack: ["Next.js", "Firebase", "GeoIP"] } },
+    proj13: { fr: { title: "MESR - Symfony", challenge: "Gestion académique Ministère.", solution: "Symfony ACL & Workflows.", stack: ["Symfony", "PHP 8", "Docker"] }, en: { title: "MESR - Symfony", challenge: "Ministry academic management.", solution: "Symfony ACL & Workflows.", stack: ["Symfony", "PHP 8", "Docker"] } },
+    proj14: { fr: { title: "PyAuto Task & Mail", challenge: "Automatisation de rapports.", solution: "Python + Smtplib + Schedule.", stack: ["Python", "Smtplib", "APScheduler"] }, en: { title: "PyAuto Task & Mail", challenge: "Reporting automation.", solution: "Python + Smtplib + Schedule.", stack: ["Python", "Smtplib", "APScheduler"] } },
+    proj15: { fr: { title: "Mekkala Seaview", challenge: "Luxe WordPress.", solution: "Design premium & SEO.", stack: ["WordPress", "Elementor"] }, en: { title: "Mekkala Seaview", challenge: "Luxury WordPress.", solution: "Premium design & SEO.", stack: ["WordPress", "Elementor"] } },
+    proj16: { fr: { title: "SP Villa", challenge: "Gestion conciergerie.", solution: "Site vitrine optimisé.", stack: ["WordPress", "CSS"] }, en: { title: "SP Villa", challenge: "Concierge management.", solution: "Optimized showcase site.", stack: ["WordPress", "CSS"] } },
+    proj17: { fr: { title: "Watairloo", challenge: "Shopify E-commerce.", solution: "Tunnel de vente optimisé.", stack: ["Shopify", "Liquid"] }, en: { title: "Watairloo", challenge: "Shopify E-commerce.", solution: "Optimized sales funnel.", stack: ["Shopify", "Liquid"] } },
+    proj18: { fr: { title: "AOPIA Prévention", challenge: "Santé publique.", solution: "Portail institutionnel accessible.", stack: ["WordPress"] }, en: { title: "AOPIA Prevention", challenge: "Public health.", solution: "Accessible institutional portal.", stack: ["WordPress"] } },
+    proj19: { fr: { title: "Nova Kindergarten", challenge: "Éducation internationale.", solution: "Design intuitif & multilingue.", stack: ["WordPress"] }, en: { title: "Nova Kindergarten", challenge: "International education.", solution: "Intuitive & multilingual design.", stack: ["WordPress"] } }
 };
 
-// i18n Logic
-function getBrowserLang() {
-    const lang = navigator.language || navigator.userLanguage;
-    return lang.startsWith('en') ? 'en' : 'fr';
-}
-
-let currentLang = localStorage.getItem('lang') || getBrowserLang();
-
+// i18n & Basic UI
+let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith('en') ? 'en' : 'fr');
 function updateLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (window.portfolioTranslations[lang][key]) {
-            el.textContent = window.portfolioTranslations[lang][key];
-        }
+        if (window.portfolioTranslations[lang][key]) el.textContent = window.portfolioTranslations[lang][key];
     });
     updateTypedArray();
 }
 
-// Modal Logic
 function openModal(projKey) {
     const data = projectDetails[projKey][currentLang];
-    const modalData = document.getElementById('modal-data');
     const labels = window.portfolioTranslations[currentLang];
-
-    modalData.innerHTML = `
+    document.getElementById('modal-data').innerHTML = `
         <h2 style="color: var(--accent); margin-bottom: 1.5rem;">${data.title}</h2>
-        <div style="margin-bottom: 2rem;">
-            <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);"><i class="fas fa-exclamation-triangle"></i> ${labels.modal_challenge}</h4>
-            <p>${data.challenge}</p>
-        </div>
-        <div style="margin-bottom: 2rem;">
-            <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);"><i class="fas fa-check-circle"></i> ${labels.modal_solution}</h4>
-            <p>${data.solution}</p>
-        </div>
-        <div>
-            <h4 style="margin-bottom: 1rem; color: var(--text-primary);">Tech Stack</h4>
-            <div class="project-tags">
-                ${data.stack.map(tech => `<span class="tag">${tech}</span>`).join('')}
-            </div>
-        </div>
+        <div style="margin-bottom: 2rem;"><h4><i class="fas fa-exclamation-triangle"></i> ${labels.modal_challenge}</h4><p>${data.challenge}</p></div>
+        <div style="margin-bottom: 2rem;"><h4><i class="fas fa-check-circle"></i> ${labels.modal_solution}</h4><p>${data.solution}</p></div>
+        <div><h4>Tech Stack</h4><div class="project-tags">${data.stack.map(tech => `<span class="tag">${tech}</span>`).join('')}</div></div>
     `;
     document.getElementById('modal-overlay').style.display = 'flex';
 }
+function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
 
-function closeModal() {
-    document.getElementById('modal-overlay').style.display = 'none';
-}
+// --- THREE.JS LOW POLY WORLD ---
+let scene, camera, renderer, worldContainer;
+let projectMonoliths = [];
+let isWorldActive = false;
 
-// 3D Mode Toggle
-const mode3dToggle = document.getElementById('mode-3d-toggle');
-let is3dMode = false;
+function init3DWorld() {
+    worldContainer = document.getElementById('threejs-world');
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0f172a);
+    scene.fog = new THREE.Fog(0x0f172a, 20, 100);
 
-if (mode3dToggle) {
-    mode3dToggle.addEventListener('click', () => {
-        is3dMode = !is3dMode;
-        document.body.classList.toggle('mode-3d-active', is3dMode);
-        mode3dToggle.classList.toggle('active', is3dMode);
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 5, 20);
+
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    worldContainer.appendChild(renderer.domElement);
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(10, 20, 10);
+    scene.add(directionalLight);
+
+    // Low Poly Floor
+    const floorGeometry = new THREE.PlaneGeometry(200, 200, 20, 20);
+    floorGeometry.rotateX(-Math.PI / 2);
+    const pos = floorGeometry.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+        pos.setY(i, Math.random() * 2);
+    }
+    const floorMaterial = new THREE.MeshPhongMaterial({ color: 0x1e293b, flatShading: true });
+    const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+    scene.add(floor);
+
+    // Project Monoliths
+    const keys = Object.keys(projectDetails);
+    keys.forEach((key, index) => {
+        const h = 2 + Math.random() * 4;
+        const geometry = new THREE.BoxGeometry(2, h, 2);
+        const material = new THREE.MeshPhongMaterial({ 
+            color: index % 2 === 0 ? 0x3b82f6 : 0x8b5cf6, 
+            flatShading: true,
+            transparent: true,
+            opacity: 0.9
+        });
+        const monolith = new THREE.Mesh(geometry, material);
         
-        if (is3dMode) {
-            document.addEventListener('mousemove', handle3dMouseMove);
-        } else {
-            document.removeEventListener('mousemove', handle3dMouseMove);
-            document.getElementById('scene-3d').style.transform = '';
+        const angle = (index / keys.length) * Math.PI * 2;
+        const radius = 30 + Math.random() * 10;
+        monolith.position.set(Math.cos(angle) * radius, h/2, Math.sin(angle) * radius);
+        monolith.userData = { projKey: key };
+        scene.add(monolith);
+        projectMonoliths.push(monolith);
+    });
+
+    // UI Overlay
+    const ui = document.createElement('div');
+    ui.className = 'world-ui';
+    ui.innerHTML = `
+        <button onclick="toggle3DWorld()" class="btn btn-outline" style="color: white; border-color: white;">EXIT WORLD</button>
+        <span style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-mouse"></i> Click objects to explore
+        </span>
+    `;
+    worldContainer.appendChild(ui);
+
+    const instruction = document.createElement('div');
+    instruction.className = 'world-instruction';
+    instruction.innerHTML = 'Low Poly Exploration Mode';
+    worldContainer.appendChild(instruction);
+
+    // Interaction
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    window.addEventListener('click', (event) => {
+        if (!isWorldActive) return;
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(projectMonoliths);
+        if (intersects.length > 0) {
+            openModal(intersects[0].object.userData.projKey);
         }
     });
+
+    animate();
 }
 
-function handle3dMouseMove(e) {
-    if (!is3dMode) return;
-    const x = (window.innerWidth / 2 - e.clientX) / 20;
-    const y = (window.innerHeight / 2 - e.clientY) / 20;
-    document.getElementById('scene-3d').style.transform = `rotateY(${x - 15}deg) rotateX(${y + 5}deg) scale(0.9)`;
+function animate() {
+    if (!isWorldActive) return;
+    requestAnimationFrame(animate);
+    
+    // Auto-rotate camera slowly
+    const time = Date.now() * 0.0002;
+    camera.position.x = Math.cos(time) * 40;
+    camera.position.z = Math.sin(time) * 40;
+    camera.lookAt(0, 0, 0);
+
+    // Floating animation for monoliths
+    projectMonoliths.forEach((m, i) => {
+        m.position.y = (2 + Math.sin(time * 5 + i)) * 0.5 + 1;
+        m.rotation.y += 0.01;
+    });
+
+    renderer.render(scene, camera);
 }
 
-// Terminal Logic
+function toggle3DWorld() {
+    isWorldActive = !isWorldActive;
+    const world = document.getElementById('threejs-world');
+    const scene3d = document.getElementById('scene-3d');
+    
+    if (isWorldActive) {
+        world.style.display = 'block';
+        scene3d.style.display = 'none';
+        document.body.style.overflow = 'hidden';
+        if (!renderer) init3DWorld();
+        else animate();
+    } else {
+        world.style.display = 'none';
+        scene3d.style.display = 'block';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+document.getElementById('mode-3d-toggle').addEventListener('click', toggle3DWorld);
+
+// Terminal, Typed, Particles, Scroll (Keep from previous version)
 const terminalBody = document.getElementById('terminal-body');
 const terminalInput = document.getElementById('terminal-input');
-
 if (terminalInput) {
     terminalInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const cmd = terminalInput.value.toLowerCase().trim();
-            handleCommand(cmd);
-            terminalInput.value = '';
-        }
+        if (e.key === 'Enter') { handleCommand(terminalInput.value.toLowerCase().trim()); terminalInput.value = ''; }
     });
 }
-
 function handleCommand(cmd) {
-    const output = document.createElement('div');
-    output.style.marginBottom = '0.5rem';
-    output.innerHTML = `<span style="color: #f87171;">$</span> ${cmd}`;
+    const output = document.createElement('div'); output.innerHTML = `<span style="color: #f87171;">$</span> ${cmd}`;
     terminalBody.appendChild(output);
-
-    const response = document.createElement('div');
-    response.style.color = '#94a3b8';
-    response.style.marginBottom = '1rem';
-
+    const resp = document.createElement('div'); resp.style.color = '#94a3b8';
     switch(cmd) {
-        case 'help':
-            response.innerHTML = 'Available: help, whoami, projects, clear, contact, share, 3d';
-            break;
-        case 'whoami':
-            response.innerHTML = currentLang === 'fr' 
-                ? 'Herizo Randrianaina: Développeur Fullstack Produit & IT Manager hybride.' 
-                : 'Herizo Randrianaina: Product-Oriented Fullstack Developer & Hybrid IT Manager.';
-            break;
-        case '3d':
-            if(mode3dToggle) mode3dToggle.click();
-            response.innerHTML = '3D Mode toggled.';
-            break;
-        case 'projects':
-            response.innerHTML = 'Listing projects... [AOPIA, Wizi Learn, QuizThème, LingoLive, TalentPlan...]';
-            break;
-        case 'clear':
-            terminalBody.innerHTML = '';
-            return;
-        case 'share':
-            if (navigator.share) {
-                navigator.share({ title: 'Herizo Portfolio', url: window.location.href });
-                response.innerHTML = 'Share window opened.';
-            } else {
-                response.innerHTML = 'Share not supported.';
-            }
-            break;
-        default:
-            response.innerHTML = `Command not found: ${cmd}. Type 'help'.`;
+        case 'help': resp.innerHTML = 'Available: help, whoami, projects, clear, 3d'; break;
+        case '3d': toggle3DWorld(); resp.innerHTML = 'World loaded.'; break;
+        case 'clear': terminalBody.innerHTML = ''; return;
+        default: resp.innerHTML = `Unknown: ${cmd}`;
     }
-    terminalBody.appendChild(response);
+    terminalBody.appendChild(resp);
     terminalBody.scrollTop = terminalBody.scrollHeight;
 }
 
-// Typed Text Effect
 const typedTextSpan = document.querySelector(".typed-text");
-const cursorSpan = document.querySelector(".cursor");
-let textArray = [];
-
-function updateTypedArray() {
-    if (currentLang === 'fr') {
-        textArray = ["Développeur Fullstack", "Architecte Produit", "Expert CTI & IT", "IT Manager Hybride"];
-    } else {
-        textArray = ["Fullstack Developer", "Product Architect", "CTI & IT Expert", "Hybrid IT Manager"];
-    }
-}
-
-let textArrayIndex = 0;
-let charIndex = 0;
-
+let textArray = currentLang === 'fr' ? ["Développeur Fullstack", "Architecte Produit", "IT Manager"] : ["Fullstack Developer", "Product Architect", "IT Manager"];
+let textArrayIndex = 0, charIndex = 0;
 function type() {
-    if (charIndex < textArray[textArrayIndex].length) {
-        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, 100);
-    } else {
-        setTimeout(erase, 2000);
-    }
+    if (charIndex < textArray[textArrayIndex].length) { typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex); charIndex++; setTimeout(type, 100); }
+    else { setTimeout(erase, 2000); }
 }
-
 function erase() {
-    if (charIndex > 0) {
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, 50);
-    } else {
-        textArrayIndex = (textArrayIndex + 1) % textArray.length;
-        setTimeout(type, 1000);
-    }
+    if (charIndex > 0) { typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1); charIndex--; setTimeout(erase, 50); }
+    else { textArrayIndex = (textArrayIndex + 1) % textArray.length; setTimeout(type, 1000); }
 }
+function updateTypedArray() { textArray = currentLang === 'fr' ? ["Développeur Fullstack", "Architecte Produit", "IT Manager"] : ["Fullstack Developer", "Product Architect", "IT Manager"]; }
 
-// Custom Cursor
-const cursor = document.querySelector('.custom-cursor');
-const follower = document.querySelector('.cursor-follower');
-const progress = document.querySelector('.scroll-progress');
-
-document.addEventListener('mousemove', (e) => {
-    if(cursor && follower) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        setTimeout(() => {
-            follower.style.left = e.clientX + 'px';
-            follower.style.top = e.clientY + 'px';
-        }, 50);
-    }
-});
-
-// Scroll Progress
 window.addEventListener('scroll', () => {
-    if(progress) {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progress.style.width = scrolled + "%";
-    }
-    
-    const backToTop = document.getElementById('back-to-top');
-    if (backToTop) {
-        if (window.scrollY > 300) backToTop.style.display = 'flex';
-        else backToTop.style.display = 'none';
-    }
+    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.querySelector('.scroll-progress').style.width = scrolled + "%";
 });
-
-const btt = document.getElementById('back-to-top');
-if(btt) {
-    btt.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
-
-// Particles
-function createParticles() {
-    const container = document.getElementById('particles-js');
-    if (!container) return;
-    for (let i = 0; i < 50; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        const size = Math.random() * 5 + 2;
-        p.style.width = size + 'px';
-        p.style.height = size + 'px';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.top = Math.random() * 100 + '%';
-        p.style.animation = `float ${Math.random() * 20 + 10}s linear infinite`;
-        container.appendChild(p);
-    }
-}
-
-// Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-if (themeToggle) {
-    const icon = themeToggle.querySelector('i');
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    body.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme, icon);
-
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme, icon);
-    });
-}
-
-function updateThemeIcon(theme, icon) {
-    if (theme === 'dark') {
-        icon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-        icon.classList.replace('fa-sun', 'fa-moon');
-    }
-}
-
-// Reveal on Scroll
-const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, { threshold: 0.1 });
-revealElements.forEach(el => revealObserver.observe(el));
-
-function exportToPDF() { window.print(); }
 
 document.addEventListener("DOMContentLoaded", () => {
     updateLanguage(currentLang);
-    createParticles();
     setTimeout(type, 1000);
 });

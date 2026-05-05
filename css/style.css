@@ -925,7 +925,46 @@ body.mode-3d-active .glass {
     box-shadow: 0 50px 100px rgba(0,0,0,0.3);
 }
 
-#mode-3d-toggle.active {
-    background: var(--accent);
+#threejs-world {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: #0f172a;
+}
+
+#threejs-world canvas {
+    display: block;
+}
+
+.world-ui {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    display: flex;
+    gap: 1rem;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    border: 1px solid var(--glass-border);
     color: white;
+}
+
+.world-instruction {
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    color: var(--accent);
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    pointer-events: none;
 }

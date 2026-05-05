@@ -22,18 +22,21 @@
         <div class="container nav-content">
             <a href="#" class="logo">HR.</a>
             <ul class="nav-links">
-                <li><a href="#about" class="nav-link">À propos</a></li>
-                <li><a href="#skills" class="nav-link">Compétences</a></li>
-                <li><a href="#projects" class="nav-link">Projets</a></li>
-                <li><a href="#experience" class="nav-link">Parcours</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">À propos</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Compétences</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projets</a></li>
+                <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Parcours</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
             <div class="nav-btns">
+                <button id="lang-toggle" class="theme-toggle" title="Switch Language">
+                    <span id="lang-text">EN</span>
+                </button>
                 <button id="theme-toggle" class="theme-toggle" title="Changer de thème">
                     <i class="fas fa-moon"></i>
                 </button>
                 <button onclick="exportToPDF()" class="cv-btn" title="Télécharger le CV ATS">
-                    <i class="fas fa-file-pdf"></i> CV PDF
+                    <i class="fas fa-file-pdf"></i> <span data-i18n="cv_btn">CV PDF</span>
                 </button>
             </div>
         </div>
@@ -42,11 +45,11 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="container hero-content reveal">
-            <h1>Bonjour, je suis <br><span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
-            <p>Analyste Programmeur spécialisé en PHP, Java & SQL. Expert en solutions ERP, CTI et infrastructures réseaux.</p>
+            <h1><span data-i18n="hero_hi">Bonjour, je suis</span> <br><span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
+            <p data-i18n="hero_subtitle">Analyste Programmeur spécialisé en PHP, Java & SQL. Expert en solutions ERP, CTI et infrastructures réseaux.</p>
             <div class="hero-btns">
-                <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                <a href="#contact" class="btn btn-outline">Me contacter</a>
+                <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_projects">Voir mes projets</a>
+                <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">Me contacter</a>
             </div>
         </div>
         <div class="hero-image reveal">
@@ -59,13 +62,13 @@
         <section id="about" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2>À Propos</h2>
+                    <h2 data-i18n="about_title">À Propos</h2>
                     <div class="underline"></div>
                 </div>
                 <div class="glass about-card reveal" style="padding: 2.5rem; display: flex; gap: 3rem; align-items: center; flex-wrap: wrap;">
                     <div style="flex: 1; min-width: 300px;">
-                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Spécialisé en développement PHP et Java, avec une expertise profonde en bases de données SQL (SQL Anywhere, PostgreSQL, MS SQL). Mon parcours m'a permis de concevoir des systèmes ERP robustes et de piloter des projets de transformation numérique.</p>
-                        <p style="font-size: 1.1rem;">Au-delà du code, je maîtrise l'infrastructure IT : configuration de serveurs, VPN, et mise en place de centres d'appels (CTI). Mon objectif est de bâtir des solutions performantes, évolutives et centrées sur l'utilisateur.</p>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;" data-i18n="about_p1">Spécialisé en développement PHP et Java, avec une expertise profonde en bases de données SQL (SQL Anywhere, PostgreSQL, MS SQL). Mon parcours m'a permis de concevoir des systèmes ERP robustes et de piloter des projets de transformation numérique.</p>
+                        <p style="font-size: 1.1rem;" data-i18n="about_p2">Au-delà du code, je maîtrise l'infrastructure IT : configuration de serveurs, VPN, et mise en place de centres d'appels (CTI). Mon objectif est de bâtir des solutions performantes, évolutives et centrées sur l'utilisateur.</p>
                     </div>
                     <div style="width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 5px solid var(--accent); margin: 0 auto;">
                         <img src="image/herizo.png" alt="Herizo Randrianaina" style="width: 100%; height: 100%; object-fit: cover;">
@@ -78,12 +81,12 @@
         <section id="skills" class="section" style="background: var(--bg-secondary);">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2>Compétences Techniques</h2>
+                    <h2 data-i18n="skills_title">Compétences Techniques</h2>
                     <div class="underline"></div>
                 </div>
                 <div class="skills-container reveal">
                     <div class="skill-category">
-                        <h3>Développement</h3>
+                        <h3 data-i18n="skills_dev">Développement</h3>
                         <div class="skill-list">
                             <div class="skill-item"><i class="fab fa-php"></i> PHP (Symfony, Laravel)</div>
                             <div class="skill-item"><i class="fab fa-java"></i> Java (Spring Boot)</div>
@@ -92,7 +95,7 @@
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Base de Données</h3>
+                        <h3 data-i18n="skills_db">Base de Données</h3>
                         <div class="skill-list">
                             <div class="skill-item"><i class="fas fa-database"></i> SQL Anywhere & TSQL</div>
                             <div class="skill-item"><i class="fas fa-table"></i> PostgreSQL & MS SQL</div>
@@ -100,7 +103,7 @@
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Infrastructure & Réseau</h3>
+                        <h3 data-i18n="skills_infra">Infrastructure & Réseau</h3>
                         <div class="skill-list">
                             <div class="skill-item"><i class="fas fa-phone-alt"></i> CTI & Centre d'appel</div>
                             <div class="skill-item"><i class="fas fa-network-wired"></i> VPN & Configuration Réseau</div>
@@ -115,67 +118,68 @@
         <section id="projects" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2>Projets Phares</h2>
+                    <h2 data-i18n="projects_title">Projets Phares</h2>
                     <div class="underline"></div>
                 </div>
                 <div class="project-grid">
-                    <!-- Project 1: CTI -->
+                    <!-- Project 1: AOPIA CRM -->
                     <div class="project-card reveal">
                         <div class="project-img">
-                            <img src="image/blue.jpg" alt="Operation Phoning">
+                            <img src="image/blue.jpg" alt="AOPIA CRM Suite">
                         </div>
                         <div class="project-info">
-                            <h3>OPERATION PHONING 2026</h3>
-                            <p>Mise en place complète d'un centre d'appel avec intégration CTI, configuration VPN sécurisée et gestion de réseau local.</p>
+                            <h3 data-i18n="proj1_title">AOPIA CRM Suite</h3>
+                            <p data-i18n="proj1_desc">Architecture backend et API pour une plateforme CRM complète. Gestion de campagnes, configuration CTI et journaux d'audit sécurisés.</p>
                             <div class="project-tags">
-                                <span class="tag">CTI</span>
-                                <span class="tag">VPN</span>
-                                <span class="tag">VoIP</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 2: AI Quiz -->
-                    <div class="project-card reveal">
-                        <div class="project-img">
-                            <img src="image/javascript.jpg" alt="AIQuizGenius">
-                        </div>
-                        <div class="project-info">
-                            <h3>AIQuizGenius</h3>
-                            <p>Plateforme innovante de génération automatique de questionnaires utilisant des modèles d'intelligence artificielle.</p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">OpenAI</span>
-                                <span class="tag">PHP</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 3: POS Flutter -->
-                    <div class="project-card reveal">
-                        <div class="project-img">
-                            <img src="image/nature.jpg" alt="POS Flutter">
-                        </div>
-                        <div class="project-info">
-                            <h3>POS-Flutter</h3>
-                            <p>Application mobile de point de vente intuitive pour la gestion des stocks et des transactions en temps réel.</p>
-                            <div class="project-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Firebase</span>
-                                <span class="tag">Dart</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 4: CRM Leads -->
-                    <div class="project-card reveal">
-                        <div class="project-img">
-                            <img src="image/annuaire.png" alt="Leads-Allopro24">
-                        </div>
-                        <div class="project-info">
-                            <h3>Leads-Allopro24</h3>
-                            <p>Système de gestion de leads et automatisation CRM pour optimiser le tunnel de conversion des ventes.</p>
-                            <div class="project-tags">
-                                <span class="tag">SuiteCRM</span>
-                                <span class="tag">PHP</span>
+                                <span class="tag">NestJS</span>
                                 <span class="tag">MySQL</span>
+                                <span class="tag">CTI</span>
+                                <span class="tag">Audit Logs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2: Aircall Integration -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="image/javascript.jpg" alt="Aircall CRM Integration">
+                        </div>
+                        <div class="project-info">
+                            <h3 data-i18n="proj2_title">Aircall Smart Integration</h3>
+                            <p data-i18n="proj2_desc">Automatisation du workflow de prospection : Screen Pop en temps réel, synchronisation automatique des leads et relances mails automatisées.</p>
+                            <div class="project-tags">
+                                <span class="tag">Aircall API</span>
+                                <span class="tag">Webhooks</span>
+                                <span class="tag">Automated Mail</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3: P3 Automation -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="image/nature.jpg" alt="P3 Automation System">
+                        </div>
+                        <div class="project-info">
+                            <h3 data-i18n="proj3_title">P3 Automation & Reporting</h3>
+                            <p data-i18n="proj3_desc">Système intelligent de positionnement et de recommandation de formations avec génération de rapports PDF professionnels (ATS-ready).</p>
+                            <div class="project-tags">
+                                <span class="tag">Algorithmie</span>
+                                <span class="tag">PDF Generation</span>
+                                <span class="tag">Workflow Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4: AIQuizGenius -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="image/annuaire.png" alt="AIQuizGenius">
+                        </div>
+                        <div class="project-info">
+                            <h3 data-i18n="proj4_title">AIQuizGenius</h3>
+                            <p data-i18n="proj4_desc">Plateforme de génération automatique de questionnaires utilisant des modèles d'IA pour l'évaluation pédagogique.</p>
+                            <div class="project-tags">
+                                <span class="tag">OpenAI</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">ReactJS</span>
                             </div>
                         </div>
                     </div>
@@ -187,29 +191,29 @@
         <section id="experience" class="section" style="background: var(--bg-secondary);">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2>Parcours & Expérience</h2>
+                    <h2 data-i18n="exp_title">Parcours & Expérience</h2>
                     <div class="underline"></div>
                 </div>
                 <div class="timeline">
                     <div class="timeline-item reveal">
                         <div class="glass experience-card">
-                            <div class="date">2024 - Présent</div>
-                            <h3>Analyste Programmeur - Groupe EDL</h3>
-                            <p>Optimisation des bases de données stratégiques, création de dashboards KPIs et administration des outils ITSM.</p>
+                            <div class="date" data-i18n="exp1_date">2024 - Présent</div>
+                            <h3 data-i18n="exp1_title">Analyste Programmeur - Groupe EDL / AOPIA</h3>
+                            <p data-i18n="exp1_desc">Développement de la suite AOPIA CRM : gestion de campagnes, intégration CTI avancée et systèmes d'audit. Optimisation des flux de données stratégiques.</p>
                         </div>
                     </div>
                     <div class="timeline-item reveal">
                         <div class="glass experience-card">
-                            <div class="date">2023 - 2024</div>
-                            <h3>Développeur Chef de Projet - Software Overseas</h3>
-                            <p>Direction technique d'équipes agiles, conception d'architectures CI/CD et déploiement cloud.</p>
+                            <div class="date" data-i18n="exp2_date">2023 - 2024</div>
+                            <h3 data-i18n="exp2_title">Lead Développeur Integration - Software Overseas</h3>
+                            <p data-i18n="exp2_desc">Mise en place de l'écosystème Aircall-CRM : automatisation de la prospection, screen pop et synchronisation bidirectionnelle des données clients.</p>
                         </div>
                     </div>
                     <div class="timeline-item reveal">
                         <div class="glass experience-card">
-                            <div class="date">2022 - 2023</div>
-                            <h3>Master 1 - Génie Logiciel</h3>
-                            <p>CNTEMAD Madagascar - Spécialisation en bases de données et ingénierie logicielle complexe.</p>
+                            <div class="date" data-i18n="exp3_date">2022 - 2023</div>
+                            <h3 data-i18n="exp3_title">Concepteur Développeur - P3 Automation Project</h3>
+                            <p data-i18n="exp3_desc">Architecture d'un système expert de positionnement pédagogique avec moteur de recommandation intelligent et reporting PDF automatisé.</p>
                         </div>
                     </div>
                 </div>
@@ -220,7 +224,7 @@
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2>Parlons de votre projet</h2>
+                    <h2 data-i18n="contact_title">Parlons de votre projet</h2>
                     <div class="underline"></div>
                 </div>
                 <div class="contact-grid reveal">
@@ -235,32 +239,32 @@
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <h4>Téléphone</h4>
+                                <h4 data-i18n="contact_phone_label">Téléphone</h4>
                                 <p>+261 34 49 726 70</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h4>Localisation</h4>
+                                <h4 data-i18n="contact_loc_label">Localisation</h4>
                                 <p>Antananarivo, Madagascar</p>
                             </div>
                         </div>
                     </div>
                     <form id="contact-form" class="contact-form glass" style="padding: 2rem;">
                         <div class="form-group">
-                            <label>Nom complet</label>
+                            <label data-i18n="contact_name">Nom complet</label>
                             <input type="text" placeholder="Votre nom" required>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label data-i18n="contact_email">Email</label>
                             <input type="email" placeholder="votre@email.com" required>
                         </div>
                         <div class="form-group">
-                            <label>Message</label>
+                            <label data-i18n="contact_message">Message</label>
                             <textarea rows="4" placeholder="Détaillez votre besoin..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        <button type="submit" class="btn btn-primary" data-i18n="contact_send">Envoyer le message</button>
                     </form>
                 </div>
             </div>
@@ -274,11 +278,12 @@
                 <a href="#"><i class="fab fa-github"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-            <p>&copy; 2026 Herizo Randrianaina. Tous droits réservés.</p>
+            <p>&copy; 2026 Herizo Randrianaina. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
         </div>
     </footer>
 
     <!-- Custom JS -->
+    <script src="js/translations.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

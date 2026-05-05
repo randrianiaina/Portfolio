@@ -1,8 +1,60 @@
+// i18n Logic
+let currentLang = localStorage.getItem('lang') || 'fr';
+
+function updateLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (window.portfolioTranslations[lang][key]) {
+            el.textContent = window.portfolioTranslations[lang][key];
+        }
+    });
+
+    // Update form placeholders
+    const nameInput = document.querySelector('input[type="text"]');
+    const emailInput = document.querySelector('input[type="email"]');
+    const messageInput = document.querySelector('textarea');
+    
+    if (lang === 'en') {
+        if (nameInput) nameInput.placeholder = "Your name";
+        if (emailInput) emailInput.placeholder = "your@email.com";
+        if (messageInput) messageInput.placeholder = "Detail your needs...";
+        document.getElementById('lang-text').textContent = 'FR';
+    } else {
+        if (nameInput) nameInput.placeholder = "Votre nom";
+        if (emailInput) emailInput.placeholder = "votre@email.com";
+        if (messageInput) messageInput.placeholder = "Détaillez votre besoin...";
+        document.getElementById('lang-text').textContent = 'EN';
+    }
+
+    // Refresh Typed Effect
+    charIndex = 0;
+    textArrayIndex = 0;
+    typedTextSpan.textContent = "";
+    updateTypedArray();
+}
+
+// Language Toggle Event
+document.getElementById('lang-toggle').addEventListener('click', () => {
+    const nextLang = currentLang === 'fr' ? 'en' : 'fr';
+    updateLanguage(nextLang);
+});
+
 // Typed Text Effect for Hero
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
-const textArray = ["Analyste Programmeur", "Développeur PHP/Java", "Expert SQL & ERP", "Spécialiste CTI & Réseaux"];
+let textArray = [];
+function updateTypedArray() {
+    if (currentLang === 'fr') {
+        textArray = ["Analyste Programmeur", "Développeur PHP/Java", "Expert SQL & ERP", "Spécialiste CTI & Réseaux"];
+    } else {
+        textArray = ["Analyst Programmer", "PHP/Java Developer", "SQL & ERP Expert", "CTI & Network Specialist"];
+    }
+}
+
 const typingDelay = 100;
 const erasingDelay = 50;
 const newTextDelay = 2000;
@@ -36,6 +88,7 @@ function erase() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    updateLanguage(currentLang);
     if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
@@ -139,11 +192,11 @@ if (contactForm) {
         const btn = contactForm.querySelector('button');
         const originalText = btn.innerHTML;
         
-        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Envoi...';
+        btn.innerHTML = currentLang === 'fr' ? '<i class="fas fa-circle-notch fa-spin"></i> Envoi...' : '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
         btn.disabled = true;
         
         setTimeout(() => {
-            btn.innerHTML = '<i class="fas fa-check"></i> Envoyé !';
+            btn.innerHTML = currentLang === 'fr' ? '<i class="fas fa-check"></i> Envoyé !' : '<i class="fas fa-check"></i> Sent!';
             btn.style.background = '#22c55e';
             contactForm.reset();
             

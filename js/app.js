@@ -86,16 +86,16 @@ const projectDetails = {
     },
     proj7: {
         fr: {
-            title: "LingoLive",
-            challenge: "Créer une application d'apprentissage des langues immersive pour les enfants utilisant l'IA.",
-            solution: "Application React/Next.js interactive utilisant l'IA pour personnaliser le parcours d'apprentissage selon le niveau.",
-            stack: ["Next.js", "React", "AI Models", "Tailwind"]
+            title: "LingoLive AI",
+            challenge: "Maîtriser une nouvelle langue via des conversations vocales naturelles et temps réel avec une IA.",
+            solution: "Intégration de l'API Gemini Live pour des interactions fluides. Analyse sémantique de la prononciation (phonèmes, intonation) et tutorat adaptatif selon l'âge.",
+            stack: ["Next.js", "Gemini Live API", "Web Speech", "Tailwind"]
         },
         en: {
-            title: "LingoLive",
-            challenge: "Create an immersive language learning app for children using AI.",
-            solution: "Interactive React/Next.js app using AI to personalize the learning path according to the level.",
-            stack: ["Next.js", "React", "AI Models", "Tailwind"]
+            title: "LingoLive AI",
+            challenge: "Master a new language through natural, real-time voice conversations with an AI tutor.",
+            solution: "Gemini Live API integration for fluid interactions. Semantic pronunciation analysis (phonemes, intonation) and age-adaptive tutoring.",
+            stack: ["Next.js", "Gemini Live API", "Web Speech", "Tailwind"]
         }
     },
     proj8: {
@@ -166,6 +166,34 @@ const projectDetails = {
             challenge: "Optimize conversion funnels from social media to instant messaging while filtering traffic by geography.",
             solution: "URL shortening system with dynamic Landing Page and QR Code generation. Real-time statistics integration and IP geo-fencing.",
             stack: ["Next.js", "Firebase", "QR Code API", "Geo-location"]
+        }
+    },
+    proj13: {
+        fr: {
+            title: "MESR - Plateforme Symfony",
+            challenge: "Bâtir une application robuste pour la gestion centralisée des données académiques du Ministère.",
+            solution: "Architecture Symfony avec Doctrine ORM, ACL complexes et workflows de validation métier.",
+            stack: ["Symfony", "PHP 8", "MySQL", "Twig", "Docker"]
+        },
+        en: {
+            title: "MESR - Symfony Platform",
+            challenge: "Build a robust application for centralized management of Ministry academic data.",
+            solution: "Symfony architecture with Doctrine ORM, complex ACLs, and business validation workflows.",
+            stack: ["Symfony", "PHP 8", "MySQL", "Twig", "Docker"]
+        }
+    },
+    proj14: {
+        fr: {
+            title: "PyAuto Task & Mail",
+            challenge: "Automatiser l'envoi de rapports par mail et la planification de tâches système répétitives.",
+            solution: "Scripts Python utilisant smtplib pour les mails et schedule/APScheduler pour la planification robuste des tâches.",
+            stack: ["Python", "Smtplib", "Pandas", "APScheduler"]
+        },
+        en: {
+            title: "PyAuto Task & Mail",
+            challenge: "Automate email reporting and scheduling of repetitive system tasks.",
+            solution: "Python scripts using smtplib for emails and schedule/APScheduler for robust task scheduling.",
+            stack: ["Python", "Smtplib", "Pandas", "APScheduler"]
         }
     }
 };

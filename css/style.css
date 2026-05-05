@@ -176,8 +176,28 @@ ul {
     margin-bottom: 1.5rem;
 }
 
-.hero h1 span {
+.hero h1 span.typed-text {
     color: var(--accent);
+}
+
+.hero h1 span.cursor {
+    display: inline-block;
+    background-color: var(--accent);
+    margin-left: 0.1rem;
+    width: 3px;
+    animation: blink 1s infinite;
+}
+
+.hero h1 span.cursor.typing {
+    animation: none;
+}
+
+@keyframes blink {
+    0%  { background-color: var(--accent); }
+    49% { background-color: var(--accent); }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100%  { background-color: var(--accent); }
 }
 
 .hero p {
@@ -313,11 +333,12 @@ ul {
     overflow: hidden;
     background: var(--bg-secondary);
     box-shadow: var(--card-shadow);
-    transition: var(--transition);
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .project-img {

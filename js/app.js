@@ -125,6 +125,34 @@ const projectDetails = {
             solution: "Next.js voice generator leveraging advanced Text-to-Speech APIs with playback controls and MP3 export.",
             stack: ["Next.js", "Text-to-Speech API", "Web Audio", "Vercel"]
         }
+    },
+    proj10: {
+        fr: {
+            title: "OCR IA Vision",
+            challenge: "Convertir des images de documents complexes en documents HTML/PDF éditables tout en préservant la mise en forme originale.",
+            solution: "Combinaison de Tesseract.js et des APIs Vision d'OpenAI pour une extraction sémantique précise et un rendu HTML miroir.",
+            stack: ["Tesseract.js", "OpenAI Vision", "Next.js", "PDF-Lib"]
+        },
+        en: {
+            title: "AI Vision OCR",
+            challenge: "Convert complex document images into editable HTML/PDF documents while preserving the original layout.",
+            solution: "Combination of Tesseract.js and OpenAI Vision APIs for precise semantic extraction and mirror HTML rendering.",
+            stack: ["Tesseract.js", "OpenAI Vision", "Next.js", "PDF-Lib"]
+        }
+    },
+    proj11: {
+        fr: {
+            title: "Nathie Rose Portfolio",
+            challenge: "Protéger le contenu visuel d'un modèle photo tout en gérant l'accès via des restrictions géographiques.",
+            solution: "Développement d'un back-office sur mesure avec gestion de droits d'accès IP-based et protection contre le clic droit/téléchargement forcé.",
+            stack: ["React", "Next.js", "Edge Functions", "Cloudinary"]
+        },
+        en: {
+            title: "Nathie Rose Portfolio",
+            challenge: "Protect a photo model's visual content while managing access via geographical restrictions.",
+            solution: "Development of a custom back-office with IP-based access rights management and protection against right-click/forced downloads.",
+            stack: ["React", "Next.js", "Edge Functions", "Cloudinary"]
+        }
     }
 };
 

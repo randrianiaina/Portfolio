@@ -119,42 +119,77 @@ function init3DWorld() {
     instruction.innerHTML = 'Low Poly Exploration Mode';
     worldContainer.appendChild(instruction);
 
-    // Interaction
+    // Interaction (Mouse & Touch)
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
-    window.addEventListener('click', (event) => {
+    function onPointerDown(event) {
         if (!isWorldActive) return;
-        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+        const clientY = event.touches ? event.touches[0].clientY : event.clientY;
+        
+        mouse.x = (clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+        
         raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(projectMonoliths);
         if (intersects.length > 0) {
             openModal(intersects[0].object.userData.projKey);
         }
-    });
+    }
 
+    // Camera Rotation via Drag/Touch
+    let isDragging = false;
+    let previousX = 0;
+    let rotationY = 0;
+
+    function onPointerMove(event) {
+        if (!isWorldActive || !isDragging) return;
+        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+        const deltaX = clientX - previousX;
+        rotationY -= deltaX * 0.005;
+        previousX = clientX;
+    }
+
+    window.addEventListener('mousedown', (e) => { isDragging = true; previousX = e.clientX; });
+    window.addEventListener('touchstart', (e) => { isDragging = true; previousX = e.touches[0].clientX; onPointerDown(e); });
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('touchmove', onPointerMove);
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('touchend', () => isDragging = false);
+    window.addEventListener('click', (e) => { if(!event.touches) onPointerDown(e); });
+
+    function animate() {
+        if (!isWorldActive) return;
+        requestAnimationFrame(animate);
+        
+        const time = Date.now() * 0.0005;
+        
+        // Manual rotation + auto drift
+        if (!isDragging) rotationY += 0.002;
+        
+        camera.position.x = Math.cos(rotationY) * 40;
+        camera.position.z = Math.sin(rotationY) * 40;
+        camera.lookAt(0, 0, 0);
+
+        // Floating monoliths
+        projectMonoliths.forEach((m, i) => {
+            m.position.y = (2 + Math.sin(time * 2 + i)) * 0.5 + 1;
+            m.rotation.y += 0.01;
+        });
+
+        renderer.render(scene, camera);
+    }
     animate();
 }
 
-function animate() {
-    if (!isWorldActive) return;
-    requestAnimationFrame(animate);
-    
-    // Auto-rotate camera slowly
-    const time = Date.now() * 0.0002;
-    camera.position.x = Math.cos(time) * 40;
-    camera.position.z = Math.sin(time) * 40;
-    camera.lookAt(0, 0, 0);
-
-    // Floating animation for monoliths
-    projectMonoliths.forEach((m, i) => {
-        m.position.y = (2 + Math.sin(time * 5 + i)) * 0.5 + 1;
-        m.rotation.y += 0.01;
-    });
-
-    renderer.render(scene, camera);
-}
+window.addEventListener('resize', () => {
+    if (renderer && camera) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+});
 
 function toggle3DWorld() {
     isWorldActive = !isWorldActive;

@@ -60,15 +60,16 @@ function init3DWorld() {
     worldContainer = document.getElementById('threejs-world');
     scene = new THREE.Scene();
     
-    // Theme-based colors (Mapped to Spotify OKLCH Theme)
+    // Day/Night Theme Logic
     const isDark = document.body.getAttribute('data-theme') === 'dark';
-    const bgColor = isDark ? 0x171723 : 0xfdfdfd; // oklch(0.15 0.02 269.18) / oklch(0.99 0 0)
-    const fogColor = isDark ? 0x171723 : 0xfdfdfd;
-    const floorColor = isDark ? 0x222436 : 0xf0f0f0; // slightly lighter/darker for contrast
-    const monolithColor = 0x1db954; // Spotify Green approx for oklch(0.67 0.17 153.85)
+    const skyColor = isDark ? 0x0b1021 : 0x87CEEB; // Night / Day sky
+    const fogColor = skyColor;
+    const terrainColor = isDark ? 0x1e3a24 : 0x4CAF50; // Dark green / Bright grass
+    const ambientIntensity = isDark ? 0.3 : 0.8;
+    const dirIntensity = isDark ? 0.5 : 1.0;
 
-    scene.background = new THREE.Color(bgColor);
-    scene.fog = new THREE.FogExp2(fogColor, 0.015);
+    scene.background = new THREE.Color(skyColor);
+    scene.fog = new THREE.FogExp2(fogColor, 0.012);
 
     camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(0, 15, 40);
@@ -77,62 +78,172 @@ function init3DWorld() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     worldContainer.appendChild(renderer.domElement);
 
     // --- LIGHTING ---
-    const ambientLight = new THREE.AmbientLight(0xffffff, isDark ? 0.4 : 0.7);
+    const ambientLight = new THREE.AmbientLight(0xffffff, ambientIntensity);
     scene.add(ambientLight);
-    const dirLight = new THREE.DirectionalLight(0xffffff, isDark ? 0.8 : 0.5);
-    dirLight.position.set(30, 50, 20);
+    
+    const dirLight = new THREE.DirectionalLight(0xfff0dd, dirIntensity);
+    dirLight.position.set(50, 60, 20);
     dirLight.castShadow = true;
+    dirLight.shadow.camera.left = -50;
+    dirLight.shadow.camera.right = 50;
+    dirLight.shadow.camera.top = 50;
+    dirLight.shadow.camera.bottom = -50;
     scene.add(dirLight);
 
+    if (isDark) {
+        // Moon light / Magical night light
+        const moonLight = new THREE.DirectionalLight(0x88bbff, 0.5);
+        moonLight.position.set(-30, 40, -20);
+        scene.add(moonLight);
+    }
+
     // --- TERRAIN ---
-    const floorGeo = new THREE.PlaneGeometry(300, 300, 40, 40);
+    const floorGeo = new THREE.PlaneGeometry(300, 300, 50, 50);
     floorGeo.rotateX(-Math.PI / 2);
     const fPos = floorGeo.attributes.position;
     for (let i = 0; i < fPos.count; i++) {
         const x = fPos.getX(i), z = fPos.getZ(i);
-        fPos.setY(i, Math.sin(x * 0.05) * Math.cos(z * 0.05) * 3 + Math.random() * 0.5);
+        // Bumpy terrain like Hyrule / Mushroom Kingdom
+        fPos.setY(i, Math.sin(x * 0.1) * Math.cos(z * 0.1) * 2 + Math.sin(x * 0.03) * 3);
     }
     fPos.needsUpdate = true;
     floorGeo.computeVertexNormals();
-    const floorMat = new THREE.MeshPhongMaterial({ color: floorColor, flatShading: true });
+    const floorMat = new THREE.MeshPhongMaterial({ color: terrainColor, flatShading: true });
     const floor = new THREE.Mesh(floorGeo, floorMat);
     floor.receiveShadow = true;
     scene.add(floor);
 
-    // --- PROJECT MONOLITHS ---
+    // --- SCENERY ---
+    // Clouds
+    const clouds = [];
+    if (!isDark) {
+        const cloudGeo = new THREE.SphereGeometry(2, 7, 7);
+        const cloudMat = new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true });
+        for (let i = 0; i < 15; i++) {
+            const cloud = new THREE.Group();
+            for (let j = 0; j < 5; j++) {
+                const puff = new THREE.Mesh(cloudGeo, cloudMat);
+                puff.position.set(Math.random() * 3 - 1.5, Math.random() * 2, Math.random() * 3 - 1.5);
+                puff.scale.setScalar(0.5 + Math.random() * 1.5);
+                cloud.add(puff);
+            }
+            cloud.position.set((Math.random() - 0.5) * 200, 20 + Math.random() * 15, (Math.random() - 0.5) * 200);
+            scene.add(cloud);
+            clouds.push(cloud);
+        }
+    } else {
+        // Stars for night mode
+        const starGeo = new THREE.BufferGeometry();
+        const starPos = new Float32Array(1500 * 3);
+        for(let i=0; i<1500*3; i+=3) {
+            starPos[i] = (Math.random() - 0.5) * 400;
+            starPos[i+1] = Math.random() * 150 + 10;
+            starPos[i+2] = (Math.random() - 0.5) * 400;
+        }
+        starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+        const starMat = new THREE.PointsMaterial({color: 0xffffff, size: 0.5});
+        scene.add(new THREE.Points(starGeo, starMat));
+    }
+
+    // Trees (Zelda style) & Pipes (Mario style)
+    const sceneryObjects = [];
+    for (let i = 0; i < 35; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 35 + Math.random() * 70;
+        const x = Math.cos(angle) * radius;
+        const z = Math.sin(angle) * radius;
+        
+        if (Math.random() > 0.3) {
+            // Tree
+            const tree = new THREE.Group();
+            const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.4, 2, 5), new THREE.MeshPhongMaterial({color: 0x5c4033, flatShading: true}));
+            trunk.position.y = 1;
+            trunk.castShadow = true;
+            const leaves = new THREE.Mesh(new THREE.DodecahedronGeometry(2), new THREE.MeshPhongMaterial({color: 0x228B22, flatShading: true}));
+            leaves.position.y = 3;
+            leaves.castShadow = true;
+            tree.add(trunk);
+            tree.add(leaves);
+            tree.position.set(x, 0, z);
+            tree.scale.setScalar(0.8 + Math.random() * 0.6);
+            scene.add(tree);
+        } else {
+            // Mario Pipe
+            const pipe = new THREE.Group();
+            const body = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 3, 12), new THREE.MeshPhongMaterial({color: 0x00aa00, flatShading: true}));
+            body.position.y = 1.5;
+            body.castShadow = true;
+            const rim = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 1.7, 0.5, 12), new THREE.MeshPhongMaterial({color: 0x00cc00, flatShading: true}));
+            rim.position.y = 3.25;
+            rim.castShadow = true;
+            pipe.add(body);
+            pipe.add(rim);
+            pipe.position.set(x, -0.5, z); // Sunk slightly into ground
+            pipe.scale.setScalar(0.7 + Math.random() * 0.5);
+            scene.add(pipe);
+        }
+    }
+
+    // --- PROJECTS (Mario Blocks & Zelda Rupees) ---
     const keys = Object.keys(projectDetails);
+    projectMonoliths = []; // Reset global array
+
+    // Create a glowing coin material for Mario blocks
+    const blockMat = new THREE.MeshPhongMaterial({ color: 0xFFD700, emissive: 0xb8860b, flatShading: true });
     
-    // Optional: Keep different geometries but use uniform color
-    const geometries = [
-        (h) => new THREE.BoxGeometry(2, h, 2),
-        (h) => new THREE.CylinderGeometry(1, 1, h, 6),
-        (h) => new THREE.DodecahedronGeometry(h * 0.4, 0)
-    ];
+    // Rupee colors (Green, Blue, Red, Purple)
+    const rupeeColors = [0x2ecc71, 0x3498db, 0xe74c3c, 0x9b59b6];
 
     keys.forEach((key, index) => {
-        const h = 3 + Math.random() * 3;
-        const geoFn = geometries[index % geometries.length];
-        const geometry = geoFn(h);
-        const material = new THREE.MeshPhongMaterial({
-            color: monolithColor,
-            emissive: monolithColor,
-            emissiveIntensity: isDark ? 0.2 : 0.1,
-            flatShading: true,
-            transparent: true,
-            opacity: 0.9
-        });
-        const monolith = new THREE.Mesh(geometry, material);
-        monolith.castShadow = true;
-
+        const type = index % 2 === 0 ? 'mario' : 'zelda';
         const angle = (index / keys.length) * Math.PI * 2;
         const radius = 22 + (index % 3) * 6;
-        monolith.position.set(Math.cos(angle) * radius, h / 2 + 1, Math.sin(angle) * radius);
-        monolith.userData = { projKey: key, baseY: h / 2 + 1 };
-        scene.add(monolith);
-        projectMonoliths.push(monolith);
+        const x = Math.cos(angle) * radius;
+        const z = Math.sin(angle) * radius;
+        const baseY = 3 + Math.random() * 2;
+
+        let obj;
+        if (type === 'mario') {
+            // Mario Question Block (Yellow Cube)
+            obj = new THREE.Mesh(new THREE.BoxGeometry(2.5, 2.5, 2.5), blockMat.clone());
+        } else {
+            // Zelda Rupee (Octahedron / Diamond)
+            const rColor = rupeeColors[index % rupeeColors.length];
+            const mat = new THREE.MeshPhongMaterial({
+                color: rColor,
+                emissive: rColor,
+                emissiveIntensity: 0.4,
+                flatShading: true,
+                transparent: true,
+                opacity: 0.9
+            });
+            obj = new THREE.Mesh(new THREE.OctahedronGeometry(1.8, 0), mat);
+            // Scale to look like a gem
+            obj.scale.set(1, 1.5, 0.5);
+        }
+        
+        obj.castShadow = true;
+        obj.position.set(x, baseY, z);
+        
+        // Add a soft light under each object
+        const ptLight = new THREE.PointLight(type === 'mario' ? 0xFFD700 : obj.material.color.getHex(), 1, 10);
+        ptLight.position.set(0, -2, 0);
+        obj.add(ptLight);
+
+        obj.userData = { 
+            projKey: key, 
+            type: type, 
+            baseY: baseY, 
+            isHovered: false,
+            animOffset: Math.random() * Math.PI * 2
+        };
+        
+        scene.add(obj);
+        projectMonoliths.push(obj);
     });
 
     // --- HOVER HIGHLIGHT ---
@@ -147,18 +258,32 @@ function init3DWorld() {
         hoverRaycaster.setFromCamera(hoverMouse, camera);
         const intersects = hoverRaycaster.intersectObjects(projectMonoliths);
         
-        if (hoveredObj) {
-            hoveredObj.material.emissiveIntensity = isDark ? 0.2 : 0.1;
-            hoveredObj.scale.set(1, 1, 1);
+        if (hoveredObj && (!intersects.length || intersects[0].object !== hoveredObj)) {
+            // Reset previous hover
+            hoveredObj.userData.isHovered = false;
+            if (hoveredObj.userData.type === 'mario') {
+                hoveredObj.scale.set(1, 1, 1);
+                hoveredObj.material.emissiveIntensity = 0;
+            } else {
+                hoveredObj.scale.set(1, 1.5, 0.5); // Reset rupee scale
+                hoveredObj.material.emissiveIntensity = 0.4;
+            }
             worldContainer.style.cursor = 'default';
-        }
-        if (intersects.length > 0) {
-            hoveredObj = intersects[0].object;
-            hoveredObj.material.emissiveIntensity = 0.6;
-            hoveredObj.scale.set(1.1, 1.1, 1.1);
-            worldContainer.style.cursor = 'pointer';
-        } else {
             hoveredObj = null;
+        }
+
+        if (intersects.length > 0 && intersects[0].object !== hoveredObj) {
+            hoveredObj = intersects[0].object;
+            hoveredObj.userData.isHovered = true;
+            
+            if (hoveredObj.userData.type === 'mario') {
+                hoveredObj.scale.set(1.2, 1.2, 1.2);
+                hoveredObj.material.emissiveIntensity = 0.5; // Glow on hover
+            } else {
+                hoveredObj.scale.set(1.2, 1.8, 0.6); // Bigger rupee
+                hoveredObj.material.emissiveIntensity = 0.8;
+            }
+            worldContainer.style.cursor = 'pointer';
         }
     }
     window.addEventListener('mousemove', onMouseMoveHover);
@@ -172,10 +297,10 @@ function init3DWorld() {
         </button>
         <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
             <span style="font-size: 0.75rem; opacity: 0.8; display: flex; align-items: center; gap: 0.5rem;">
-                <i class="fas fa-hand-pointer"></i> Click to explore
+                <i class="fas fa-hand-pointer"></i> Click blocks & rupees
             </span>
             <span style="font-size: 0.75rem; opacity: 0.8; display: flex; align-items: center; gap: 0.5rem;">
-                <i class="fas fa-arrows-alt"></i> Drag to rotate
+                <i class="fas fa-arrows-alt"></i> Drag to rotate camera
             </span>
         </div>
     `;
@@ -183,7 +308,7 @@ function init3DWorld() {
 
     const instruction = document.createElement('div');
     instruction.className = 'world-instruction';
-    instruction.innerHTML = '<i class="fas fa-globe"></i> Exploration Mode';
+    instruction.innerHTML = '<i class="fas fa-gamepad"></i> Game Exploration Mode';
     worldContainer.appendChild(instruction);
 
     // --- INTERACTION ---
@@ -199,7 +324,24 @@ function init3DWorld() {
         raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(projectMonoliths);
         if (intersects.length > 0) {
-            openModal(intersects[0].object.userData.projKey);
+            const obj = intersects[0].object;
+            
+            // "Jump" animation on click for Mario block
+            if (obj.userData.type === 'mario') {
+                const startY = obj.position.y;
+                let step = 0;
+                const jumpInterval = setInterval(() => {
+                    step += 0.2;
+                    obj.position.y = startY + Math.sin(step) * 2;
+                    if (step >= Math.PI) {
+                        obj.position.y = startY;
+                        clearInterval(jumpInterval);
+                        openModal(obj.userData.projKey);
+                    }
+                }, 16);
+            } else {
+                openModal(obj.userData.projKey);
+            }
         }
     }
 
@@ -228,7 +370,7 @@ function init3DWorld() {
         if (!isWorldActive) return;
         requestAnimationFrame(animate);
 
-        const time = Date.now() * 0.0005;
+        const time = Date.now() * 0.001;
 
         if (!isDragging) rotationY += 0.0015;
 
@@ -237,13 +379,32 @@ function init3DWorld() {
 
         camera.position.x = Math.cos(rotationY) * 38 + px;
         camera.position.z = Math.sin(rotationY) * 38;
-        camera.position.y = 14 + py;
-        camera.lookAt(px * 0.2, 2, 0);
+        camera.position.y = 12 + py; // Slightly lower camera for Zelda feel
+        camera.lookAt(px * 0.2, 4, 0);
 
-        // Animate monoliths
-        projectMonoliths.forEach((m, i) => {
-            m.position.y = m.userData.baseY + Math.sin(time * 2 + i * 0.7) * 0.8;
-            m.rotation.y += 0.008;
+        // Animate clouds
+        if (!isDark) {
+            clouds.forEach(cloud => {
+                cloud.position.x += 0.02;
+                if (cloud.position.x > 150) cloud.position.x = -150;
+            });
+        }
+
+        // Animate Objects
+        projectMonoliths.forEach((obj) => {
+            if (obj.userData.type === 'zelda') {
+                // Zelda rupees float and spin constantly
+                obj.position.y = obj.userData.baseY + Math.sin(time * 2 + obj.userData.animOffset) * 0.5;
+                obj.rotation.y += obj.userData.isHovered ? 0.1 : 0.02;
+            } else {
+                // Mario blocks float gently, shake on hover
+                if (obj.userData.isHovered) {
+                    obj.rotation.z = Math.sin(time * 20) * 0.1;
+                } else {
+                    obj.rotation.z = 0;
+                    obj.position.y = obj.userData.baseY + Math.sin(time * 1.5 + obj.userData.animOffset) * 0.3;
+                }
+            }
         });
 
         renderer.render(scene, camera);

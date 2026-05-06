@@ -1,15 +1,24 @@
 {
-  "name": "Herizo Randrianaina Portfolio",
-  "short_name": "Herizo",
+  "name": "Herizo Randrianaina | Fullstack Developer & AI Expert",
+  "short_name": "Herizo Portfolio",
+  "description": "Portfolio immersif avec monde 3D Low Poly. Développeur Fullstack expert en IA, CRM, SEO/GEO/GSO.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "background_color": "#0f172a",
+  "theme_color": "#0d9488",
+  "orientation": "any",
+  "categories": ["portfolio", "developer", "technology"],
   "icons": [
     {
       "src": "image/herizo.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "image/herizo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

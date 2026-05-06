@@ -66,31 +66,31 @@
 
 /* Design System & Tokens */
 :root {
-    /* Light Theme Tokens */
-    --bg-primary: #f8fafc;
-    --bg-secondary: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --accent: #0d9488;
-    --accent-hover: #0f766e;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
-    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    /* Light Theme Tokens - Mapped to Spotify Theme */
+    --bg-primary: oklch(0.99 0 0);
+    --bg-secondary: oklch(1.00 0 0);
+    --text-primary: oklch(0.35 0.02 165.48);
+    --text-secondary: oklch(0.50 0.03 268.53);
+    --accent: oklch(0.67 0.17 153.85);
+    --accent-hover: oklch(0.57 0.17 153.85);
+    --glass-bg: oklch(1.00 0 0 / 0.7);
+    --glass-border: oklch(0.94 0.01 238.46);
+    --card-shadow: 0px 1px 3px 0px oklch(0.35 0.05 163.02 / 0.04), 0px 1px 2px -1px oklch(0.35 0.05 163.02 / 0.04);
     --nav-height: 70px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
-    /* Dark Theme Tokens */
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --accent: #2dd4bf;
-    --accent-hover: #5eead4;
-    --glass-bg: rgba(30, 41, 59, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+    /* Dark Theme Tokens - Mapped to Spotify Theme */
+    --bg-primary: oklch(0.15 0.02 269.18);
+    --bg-secondary: oklch(0.20 0.02 266.02);
+    --text-primary: oklch(0.95 0.01 238.46);
+    --text-secondary: oklch(0.60 0.03 269.46);
+    --accent: oklch(0.67 0.17 153.85);
+    --accent-hover: oklch(0.77 0.17 153.85);
+    --glass-bg: oklch(0.20 0.02 266.02 / 0.7);
+    --glass-border: oklch(0.95 0.01 238.46 / 15%);
+    --card-shadow: 0px 8px 10px -1px oklch(0 0 0 / 0.2);
 }
 
 /* Base Styles */
@@ -1120,29 +1120,34 @@ body.mode-3d-active .glass {
 .world-ui {
     position: absolute;
     bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 2rem;
     z-index: 1001;
     display: flex;
-    gap: 1rem;
-    background: rgba(15, 23, 42, 0.8);
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(10px);
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    border: 1px solid var(--glass-border);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
 }
 
 .world-instruction {
     position: absolute;
-    top: 5rem;
+    top: 2rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1001;
-    color: var(--accent);
+    color: rgba(255, 255, 255, 0.9);
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     pointer-events: none;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }

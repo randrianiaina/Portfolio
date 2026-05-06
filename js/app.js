@@ -57,72 +57,134 @@ let isWorldActive = false;
 function init3DWorld() {
     worldContainer = document.getElementById('threejs-world');
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0f172a);
-    scene.fog = new THREE.Fog(0x0f172a, 20, 100);
+    
+    // Theme-based colors (Mapped to Spotify OKLCH Theme)
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const bgColor = isDark ? 0x171723 : 0xfdfdfd; // oklch(0.15 0.02 269.18) / oklch(0.99 0 0)
+    const fogColor = isDark ? 0x171723 : 0xfdfdfd;
+    const floorColor = isDark ? 0x222436 : 0xf0f0f0; // slightly lighter/darker for contrast
+    const monolithColor = 0x1db954; // Spotify Green approx for oklch(0.67 0.17 153.85)
 
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 5, 20);
+    scene.background = new THREE.Color(bgColor);
+    scene.fog = new THREE.FogExp2(fogColor, 0.015);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 15, 40);
+
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
     worldContainer.appendChild(renderer.domElement);
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    // --- LIGHTING ---
+    const ambientLight = new THREE.AmbientLight(0xffffff, isDark ? 0.4 : 0.7);
     scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(10, 20, 10);
-    scene.add(directionalLight);
+    const dirLight = new THREE.DirectionalLight(0xffffff, isDark ? 0.8 : 0.5);
+    dirLight.position.set(30, 50, 20);
+    dirLight.castShadow = true;
+    scene.add(dirLight);
 
-    // Low Poly Floor
-    const floorGeometry = new THREE.PlaneGeometry(200, 200, 20, 20);
-    floorGeometry.rotateX(-Math.PI / 2);
-    const pos = floorGeometry.attributes.position;
-    for (let i = 0; i < pos.count; i++) {
-        pos.setY(i, Math.random() * 2);
+    // --- TERRAIN ---
+    const floorGeo = new THREE.PlaneGeometry(300, 300, 40, 40);
+    floorGeo.rotateX(-Math.PI / 2);
+    const fPos = floorGeo.attributes.position;
+    for (let i = 0; i < fPos.count; i++) {
+        const x = fPos.getX(i), z = fPos.getZ(i);
+        fPos.setY(i, Math.sin(x * 0.05) * Math.cos(z * 0.05) * 3 + Math.random() * 0.5);
     }
-    const floorMaterial = new THREE.MeshPhongMaterial({ color: 0x1e293b, flatShading: true });
-    const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+    fPos.needsUpdate = true;
+    floorGeo.computeVertexNormals();
+    const floorMat = new THREE.MeshPhongMaterial({ color: floorColor, flatShading: true });
+    const floor = new THREE.Mesh(floorGeo, floorMat);
+    floor.receiveShadow = true;
     scene.add(floor);
 
-    // Project Monoliths
+    // --- PROJECT MONOLITHS ---
     const keys = Object.keys(projectDetails);
+    
+    // Optional: Keep different geometries but use uniform color
+    const geometries = [
+        (h) => new THREE.BoxGeometry(2, h, 2),
+        (h) => new THREE.CylinderGeometry(1, 1, h, 6),
+        (h) => new THREE.DodecahedronGeometry(h * 0.4, 0)
+    ];
+
     keys.forEach((key, index) => {
-        const h = 2 + Math.random() * 4;
-        const geometry = new THREE.BoxGeometry(2, h, 2);
-        const material = new THREE.MeshPhongMaterial({ 
-            color: index % 2 === 0 ? 0x3b82f6 : 0x8b5cf6, 
+        const h = 3 + Math.random() * 3;
+        const geoFn = geometries[index % geometries.length];
+        const geometry = geoFn(h);
+        const material = new THREE.MeshPhongMaterial({
+            color: monolithColor,
+            emissive: monolithColor,
+            emissiveIntensity: isDark ? 0.2 : 0.1,
             flatShading: true,
             transparent: true,
             opacity: 0.9
         });
         const monolith = new THREE.Mesh(geometry, material);
-        
+        monolith.castShadow = true;
+
         const angle = (index / keys.length) * Math.PI * 2;
-        const radius = 30 + Math.random() * 10;
-        monolith.position.set(Math.cos(angle) * radius, h/2, Math.sin(angle) * radius);
-        monolith.userData = { projKey: key };
+        const radius = 22 + (index % 3) * 6;
+        monolith.position.set(Math.cos(angle) * radius, h / 2 + 1, Math.sin(angle) * radius);
+        monolith.userData = { projKey: key, baseY: h / 2 + 1 };
         scene.add(monolith);
         projectMonoliths.push(monolith);
     });
 
-    // UI Overlay
+    // --- HOVER HIGHLIGHT ---
+    let hoveredObj = null;
+    const hoverRaycaster = new THREE.Raycaster();
+    const hoverMouse = new THREE.Vector2();
+
+    function onMouseMoveHover(e) {
+        if (!isWorldActive) return;
+        hoverMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+        hoverMouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        hoverRaycaster.setFromCamera(hoverMouse, camera);
+        const intersects = hoverRaycaster.intersectObjects(projectMonoliths);
+        
+        if (hoveredObj) {
+            hoveredObj.material.emissiveIntensity = isDark ? 0.2 : 0.1;
+            hoveredObj.scale.set(1, 1, 1);
+            worldContainer.style.cursor = 'default';
+        }
+        if (intersects.length > 0) {
+            hoveredObj = intersects[0].object;
+            hoveredObj.material.emissiveIntensity = 0.6;
+            hoveredObj.scale.set(1.1, 1.1, 1.1);
+            worldContainer.style.cursor = 'pointer';
+        } else {
+            hoveredObj = null;
+        }
+    }
+    window.addEventListener('mousemove', onMouseMoveHover);
+
+    // --- UI OVERLAY ---
     const ui = document.createElement('div');
     ui.className = 'world-ui';
     ui.innerHTML = `
-        <button onclick="toggle3DWorld()" class="btn btn-outline" style="color: white; border-color: white;">EXIT WORLD</button>
-        <span style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
-            <i class="fas fa-mouse"></i> Click objects to explore
-        </span>
+        <button onclick="toggle3DWorld()" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
+            <i class="fas fa-arrow-left"></i> EXIT WORLD
+        </button>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
+            <span style="font-size: 0.75rem; opacity: 0.8; display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-hand-pointer"></i> Click to explore
+            </span>
+            <span style="font-size: 0.75rem; opacity: 0.8; display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-arrows-alt"></i> Drag to rotate
+            </span>
+        </div>
     `;
     worldContainer.appendChild(ui);
 
     const instruction = document.createElement('div');
     instruction.className = 'world-instruction';
-    instruction.innerHTML = 'Low Poly Exploration Mode';
+    instruction.innerHTML = '<i class="fas fa-globe"></i> Exploration Mode';
     worldContainer.appendChild(instruction);
 
-    // Interaction (Mouse & Touch)
+    // --- INTERACTION ---
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
@@ -130,10 +192,8 @@ function init3DWorld() {
         if (!isWorldActive) return;
         const clientX = event.touches ? event.touches[0].clientX : event.clientX;
         const clientY = event.touches ? event.touches[0].clientY : event.clientY;
-        
         mouse.x = (clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(clientY / window.innerHeight) * 2 + 1;
-        
         raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(projectMonoliths);
         if (intersects.length > 0) {
@@ -141,7 +201,6 @@ function init3DWorld() {
         }
     }
 
-    // Camera Rotation via Drag/Touch
     let isDragging = false;
     let previousX = 0;
     let rotationY = 0;
@@ -162,36 +221,34 @@ function init3DWorld() {
     window.addEventListener('touchend', () => isDragging = false);
     window.addEventListener('click', (e) => { if(!e.touches) onPointerDown(e); });
 
+    // --- ANIMATE ---
     function animate() {
         if (!isWorldActive) return;
         requestAnimationFrame(animate);
-        
-        const time = Date.now() * 0.0005;
-        
-        // Manual rotation + auto drift
-        if (!isDragging) rotationY += 0.002;
-        
-        // Parallax: subtle camera shift from mouse position
-        const px = (typeof globalMouse !== 'undefined') ? globalMouse.x * 3 : 0;
-        const py = (typeof globalMouse !== 'undefined') ? (globalMouse.y - 1) * 3 : 0;
-        
-        camera.position.x = Math.cos(rotationY) * 40 + px;
-        camera.position.z = Math.sin(rotationY) * 40;
-        camera.position.y = 15 + py;
-        camera.lookAt(px * 0.3, 0, 0);
 
-        // Floating monoliths with subtle parallax tilt
+        const time = Date.now() * 0.0005;
+
+        if (!isDragging) rotationY += 0.0015;
+
+        const px = (typeof globalMouse !== 'undefined') ? globalMouse.x * 3 : 0;
+        const py = (typeof globalMouse !== 'undefined') ? (globalMouse.y - 1) * 2 : 0;
+
+        camera.position.x = Math.cos(rotationY) * 38 + px;
+        camera.position.z = Math.sin(rotationY) * 38;
+        camera.position.y = 14 + py;
+        camera.lookAt(px * 0.2, 2, 0);
+
+        // Animate monoliths
         projectMonoliths.forEach((m, i) => {
-            m.position.y = (2 + Math.sin(time * 2 + i)) * 0.5 + 1;
-            m.rotation.y += 0.01;
-            m.rotation.x = px * 0.03;
-            m.rotation.z = py * 0.03;
+            m.position.y = m.userData.baseY + Math.sin(time * 2 + i * 0.7) * 0.8;
+            m.rotation.y += 0.008;
         });
 
         renderer.render(scene, camera);
     }
     animate();
 }
+
 
 window.addEventListener('resize', () => {
     if (renderer && camera) {

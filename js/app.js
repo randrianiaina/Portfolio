@@ -441,6 +441,38 @@ function toggle3DWorld() {
 
 document.getElementById('mode-3d-toggle').addEventListener('click', toggle3DWorld);
 
+// --- PROJECT FILTERING ---
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                // Reset display and animations
+                card.style.display = 'none';
+                card.classList.remove('reveal', 'active');
+                
+                if (filterValue === 'all' || filterValue === category) {
+                    card.style.display = 'block';
+                    // Trigger a reflow to restart animation if needed
+                    void card.offsetWidth;
+                    card.classList.add('reveal', 'active');
+                }
+            });
+        });
+    });
+});
+
 // Terminal, Typed, Particles, Scroll (Keep from previous version)
 const terminalBody = document.getElementById('terminal-body');
 const terminalInput = document.getElementById('terminal-input');

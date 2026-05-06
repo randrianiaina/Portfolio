@@ -160,7 +160,7 @@ function init3DWorld() {
     window.addEventListener('touchmove', onPointerMove);
     window.addEventListener('mouseup', () => isDragging = false);
     window.addEventListener('touchend', () => isDragging = false);
-    window.addEventListener('click', (e) => { if(!event.touches) onPointerDown(e); });
+    window.addEventListener('click', (e) => { if(!e.touches) onPointerDown(e); });
 
     function animate() {
         if (!isWorldActive) return;
@@ -171,14 +171,21 @@ function init3DWorld() {
         // Manual rotation + auto drift
         if (!isDragging) rotationY += 0.002;
         
-        camera.position.x = Math.cos(rotationY) * 40;
+        // Parallax: subtle camera shift from mouse position
+        const px = (typeof globalMouse !== 'undefined') ? globalMouse.x * 3 : 0;
+        const py = (typeof globalMouse !== 'undefined') ? (globalMouse.y - 1) * 3 : 0;
+        
+        camera.position.x = Math.cos(rotationY) * 40 + px;
         camera.position.z = Math.sin(rotationY) * 40;
-        camera.lookAt(0, 0, 0);
+        camera.position.y = 15 + py;
+        camera.lookAt(px * 0.3, 0, 0);
 
-        // Floating monoliths
+        // Floating monoliths with subtle parallax tilt
         projectMonoliths.forEach((m, i) => {
             m.position.y = (2 + Math.sin(time * 2 + i)) * 0.5 + 1;
             m.rotation.y += 0.01;
+            m.rotation.x = px * 0.03;
+            m.rotation.z = py * 0.03;
         });
 
         renderer.render(scene, camera);
@@ -364,6 +371,9 @@ window.addEventListener('mousemove', (e) => {
     globalMouse.y = (e.clientY / window.innerHeight) * 2 + 1;
 });
 
-// Update animate loop inside init3DWorld (conceptually, we need to inject this into the already defined animate)
-// Since animate is inside init3DWorld, I'll modify the entire function or add a listener.
-// I'll update the animate function in app.js.
+document.addEventListener("DOMContentLoaded", () => {
+    initSplashScreen();
+    initAutoTheme();
+    updateLanguage(currentLang);
+    setTimeout(type, 1000);
+});

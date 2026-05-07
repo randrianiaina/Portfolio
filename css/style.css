@@ -66,31 +66,30 @@
 
 /* Design System & Tokens */
 :root {
-    /* Light Theme Tokens - Mapped to Spotify Theme */
-    --bg-primary: oklch(0.99 0 0);
-    --bg-secondary: oklch(1.00 0 0);
-    --text-primary: oklch(0.35 0.02 165.48);
-    --text-secondary: oklch(0.50 0.03 268.53);
-    --accent: oklch(0.67 0.17 153.85);
-    --accent-hover: oklch(0.57 0.17 153.85);
-    --glass-bg: oklch(1.00 0 0 / 0.7);
-    --glass-border: oklch(0.94 0.01 238.46);
-    --card-shadow: 0px 1px 3px 0px oklch(0.35 0.05 163.02 / 0.04), 0px 1px 2px -1px oklch(0.35 0.05 163.02 / 0.04);
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #121212;
+    --text-secondary: #4b5563; /* Darker grey for better contrast */
+    --accent: #1db954;
+    --accent-hover: #1ed760;
+    --glass-bg: rgba(255, 255, 255, 0.85); /* Slightly more opaque for readability */
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     --nav-height: 70px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
-    /* Dark Theme Tokens - Mapped to Spotify Theme */
-    --bg-primary: oklch(0.15 0.02 269.18);
-    --bg-secondary: oklch(0.20 0.02 266.02);
-    --text-primary: oklch(0.95 0.01 238.46);
-    --text-secondary: oklch(0.60 0.03 269.46);
-    --accent: oklch(0.67 0.17 153.85);
-    --accent-hover: oklch(0.77 0.17 153.85);
-    --glass-bg: oklch(0.20 0.02 266.02 / 0.7);
-    --glass-border: oklch(0.95 0.01 238.46 / 15%);
-    --card-shadow: 0px 8px 10px -1px oklch(0 0 0 / 0.2);
+    /* Dark Theme Tokens - Spotify Style (Standard Hex/RGBA) */
+    --bg-primary: #121212;
+    --bg-secondary: #181818;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent: #1db954;
+    --accent-hover: #1ed760;
+    --glass-bg: rgba(24, 24, 24, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
 }
 
 /* Base Styles */
@@ -107,15 +106,16 @@ html {
 
 /* Custom Cursor */
 .custom-cursor {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: var(--accent);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 10000; /* Higher than navbar */
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    opacity: 1; /* Ensure visible */
 }
 
 .cursor-follower {
@@ -125,9 +125,23 @@ html {
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    z-index: 9998;
+    z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+/* Reveal Animations */
+.reveal {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Scroll Progress */

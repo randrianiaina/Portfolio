@@ -607,25 +607,96 @@ function initAutoTheme() {
     };
     
     // Initial check
-    if (!localStorage.getItem('theme')) {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme === 'dark');
+    } else {
         setTheme(prefersDark.matches);
     }
     
     prefersDark.addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) setTheme(e.matches);
     });
+
+    // Manual toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            const newIsDark = !isDark;
+            setTheme(newIsDark);
+            localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
+        });
+    }
 }
 
-// Global Mouse tracking for Parallax
-const globalMouse = { x: 0, y: 0 };
+// --- CUSTOM CURSOR LOGIC ---
+const cursor = document.querySelector('.custom-cursor');
+const follower = document.querySelector('.cursor-follower');
+let mouseX = 0, mouseY = 0;
+let followerX = 0, followerY = 0;
+
 window.addEventListener('mousemove', (e) => {
-    globalMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    globalMouse.y = (e.clientY / window.innerHeight) * 2 + 1;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    if (cursor) {
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+    }
 });
+
+function animateCursor() {
+    followerX += (mouseX - followerX) * 0.1;
+    followerY += (mouseY - followerY) * 0.1;
+    
+    if (follower) {
+        follower.style.left = followerX + 'px';
+        follower.style.top = followerY + 'px';
+    }
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Cursor Hover Effects
+document.querySelectorAll('a, button, .project-card, .filter-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        if (cursor) cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        if (follower) {
+            follower.style.width = '50px';
+            follower.style.height = '50px';
+            follower.style.background = 'rgba(29, 185, 84, 0.1)';
+        }
+    });
+    el.addEventListener('mouseleave', () => {
+        if (cursor) cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        if (follower) {
+            follower.style.width = '30px';
+            follower.style.height = '30px';
+            follower.style.background = 'transparent';
+        }
+    });
+});
+
+// --- REVEAL ANIMATION LOGIC ---
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+function initReveals() {
+    document.querySelectorAll('.reveal').forEach(el => {
+        revealObserver.observe(el);
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     initSplashScreen();
     initAutoTheme();
     updateLanguage(currentLang);
+    initReveals();
     setTimeout(type, 1000);
 });

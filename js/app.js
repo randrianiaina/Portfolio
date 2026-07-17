@@ -1,26 +1,22 @@
 // Project Details Data
 const projectDetails = {
-    proj1: { category: 'crm', fr: { title: "Analyses des Besoins (AOPIA-LIKE)", challenge: "Gérer des workflows complexes.", solution: "Architecture NestJS + Playwright.", stack: ["NestJS", "Vue.js", "PostgreSQL"] }, en: { title: "Needs Analysis (AOPIA-LIKE)", challenge: "Manage complex workflows.", solution: "NestJS + Playwright architecture.", stack: ["NestJS", "Vue.js", "PostgreSQL"] } },
-    proj2: { category: 'mobile', fr: { title: "Wizi Learn", challenge: "Apprentissage cross-platform.", solution: "Flutter + React + Laravel.", stack: ["Flutter", "React", "Laravel"] }, en: { title: "Wizi Learn", challenge: "Cross-platform learning.", solution: "Flutter + React + Laravel.", stack: ["Flutter", "React", "Laravel"] } },
-    proj3: { category: 'ai', fr: { title: "QuizThème AI", challenge: "Génération auto de quiz via IA.", solution: "Next.js + OpenAI API.", stack: ["Next.js", "OpenAI", "Tailwind"] }, en: { title: "QuizTheme AI", challenge: "Auto quiz generation via AI.", solution: "Next.js + OpenAI API.", stack: ["Next.js", "OpenAI", "Tailwind"] } },
-    proj4: { category: 'crm', fr: { title: "AOPIA CRM & CTI", challenge: "Intégration Aircall.", solution: "Webhooks & API Aircall.", stack: ["NestJS", "Aircall", "Redis"] }, en: { title: "AOPIA CRM & CTI", challenge: "Aircall integration.", solution: "Webhooks & Aircall API.", stack: ["NestJS", "Aircall", "Redis"] } },
-    proj5: { category: 'ai', fr: { title: "TAL.IA", challenge: "Analyse logs CRM via LLM.", solution: "GPT-4 + Python engine.", stack: ["Python", "OpenAI", "FastAPI"] }, en: { title: "TAL.IA", challenge: "CRM logs analysis via LLM.", solution: "GPT-4 + Python engine.", stack: ["Python", "OpenAI", "FastAPI"] } },
-    proj6: { category: 'mobile', fr: { title: "POS-Flutter", challenge: "Stock offline synchronisé.", solution: "Flutter + SQLite + WebSockets.", stack: ["Flutter", "Node.js", "SQLite"] }, en: { title: "POS-Flutter", challenge: "Synced offline stock.", solution: "Flutter + SQLite + WebSockets.", stack: ["Flutter", "Node.js", "SQLite"] } },
-    proj7: { category: 'ai', url: 'https://lingo-live-delta.vercel.app/', fr: { title: "LingoLive AI", challenge: "Conversation vocale Gemini Live.", solution: "Interaction temps réel & analyse prononciation.", stack: ["Next.js", "Gemini Live", "Web Speech"] }, en: { title: "LingoLive AI", challenge: "Gemini Live voice chat.", solution: "Real-time interaction & pronunciation analysis.", stack: ["Next.js", "Gemini Live", "Web Speech"] } },
-    proj8: { category: 'crm', fr: { title: "TalentPlan", challenge: "Gestion projet agence web.", solution: "Next.js + Firebase Realtime.", stack: ["Next.js", "Firebase", "Tailwind"] }, en: { title: "TalentPlan", challenge: "Web agency project management.", solution: "Next.js + Firebase Realtime.", stack: ["Next.js", "Firebase", "Tailwind"] } },
-    proj9: { category: 'ai', fr: { title: "Wizi Learn Audio", challenge: "Conversion quiz en audio.", solution: "IA Voice Gen + MP3 Export.", stack: ["Next.js", "TTS API", "Web Audio"] }, en: { title: "Wizi Learn Audio", challenge: "Convert quiz to audio.", solution: "IA Voice Gen + MP3 Export.", stack: ["Next.js", "TTS API", "Web Audio"] } },
-    proj10: { category: 'ai', url: 'https://ocr-generator.vercel.app/', fr: { title: "OCR IA Vision", challenge: "Extraction HTML fidèle.", solution: "Tesseract + GPT Vision.", stack: ["Next.js", "OpenAI Vision", "Tesseract"] }, en: { title: "AI Vision OCR", challenge: "Faithful HTML extraction.", solution: "Tesseract + GPT Vision.", stack: ["Next.js", "OpenAI Vision", "Tesseract"] } },
-    proj11: { category: 'web', url: 'https://nathie-rose.vercel.app/', fr: { title: "Nathie Rose Portfolio", challenge: "Protection contenu & Geo-blocking.", solution: "Back-office + Edge Functions.", stack: ["Next.js", "Edge", "Cloudinary"] }, en: { title: "Nathie Rose Portfolio", challenge: "Content protection & Geo-blocking.", solution: "Back-office + Edge Functions.", stack: ["Next.js", "Edge", "Cloudinary"] } },
-    proj12: { category: 'web', url: 'https://shurt.vercel.app/', fr: { title: "Shurt - URL & Landing", challenge: "Optimisation de la visibilité sociale & SEO/GEO/GSO.", solution: "Générateur d'URL avec landing pages optimisées pour les moteurs IA.", stack: ["Next.js", "Firebase", "GEO Optimization"] }, en: { title: "Shurt - URL & Landing", challenge: "Social visibility & SEO/GEO/GSO optimization.", solution: "URL generator with landing pages optimized for AI Search Engines.", stack: ["Next.js", "Firebase", "GEO Optimization"] } },
-    proj13: { category: 'crm', fr: { title: "MESR - Symfony", challenge: "Gestion académique Ministère.", solution: "Symfony ACL & Workflows.", stack: ["Symfony", "PHP 8", "Docker"] }, en: { title: "MESR - Symfony", challenge: "Ministry academic management.", solution: "Symfony ACL & Workflows.", stack: ["Symfony", "PHP 8", "Docker"] } },
-    proj14: { category: 'crm', fr: { title: "PyAuto Task & Mail", challenge: "Automatisation de rapports.", solution: "Python + Smtplib + Schedule.", stack: ["Python", "Smtplib", "APScheduler"] }, en: { title: "PyAuto Task & Mail", challenge: "Reporting automation.", solution: "Python + Smtplib + Schedule.", stack: ["Python", "Smtplib", "APScheduler"] } },
-    proj15: { category: 'web', url: 'https://mekkala-seaview.com', fr: { title: "Mekkala Seaview", challenge: "Luxe WordPress.", solution: "Design premium & SEO.", stack: ["WordPress", "Elementor"] }, en: { title: "Mekkala Seaview", challenge: "Luxury WordPress.", solution: "Premium design & SEO.", stack: ["WordPress", "Elementor"] } },
-    proj16: { category: 'web', fr: { title: "SP Villa", challenge: "Gestion conciergerie.", solution: "Site vitrine optimisé.", stack: ["WordPress", "CSS"] }, en: { title: "SP Villa", challenge: "Concierge management.", solution: "Optimized showcase site.", stack: ["WordPress", "CSS"] } },
-    proj17: { category: 'web', url: 'https://watairloo.com', fr: { title: "Watairloo", challenge: "Shopify E-commerce.", solution: "Tunnel de vente optimisé.", stack: ["Shopify", "Liquid"] }, en: { title: "Watairloo", challenge: "Shopify E-commerce.", solution: "Optimized sales funnel.", stack: ["Shopify", "Liquid"] } },
-    proj18: { category: 'web', url: 'https://aopia-prevention.fr', fr: { title: "AOPIA Prévention", challenge: "Santé publique.", solution: "Portail institutionnel accessible.", stack: ["WordPress"] }, en: { title: "AOPIA Prevention", challenge: "Public health.", solution: "Accessible institutional portal.", stack: ["WordPress"] } },
-    proj19: { category: 'web', url: 'https://nova-kinder-garten.com', fr: { title: "Nova Kindergarten", challenge: "Éducation internationale.", solution: "Design intuitif & multilingue.", stack: ["WordPress"] }, en: { title: "Nova Kindergarten", challenge: "International education.", solution: "Intuitive & multilingual design.", stack: ["WordPress"] } },
-    proj20: { category: 'web', url: 'https://bianca-monroe.vercel.app', fr: { title: "Bianca Monroe Portfolio", challenge: "Portfolio pour modèle photo.", solution: "Landing page optimisée.", stack: ["Next.js", "Edge", "Cloudinary"] }, en: { title: "Bianca Monroe Portfolio", challenge: "Photo model portfolio.", solution: "Optimized landing page.", stack: ["Next.js", "Edge", "Cloudinary"] } },
-    proj21: { category: 'web', url: 'https://camila-monroe.vercel.app', fr: { title: "Camila Monroe Portfolio", challenge: "Portfolio pour modèle photo.", solution: "Landing page optimisée.", stack: ["Next.js", "Edge", "Cloudinary"] }, en: { title: "Camila Monroe Portfolio", challenge: "Photo model portfolio.", solution: "Optimized landing page.", stack: ["Next.js", "Edge", "Cloudinary"] } }
+    proj1: { category: 'crm', fr: { title: "EspoCRM", challenge: "Centraliser la gestion CRM avec des outils d'administration sur mesure et une base de code maintenable.", solution: "Instance EspoCRM containerisée (Docker) avec outils admin custom (CLEAR_DATA_ADMIN_TOOL), tests Playwright/PHPUnit et scripts de migration automatisés.", stack: ["PHP", "EspoCRM", "Docker", "Playwright", "PHPUnit"] }, en: { title: "EspoCRM", challenge: "Centralize CRM management with custom admin tools and maintainable codebase.", solution: "Containerized EspoCRM instance (Docker) with custom admin tools, Playwright/PHPUnit tests and automated migration scripts.", stack: ["PHP", "EspoCRM", "Docker", "Playwright", "PHPUnit"] } },
+    proj2: { category: 'crm', fr: { title: "crmfilament", challenge: "Unifier plusieurs portails métier (NsConseil, AlloPro, SuperAdmin) dans une interface d'administration cohérente.", solution: "Application Laravel 12 avec Filament PHP, gestion documentaire multi-portails et workflows métier configurables.", stack: ["Laravel 12", "Filament PHP", "PHP", "MySQL"] }, en: { title: "crmfilament", challenge: "Unify multiple business portals (NsConseil, AlloPro, SuperAdmin) in a consistent admin interface.", solution: "Laravel 12 app with Filament PHP, multi-portal document management and configurable business workflows.", stack: ["Laravel 12", "Filament PHP", "PHP", "MySQL"] } },
+    proj3: { category: 'crm', fr: { title: "espoAOPIA", challenge: "Adapter EspoCRM aux processus spécifiques du projet AOPIA avec des règles d'implantation dédiées.", solution: "Instance EspoCRM dérivée avec spécifications métier, entités custom et documentation d'implantation AOPIA.", stack: ["EspoCRM", "PHP", "Docker"] }, en: { title: "espoAOPIA", challenge: "Adapt EspoCRM to AOPIA project-specific processes with dedicated deployment rules.", solution: "Derived EspoCRM instance with business specs, custom entities and AOPIA deployment documentation.", stack: ["EspoCRM", "PHP", "Docker"] } },
+    proj4: { category: 'crm', fr: { title: "SuiteCRM", challenge: "Déployer une solution CRM open-source mature pour la gestion commerciale.", solution: "Installation et configuration SuiteCRM (fork SugarCRM) avec modules ventes, marketing et support.", stack: ["SuiteCRM", "PHP", "MySQL"] }, en: { title: "SuiteCRM", challenge: "Deploy a mature open-source CRM for sales management.", solution: "SuiteCRM installation and configuration (SugarCRM fork) with sales, marketing and support modules.", stack: ["SuiteCRM", "PHP", "MySQL"] } },
+    proj5: { category: 'crm', fr: { title: "vtigercrm", challenge: "Mettre en place un CRM traditionnel open-source pour les équipes commerciales.", solution: "Déploiement vtiger CRM avec personnalisation des modules ventes, tickets et automatisation.", stack: ["vtiger CRM", "PHP", "MySQL"] }, en: { title: "vtigercrm", challenge: "Set up a traditional open-source CRM for sales teams.", solution: "vtiger CRM deployment with customized sales, ticketing modules and automation.", stack: ["vtiger CRM", "PHP", "MySQL"] } },
+    proj6: { category: 'crm', fr: { title: "partner-connect-crm", challenge: "Piloter un réseau de partenaires avec visibilité sur les relations et les performances.", solution: "CRM dédié à la gestion de partenaires : fiches, suivi des interactions et centralisation des données réseau.", stack: ["CRM", "PHP", "API REST"] }, en: { title: "partner-connect-crm", challenge: "Manage a partner network with visibility on relationships and performance.", solution: "Dedicated partner CRM: profiles, interaction tracking and network data centralization.", stack: ["CRM", "PHP", "REST API"] } },
+    proj7: { category: 'webai', fr: { title: "AIQuizGenius", challenge: "Générer automatiquement des quiz pédagogiques de qualité à partir de contenus variés.", solution: "Application IA de génération de quiz avec prompts optimisés et export des questions/réponses.", stack: ["AI/LLM", "Next.js", "OpenAI"] }, en: { title: "AIQuizGenius", challenge: "Automatically generate quality educational quizzes from varied content.", solution: "AI quiz generation app with optimized prompts and Q&A export.", stack: ["AI/LLM", "Next.js", "OpenAI"] } },
+    proj8: { category: 'webai', fr: { title: "freellmapi", challenge: "Exposer un accès unifié aux LLM pour les applications internes sans dépendance fournisseur unique.", solution: "API REST abstraite pour interroger plusieurs modèles de langage avec gestion des clés et quotas.", stack: ["API REST", "LLM", "Python/Node.js"] }, en: { title: "freellmapi", challenge: "Provide unified LLM access for internal apps without single-vendor dependency.", solution: "Abstract REST API to query multiple language models with key and quota management.", stack: ["REST API", "LLM", "Python/Node.js"] } },
+    proj9: { category: 'webai', fr: { title: "pappers-collect", challenge: "Enrichir automatiquement les bases de leads avec des données entreprises fiables.", solution: "Connecteur API Pappers pour collecte, enrichissement et qualification de prospects B2B.", stack: ["Pappers API", "Python", "CRM"] }, en: { title: "pappers-collect", challenge: "Automatically enrich lead databases with reliable company data.", solution: "Pappers API connector for B2B prospect collection, enrichment and qualification.", stack: ["Pappers API", "Python", "CRM"] } },
+    proj10: { category: 'webai', fr: { title: "pappers-locator", challenge: "Retrouver et localiser des entreprises à partir de critères de recherche métier.", solution: "Outil de recherche entreprises via API Pappers avec filtres SIREN, secteur et géolocalisation.", stack: ["Pappers API", "JavaScript", "Maps"] }, en: { title: "pappers-locator", challenge: "Find and locate companies based on business search criteria.", solution: "Company search tool via Pappers API with SIREN, sector and geolocation filters.", stack: ["Pappers API", "JavaScript", "Maps"] } },
+    proj11: { category: 'webai', url: 'https://ocr-generator.vercel.app/', fr: { title: "vision2html", challenge: "Convertir des maquettes visuelles ou captures en code HTML fidèle.", solution: "Pipeline vision IA pour analyse d'images et génération d'interfaces web structurées.", stack: ["Computer Vision", "AI", "HTML/CSS", "Next.js"] }, en: { title: "vision2html", challenge: "Convert visual mockups or screenshots into faithful HTML code.", solution: "AI vision pipeline for image analysis and structured web interface generation.", stack: ["Computer Vision", "AI", "HTML/CSS", "Next.js"] } },
+    proj12: { category: 'webai', fr: { title: "taskosaur", challenge: "Suivre les tâches et livrables d'équipe sans outil lourd de gestion de projet.", solution: "Gestionnaire de tâches léger avec statuts, assignations et vue d'ensemble de l'activité.", stack: ["Web App", "JavaScript", "SQLite/MySQL"] }, en: { title: "taskosaur", challenge: "Track team tasks and deliverables without heavy project management tooling.", solution: "Lightweight task manager with statuses, assignments and activity overview.", stack: ["Web App", "JavaScript", "SQLite/MySQL"] } },
+    proj13: { category: 'webai', fr: { title: "Leads-Allopro24", challenge: "Centraliser la capture et le suivi des leads pour l'activité Allopro.", solution: "Gestionnaire de leads dédié : formulaires, qualification, pipeline commercial et reporting.", stack: ["CRM", "PHP/Laravel", "MySQL"] }, en: { title: "Leads-Allopro24", challenge: "Centralize lead capture and follow-up for Allopro activity.", solution: "Dedicated lead manager: forms, qualification, sales pipeline and reporting.", stack: ["CRM", "PHP/Laravel", "MySQL"] } },
+    proj14: { category: 'tools', fr: { title: "Active Noise Cancelling", challenge: "Expérimenter l'annulation de bruit actif sur signaux audio en temps réel.", solution: "Prototypes ANC avec algorithmes de traitement du signal et tests sur différents environnements sonores.", stack: ["Signal Processing", "Python", "DSP"] }, en: { title: "Active Noise Cancelling", challenge: "Experiment with active noise cancellation on real-time audio signals.", solution: "ANC prototypes with signal processing algorithms and tests across sound environments.", stack: ["Signal Processing", "Python", "DSP"] } },
+    proj15: { category: 'tools', fr: { title: "allopro", challenge: "Déployer une vitrine web WordPress pour la plateforme Allopro.", solution: "Installation WordPress, thème sur mesure, plugins métier et configuration hébergement.", stack: ["WordPress", "PHP", "MySQL"] }, en: { title: "allopro", challenge: "Deploy a WordPress web presence for the Allopro platform.", solution: "WordPress installation, custom theme, business plugins and hosting configuration.", stack: ["WordPress", "PHP", "MySQL"] } },
+    proj16: { category: 'tools', fr: { title: "android", challenge: "Développer des applications mobiles Android pour les besoins métier internes.", solution: "Projet mobile Android natif/hybride pour outils terrain et accès aux données CRM.", stack: ["Android", "Kotlin/Java", "REST API"] }, en: { title: "android", challenge: "Build Android mobile apps for internal business needs.", solution: "Native/hybrid Android project for field tools and CRM data access.", stack: ["Android", "Kotlin/Java", "REST API"] } },
+    proj17: { category: 'tools', fr: { title: "monday-project-hub", challenge: "Synchroniser la gestion de projets Monday.com avec les outils internes.", solution: "Hub d'intégration Monday.com : webhooks, synchronisation des boards et tableaux de bord unifiés.", stack: ["Monday.com API", "Webhooks", "Node.js/Python"] }, en: { title: "monday-project-hub", challenge: "Sync Monday.com project management with internal tools.", solution: "Monday.com integration hub: webhooks, board sync and unified dashboards.", stack: ["Monday.com API", "Webhooks", "Node.js/Python"] } }
 };
 
 // i18n & Basic UI
@@ -28,11 +24,42 @@ let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith
 function updateLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (window.portfolioTranslations[lang][key]) el.textContent = window.portfolioTranslations[lang][key];
     });
+    const langText = document.getElementById('lang-text');
+    if (langText) langText.textContent = lang === 'fr' ? 'EN' : 'FR';
     updateTypedArray();
+}
+
+function initLangToggle() {
+    const langBtn = document.getElementById('lang-toggle');
+    if (!langBtn) return;
+    langBtn.addEventListener('click', () => {
+        updateLanguage(currentLang === 'fr' ? 'en' : 'fr');
+    });
+}
+
+function applyProjectFilter(filter) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    const activeBtn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    document.querySelectorAll('.project-card, .project-category').forEach(item => {
+        const category = item.getAttribute('data-category');
+        const visible = filter === 'all' || category === filter;
+        item.style.display = visible ? 'block' : 'none';
+        if (visible) item.classList.add('active');
+        else item.classList.remove('active');
+    });
+}
+
+function initProjectFilter() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyProjectFilter(btn.getAttribute('data-filter')));
+    });
 }
 
 function openModal(projKey) {
@@ -50,6 +77,7 @@ function openModal(projKey) {
     document.getElementById('modal-overlay').style.display = 'flex';
 }
 function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
+function exportToPDF() { window.open('Profile.pdf', '_blank'); }
 
 // --- THREE.JS LOW POLY WORLD ---
 let scene, camera, renderer, worldContainer;
@@ -441,39 +469,7 @@ function toggle3DWorld() {
 
 document.getElementById('mode-3d-toggle').addEventListener('click', toggle3DWorld);
 
-// --- PROJECT FILTERING ---
-document.addEventListener('DOMContentLoaded', () => {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            const filterValue = btn.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                
-                // Reset display and animations
-                card.style.display = 'none';
-                card.classList.remove('reveal', 'active');
-                
-                if (filterValue === 'all' || filterValue === category) {
-                    card.style.display = 'block';
-                    // Trigger a reflow to restart animation if needed
-                    void card.offsetWidth;
-                    card.classList.add('reveal', 'active');
-                }
-            });
-        });
-    });
-});
-
-// Terminal, Typed, Particles, Scroll (Keep from previous version)
+// Terminal, Typed, Particles, Scroll
 const terminalBody = document.getElementById('terminal-body');
 const terminalInput = document.getElementById('terminal-input');
 if (terminalInput) {
@@ -486,45 +482,31 @@ function handleCommand(cmd) {
     terminalBody.appendChild(output);
     const resp = document.createElement('div'); resp.style.color = '#94a3b8';
     switch(cmd) {
-        case 'help': resp.innerHTML = 'Available: help, whoami, projects, clear, 3d'; break;
+        case 'help':
+            resp.innerHTML = currentLang === 'fr'
+                ? 'Commandes : help, whoami, projects, clear, 3d'
+                : 'Available: help, whoami, projects, clear, 3d';
+            break;
+        case 'whoami':
+            resp.innerHTML = currentLang === 'fr'
+                ? 'Herizo Randrianaina — Chef de projet IT & Développeur Back-end'
+                : 'Herizo Randrianaina — IT Project Manager & Back-end Developer';
+            break;
+        case 'projects':
+            resp.innerHTML = Object.keys(projectDetails)
+                .map(key => `• ${projectDetails[key][currentLang].title}`)
+                .join('<br>');
+            break;
         case '3d': toggle3DWorld(); resp.innerHTML = 'World loaded.'; break;
         case 'clear': terminalBody.innerHTML = ''; return;
-        default: resp.innerHTML = `Unknown: ${cmd}`;
+        default: resp.innerHTML = currentLang === 'fr' ? `Commande inconnue : ${cmd}` : `Unknown: ${cmd}`;
     }
     terminalBody.appendChild(resp);
     terminalBody.scrollTop = terminalBody.scrollHeight;
 }
 
-// --- PROJECT FILTERING LOGIC ---
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-
-if (filterButtons.length > 0) {
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.getAttribute('data-filter');
-            
-            // Update active state
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            // Filter projects
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    card.style.display = 'block';
-                    setTimeout(() => card.classList.add('active'), 50);
-                } else {
-                    card.style.display = 'none';
-                    card.classList.remove('active');
-                }
-            });
-        });
-    });
-}
-
 const typedTextSpan = document.querySelector(".typed-text");
-let textArray = currentLang === 'fr' ? ["Développeur Fullstack", "Architecte Produit", "IT Manager"] : ["Fullstack Developer", "Product Architect", "IT Manager"];
+let textArray = currentLang === 'fr' ? ["Chef de Projet IT", "Développeur Back-end", "Expert ERP/CRM & Data"] : ["IT Project Manager", "Back-end Developer", "ERP/CRM & Data Expert"];
 let textArrayIndex = 0, charIndex = 0;
 function type() {
     if (charIndex < textArray[textArrayIndex].length) { typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex); charIndex++; setTimeout(type, 100); }
@@ -534,7 +516,7 @@ function erase() {
     if (charIndex > 0) { typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1); charIndex--; setTimeout(erase, 50); }
     else { textArrayIndex = (textArrayIndex + 1) % textArray.length; setTimeout(type, 1000); }
 }
-function updateTypedArray() { textArray = currentLang === 'fr' ? ["Développeur Fullstack", "Architecte Produit", "IT Manager"] : ["Fullstack Developer", "Product Architect", "IT Manager"]; }
+function updateTypedArray() { textArray = currentLang === 'fr' ? ["Chef de Projet IT", "Développeur Back-end", "Expert ERP/CRM & Data"] : ["IT Project Manager", "Back-end Developer", "ERP/CRM & Data Expert"]; }
 
 window.addEventListener('scroll', () => {
     const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
@@ -696,6 +678,8 @@ function initReveals() {
 document.addEventListener("DOMContentLoaded", () => {
     initSplashScreen();
     initAutoTheme();
+    initLangToggle();
+    initProjectFilter();
     updateLanguage(currentLang);
     initReveals();
     setTimeout(type, 1000);

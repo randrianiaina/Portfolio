@@ -491,6 +491,19 @@ ul {
     gap: 2rem;
 }
 
+.project-category {
+    grid-column: 1 / -1;
+    margin: 0.5rem 0 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+}
+
+.project-category:first-child {
+    margin-top: 0;
+}
+
 .project-card {
     position: relative;
     border-radius: 1rem;

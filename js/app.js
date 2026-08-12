@@ -16,8 +16,98 @@ const projectDetails = {
     proj14: { category: 'tools', fr: { title: "Active Noise Cancelling", challenge: "Expérimenter l'annulation de bruit actif sur signaux audio en temps réel.", solution: "Prototypes ANC avec algorithmes de traitement du signal et tests sur différents environnements sonores.", stack: ["Signal Processing", "Python", "DSP"] }, en: { title: "Active Noise Cancelling", challenge: "Experiment with active noise cancellation on real-time audio signals.", solution: "ANC prototypes with signal processing algorithms and tests across sound environments.", stack: ["Signal Processing", "Python", "DSP"] } },
     proj15: { category: 'tools', fr: { title: "allopro", challenge: "Déployer une vitrine web WordPress pour la plateforme Allopro.", solution: "Installation WordPress, thème sur mesure, plugins métier et configuration hébergement.", stack: ["WordPress", "PHP", "MySQL"] }, en: { title: "allopro", challenge: "Deploy a WordPress web presence for the Allopro platform.", solution: "WordPress installation, custom theme, business plugins and hosting configuration.", stack: ["WordPress", "PHP", "MySQL"] } },
     proj16: { category: 'tools', fr: { title: "android", challenge: "Développer des applications mobiles Android pour les besoins métier internes.", solution: "Projet mobile Android natif/hybride pour outils terrain et accès aux données CRM.", stack: ["Android", "Kotlin/Java", "REST API"] }, en: { title: "android", challenge: "Build Android mobile apps for internal business needs.", solution: "Native/hybrid Android project for field tools and CRM data access.", stack: ["Android", "Kotlin/Java", "REST API"] } },
-    proj17: { category: 'tools', fr: { title: "monday-project-hub", challenge: "Synchroniser la gestion de projets Monday.com avec les outils internes.", solution: "Hub d'intégration Monday.com : webhooks, synchronisation des boards et tableaux de bord unifiés.", stack: ["Monday.com API", "Webhooks", "Node.js/Python"] }, en: { title: "monday-project-hub", challenge: "Sync Monday.com project management with internal tools.", solution: "Monday.com integration hub: webhooks, board sync and unified dashboards.", stack: ["Monday.com API", "Webhooks", "Node.js/Python"] } }
+    proj17: { category: 'tools', fr: { title: "monday-project-hub", challenge: "Synchroniser la gestion de projets Monday.com avec les outils internes.", solution: "Hub d'intégration Monday.com : webhooks, synchronisation des boards et tableaux de bord unifiés.", stack: ["Monday.com API", "Webhooks", "Node.js/Python"] }, en: { title: "monday-project-hub", challenge: "Sync Monday.com project management with internal tools.", solution: "Monday.com integration hub: webhooks, board sync and unified dashboards.", stack: ["Monday.com API", "Webhooks", "Node.js/Python"] } },
+    proj21: { category: 'crm', fr: { title: "Analyse des Besoins", challenge: "Structurer le recueil et la formalisation des besoins métiers pour garantir l'alignement entre parties prenantes et livrables techniques sur projets ERP/CRM.", solution: "Méthodologie complète : ateliers de cadrage, cartographie des processus, spécifications fonctionnelles détaillées, user stories avec critères d'acceptation, matrice de traçabilité et priorisation MoSCoW.", stack: ["Analyse métier", "Cadrage projet", "Spécifications fonctionnelles", "User Stories", "MoSCoW", "BPMN"] }, en: { title: "Requirements Analysis", challenge: "Structure the gathering and formalization of business requirements to ensure alignment between stakeholders and technical deliverables on ERP/CRM projects.", solution: "Complete methodology: framing workshops, process mapping, detailed functional specifications, user stories with acceptance criteria, traceability matrix and MoSCoW prioritization.", stack: ["Business Analysis", "Project Framing", "Functional Specifications", "User Stories", "MoSCoW", "BPMN"] } },
+    proj22: { category: 'webai', fr: { title: "POEMS", challenge: "Développer un outil national de gestion des admissions et de la scolarité pour le Ministère de l'Enseignement Supérieur français.", solution: "Plateforme centralisée multi-établissements pour la gestion des candidatures, inscriptions, notes et diplômes. Architecture robuste garantissant la conformité RGPD et l'interopérabilité SI.", stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Keycloak"] }, en: { title: "POEMS", challenge: "Develop a national admissions and student management platform for the French Ministry of Higher Education.", solution: "Centralized multi-institution platform for applications, enrollment, grades and diplomas. Robust architecture ensuring GDPR compliance and system interoperability.", stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Keycloak"] } },
+    proj23: { category: 'webai', fr: { title: "Wizi Learn", challenge: "Migrer une architecture Laravel monolithique vers une solution hybride Node.js/React/Flutter avec parité API totale.", solution: "Migration par phases (1 à 4) avec tests automatisés de parité endpoints. Backend hybride Laravel + Node.js, frontend React (web) et Flutter (mobile). Documentation technique exhaustive.", stack: ["Laravel", "Node.js", "React", "Flutter", "Docker", "API Testing"] }, en: { title: "Wizi Learn", challenge: "Migrate a monolithic Laravel architecture to a hybrid Node.js/React/Flutter solution with full API parity.", solution: "Phased migration (1-4) with automated endpoint parity tests. Hybrid backend Laravel + Node.js, React frontend (web) and Flutter (mobile). Comprehensive technical documentation.", stack: ["Laravel", "Node.js", "React", "Flutter", "Docker", "API Testing"] } },
+    proj24: { category: 'webai', fr: { title: "Analyse des Besoins — Outil Collaboratif", challenge: "Créer un outil collaboratif de cadrage et spécification fonctionnelle pour équipes produit et métiers.", solution: "Application web Node.js + Vue.js permettant ateliers de cadrage, cartographie BPMN interactive, rédaction user stories, matrice de traçabilité et export Markdown/PDF. Temps réel via WebSockets.", stack: ["Node.js", "Vue.js", "WebSockets", "BPMN.js", "Socket.io", "Markdown"] }, en: { title: "Requirements Analysis — Collaborative Tool", challenge: "Build a collaborative framing and functional specification tool for product and business teams.", solution: "Node.js + Vue.js web app enabling framing workshops, interactive BPMN mapping, user story writing, traceability matrix and Markdown/PDF export. Real-time via WebSockets.", stack: ["Node.js", "Vue.js", "WebSockets", "BPMN.js", "Socket.io", "Markdown"] } },
+    proj25: { category: 'tools', fr: { title: "Générateur QR Code & URL Court", challenge: "Fournir un service simple, rapide et sans tracking pour générer des QR codes et raccourcir des URLs.", solution: "Outil web stateless (Node.js/Go) avec API REST, génération QR code paramétrable (logo, couleurs, taille), redirection courte avec expiration optionnelle, sans base de données utilisateur.", stack: ["Node.js", "Go", "QR Code Library", "Redis", "Docker"] }, en: { title: "QR Code & Short URL Generator", challenge: "Provide a simple, fast, privacy-first service for QR code generation and URL shortening.", solution: "Stateless web tool (Node.js/Go) with REST API, customizable QR codes (logo, colors, size), short redirects with optional expiry, no user database.", stack: ["Node.js", "Go", "QR Code Library", "Redis", "Docker"] } },
+    proj26: { category: 'webai', fr: { title: "OCR avec IA", challenge: "Extraire et structurer intelligemment du texte depuis documents scannés, PDF ou images pour automatisation métiers.", solution: "Pipeline OCR multi-moteurs (Tesseract, PaddleOCR, Google Vision) + LLM pour correction contextuelle et extraction d'entités (factures, contrats, formulaires). API asynchrone avec webhooks.", stack: ["Python", "Tesseract", "PaddleOCR", "OpenAI/Anthropic API", "FastAPI", "Celery", "Redis"] }, en: { title: "AI-Powered OCR", challenge: "Intelligently extract and structure text from scanned documents, PDFs or images for business automation.", solution: "Multi-engine OCR pipeline (Tesseract, PaddleOCR, Google Vision) + LLM for contextual correction and entity extraction (invoices, contracts, forms). Async API with webhooks.", stack: ["Python", "Tesseract", "PaddleOCR", "OpenAI/Anthropic API", "FastAPI", "Celery", "Redis"] } }
 };
+
+// Keep the portfolio claims aligned with the applications present in the workspace.
+Object.assign(projectDetails.proj2.fr, {
+    solution: "CRM Laravel 12 / Filament avec pipeline prospects, appels et rendez-vous, imports Excel, génération de documents et droits d'accès fins par module et champ.",
+    stack: ["Laravel 12", "Filament 3", "PHP 8.3", "MySQL", "Playwright"]
+});
+Object.assign(projectDetails.proj2.en, {
+    solution: "Laravel 12 / Filament CRM with prospects, calls and appointments workflows, Excel imports, document generation and fine-grained module and field permissions.",
+    stack: ["Laravel 12", "Filament 3", "PHP 8.3", "MySQL", "Playwright"]
+});
+Object.assign(projectDetails.proj7.fr, {
+    solution: "Application web full-stack de génération de quiz, avec interface React/Vite, API Express et couche de données Drizzle ORM.",
+    stack: ["React", "TypeScript", "Vite", "Express", "Drizzle ORM"]
+});
+Object.assign(projectDetails.proj7.en, {
+    solution: "Full-stack quiz generation web app with a React/Vite interface, an Express API and Drizzle ORM data layer.",
+    stack: ["React", "TypeScript", "Vite", "Express", "Drizzle ORM"]
+});
+Object.assign(projectDetails.proj9.fr, {
+    solution: "Pipeline opérable en CLI ou dashboard Streamlit : collecte, enrichissement de contacts, exports CSV/Excel et contrôles automatisés avec Playwright et pytest.",
+    stack: ["Python", "Streamlit", "Playwright", "Pandas", "Pappers API"]
+});
+Object.assign(projectDetails.proj9.en, {
+    solution: "CLI and Streamlit dashboard pipeline for collection, contact enrichment, CSV/Excel exports and automated checks with Playwright and pytest.",
+    stack: ["Python", "Streamlit", "Playwright", "Pandas", "Pappers API"]
+});
+Object.assign(projectDetails.proj10.fr, {
+    solution: "Application full-stack avec recherche d'entreprises actives, filtres avancés, enrichissement serveur via Pappers et export CSV paginé.",
+    stack: ["TanStack Start", "React 19", "TypeScript", "Tailwind CSS", "Pappers API"]
+});
+Object.assign(projectDetails.proj10.en, {
+    solution: "Full-stack app with active-company search, advanced filters, server-side enrichment through Pappers and paginated CSV export.",
+    stack: ["TanStack Start", "React 19", "TypeScript", "Tailwind CSS", "Pappers API"]
+});
+Object.assign(projectDetails.proj12.fr, {
+    challenge: "Évaluer une plateforme auto-hébergée de gestion de projets augmentée par IA.",
+    solution: "Plateforme full-stack analysée pour ses fonctions Kanban, sprints, dépendances et exécution conversationnelle de tâches, avec front Next.js et API NestJS/Prisma.",
+    stack: ["Next.js", "NestJS", "Prisma", "Docker", "Playwright"]
+});
+Object.assign(projectDetails.proj12.en, {
+    challenge: "Evaluate a self-hosted AI-assisted project management platform.",
+    solution: "Full-stack platform assessed for Kanban, sprints, dependencies and conversational task execution, with a Next.js frontend and NestJS/Prisma API.",
+    stack: ["Next.js", "NestJS", "Prisma", "Docker", "Playwright"]
+});
+
+Object.assign(window.portfolioTranslations.fr, {
+    proj2_desc: "CRM Laravel 12 + Filament : multi-portails, pipeline commercial, imports Excel, documents et droits d'accès fins.",
+    proj7_desc: "Application full-stack de génération de quiz IA avec React/Vite, Express et Drizzle ORM.",
+    proj9_desc: "Pipeline de collecte et d'enrichissement B2B : dashboard Streamlit, Playwright, exports CSV/Excel.",
+    proj10_desc: "Recherche d'entreprises, enrichissement Pappers et export CSV dans une application React full-stack.",
+    proj12_desc: "Évaluation d'une plateforme auto-hébergée de gestion de projets IA, bâtie avec Next.js et NestJS."
+});
+Object.assign(window.portfolioTranslations.en, {
+    proj2_desc: "Laravel 12 + Filament CRM: multi-portal workflows, sales pipeline, Excel imports, documents and fine-grained access rights.",
+    proj7_desc: "Full-stack AI quiz generation app built with React/Vite, Express and Drizzle ORM.",
+    proj9_desc: "B2B collection and enrichment pipeline: Streamlit dashboard, Playwright and CSV/Excel exports.",
+    proj10_desc: "Company search, Pappers enrichment and CSV export in a full-stack React application.",
+    proj12_desc: "Assessment of a self-hosted AI project management platform built with Next.js and NestJS."
+});
+
+Object.assign(window.portfolioTranslations.fr, {
+    availability: "Disponible pour des missions de pilotage IT, CRM/ERP, data et automatisation.",
+    case_crm_type: "CRM multi-portails",
+    case_crm_title: "Unifier les opérations commerciales",
+    case_crm_text: "Laravel, Filament, workflows, imports et gestion fine des droits.",
+    case_data_type: "Data & automatisation",
+    case_data_title: "Qualifier des données entreprises",
+    case_data_text: "Pipeline de collecte, enrichissement et exports prêts à exploiter.",
+    case_ai_type: "IA conversationnelle",
+    case_ai_title: "Faire pratiquer une langue en situation",
+    case_ai_text: "Expérience Gemini Live orientée conversation, feedback et progression."
+});
+Object.assign(window.portfolioTranslations.en, {
+    availability: "Available for IT project management, CRM/ERP, data and automation assignments.",
+    case_crm_type: "Multi-portal CRM",
+    case_crm_title: "Unifying sales operations",
+    case_crm_text: "Laravel, Filament, workflows, imports and fine-grained permissions.",
+    case_data_type: "Data & automation",
+    case_data_title: "Qualifying company data",
+    case_data_text: "Collection, enrichment and export pipeline ready for business use.",
+    case_ai_type: "Conversational AI",
+    case_ai_title: "Practising a language in real situations",
+    case_ai_text: "A Gemini Live experience focused on conversation, feedback and progress."
+});
 
 // i18n & Basic UI
 let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith('en') ? 'en' : 'fr');
@@ -62,22 +152,53 @@ function initProjectFilter() {
     });
 }
 
+let lastFocusedProject;
 function openModal(projKey) {
+    lastFocusedProject = document.activeElement;
     const data = projectDetails[projKey][currentLang];
     const labels = window.portfolioTranslations[currentLang];
     const projectUrl = projectDetails[projKey].url;
 
     document.getElementById('modal-data').innerHTML = `
-        <h2 style="color: var(--accent); margin-bottom: 1.5rem;">${data.title}</h2>
+        <h2 id="modal-title" style="color: var(--accent); margin-bottom: 1.5rem;">${data.title}</h2>
         <div style="margin-bottom: 2rem;"><h4><i class="fas fa-exclamation-triangle"></i> ${labels.modal_challenge}</h4><p>${data.challenge}</p></div>
         <div style="margin-bottom: 2rem;"><h4><i class="fas fa-check-circle"></i> ${labels.modal_solution}</h4><p>${data.solution}</p></div>
         <div style="margin-bottom: 2rem;"><h4>Tech Stack</h4><div class="project-tags">${data.stack.map(tech => `<span class="tag">${tech}</span>`).join('')}</div></div>
         ${projectUrl ? `<a href="${projectUrl}" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;"><i class="fas fa-external-link-alt"></i> ${labels.modal_view}</a>` : ''}
     `;
     document.getElementById('modal-overlay').style.display = 'flex';
+    document.getElementById('modal-overlay').setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    // Accessibility: Focus close button and add Escape key handler
+    const closeBtn = document.querySelector('.close-modal');
+    if (closeBtn) closeBtn.focus();
 }
-function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
-function exportToPDF() { window.open('Profile.pdf', '_blank'); }
+function closeModal() {
+    const overlay = document.getElementById('modal-overlay');
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lastFocusedProject?.focus) lastFocusedProject.focus();
+}
+
+document.querySelectorAll('.project-card[data-project]').forEach(card => {
+    card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openModal(card.dataset.project);
+        }
+    });
+});
+
+// Escape key to close modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+        if (isWorldActive) toggle3DWorld();
+    }
+});
+// PDF export disabled for now
+// function exportToPDF() { window.open('Profile.pdf', '_blank'); }
 
 // --- THREE.JS LOW POLY WORLD ---
 let scene, camera, renderer, worldContainer;
@@ -110,11 +231,11 @@ function init3DWorld() {
     worldContainer.appendChild(renderer.domElement);
 
     // --- LIGHTING ---
-    const ambientLight = new THREE.AmbientLight(0xffffff, ambientIntensity);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); // Augmenté pour éviter le noir total
     scene.add(ambientLight);
     
-    const dirLight = new THREE.DirectionalLight(0xfff0dd, dirIntensity);
-    dirLight.position.set(50, 60, 20);
+    const dirLight = new THREE.DirectionalLight(0xfff8e7, 1.2); // Augmenté
+    dirLight.position.set(100, 150, 50);
     dirLight.castShadow = true;
     dirLight.shadow.camera.left = -50;
     dirLight.shadow.camera.right = 50;
@@ -353,6 +474,7 @@ function init3DWorld() {
         const intersects = raycaster.intersectObjects(projectMonoliths);
         if (intersects.length > 0) {
             const obj = intersects[0].object;
+            playSound(obj.userData.type === 'mario' ? 'jump' : 'collect'); // Sound effect
             
             // "Jump" animation on click for Mario block
             if (obj.userData.type === 'mario') {
@@ -368,77 +490,290 @@ function init3DWorld() {
                     }
                 }, 16);
             } else {
-                openModal(obj.userData.projKey);
+                            openModal(obj.userData.projKey);
+                        }
+                    }
+                }
+
+                // --- UI OVERLAY ---
+    const playerRadius = 1.2;
+    const nextX = player.position.x + velocity.x;
+    const nextZ = player.position.z + velocity.z;
+    
+    // Check project collectibles
+    projectMonoliths.forEach(obj => {
+        if (obj.userData.collected) return;
+        const dx = player.position.x - obj.position.x;
+        const dz = player.position.z - obj.position.z;
+        const dist = Math.sqrt(dx*dx + dz*dz);
+        if (dist < 3.5 && Math.abs(player.position.y - obj.position.y) < 4) {
+            obj.userData.collected = true;
+            playSound(obj.userData.type === 'mario' ? 'block' : 'coin');
+            openModal(obj.userData.projKey);
+            
+            obj.material.emissiveIntensity = 1.5;
+            obj.scale.setScalar(1.5);
+            setTimeout(() => { obj.visible = false; }, 300);
+        }
+    });
+    
+    // Check scattered coins
+    scene.children.forEach(child => {
+        if (child.userData?.type === 'coin' && !child.userData.collected) {
+            const dx = player.position.x - child.position.x;
+            const dz = player.position.z - child.position.z;
+            const dist = Math.sqrt(dx*dx + dz*dz);
+            if (dist < 2 && Math.abs(player.position.y - child.position.y) < 2) {
+                child.userData.collected = true;
+                playSound('coin');
+                child.material.emissiveIntensity = 1.5;
+                child.scale.setScalar(1.5);
+                setTimeout(() => { child.visible = false; }, 200);
             }
         }
+    });
+    
+    // Ground collision - simplified raycast
+    const groundY = getGroundHeight(player.position.x, player.position.z) + 2.5; // player height offset
+    if (player.position.y <= groundY + 0.1) {
+        if (velocity.y <= 0) {
+            player.position.y = groundY;
+            velocity.y = 0;
+            player.userData.onGround = true;
+            canJump = true;
+        }
+    } else {
+        player.userData.onGround = false;
     }
+    
+    // World bounds
+    const bounds = 180;
+    if (Math.abs(player.position.x) > bounds) player.position.x = Math.sign(player.position.x) * bounds;
+    if (Math.abs(player.position.z) > bounds) player.position.z = Math.sign(player.position.z) * bounds;
+}
 
-    let isDragging = false;
-    let previousX = 0;
-    let rotationY = 0;
-
-    function onPointerMove(event) {
-        if (!isWorldActive || !isDragging) return;
-        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-        const deltaX = clientX - previousX;
-        rotationY -= deltaX * 0.005;
-        previousX = clientX;
+function updatePlayer(delta) {
+    // Handle jump cooldown
+    if (player.userData.jumpCooldown > 0) player.userData.jumpCooldown -= delta;
+    
+    // Calculate movement direction relative to camera yaw
+    const forward = new THREE.Vector3(
+        -Math.sin(playerYaw),
+        0,
+        -Math.cos(playerYaw)
+    ).normalize();
+    const right = new THREE.Vector3(
+        Math.cos(playerYaw),
+        0,
+        -Math.sin(playerYaw)
+    ).normalize();
+    
+    direction.set(0, 0, 0);
+    
+    if (keys.KeyW || keys.ArrowUp) direction.add(forward);
+    if (keys.KeyS || keys.ArrowDown) direction.add(forward.clone().negate());
+    if (keys.KeyD || keys.ArrowRight) direction.add(right);
+    if (keys.KeyA || keys.ArrowLeft) direction.add(right.clone().negate());
+    
+    if (direction.length() > 0) direction.normalize();
+    
+    // Apply movement
+    const targetVX = direction.x * PLAYER_SPEED;
+    const targetVZ = direction.z * PLAYER_SPEED;
+    
+    velocity.x += (targetVX - velocity.x) * 0.15;
+    velocity.z += (targetVZ - velocity.z) * 0.15;
+    
+    // Jump
+    if ((keys.Space || keys.KeyW && player.userData.onGround) && canJump && player.userData.jumpCooldown <= 0) {
+        velocity.y = JUMP_FORCE;
+        player.userData.onGround = false;
+        canJump = false;
+        player.userData.jumpCooldown = 0.3;
+        playSound('jump');
+        
+        // Squash and stretch animation
+        player.scale.y = 0.7;
+        player.scale.x = player.scale.z = 1.2;
+        setTimeout(() => {
+            player.scale.y = 1.1;
+            player.scale.x = player.scale.z = 0.95;
+            setTimeout(() => { player.scale.set(1, 1, 1); }, 100);
+        }, 50);
     }
+    
+    // Apply gravity
+    velocity.y += GRAVITY;
+    
+    // Update position
+    player.position.x += velocity.x;
+    player.position.z += velocity.z;
+    player.position.y += velocity.y;
+    
+    // Rotate player to face movement direction
+    if (direction.length() > 0.01) {
+        const targetAngle = Math.atan2(direction.x, direction.z);
+        let currentAngle = player.rotation.y;
+        let diff = targetAngle - currentAngle;
+        while (diff > Math.PI) diff -= Math.PI * 2;
+        while (diff < -Math.PI) diff += Math.PI * 2;
+        player.rotation.y += diff * 0.15;
+    }
+    
+    // Walking animation
+    if (direction.length() > 0.01 && player.userData.onGround) {
+        player.userData.walkTime = (player.userData.walkTime || 0) + delta * 8;
+        const bounce = Math.sin(player.userData.walkTime) * 0.05;
+        player.position.y += Math.abs(bounce);
+        player.rotation.z = Math.sin(player.userData.walkTime) * 0.03;
+    } else {
+        player.rotation.z *= 0.9;
+    }
+    
+    checkCollisions();
+}
 
-    window.addEventListener('mousedown', (e) => { isDragging = true; previousX = e.clientX; });
-    window.addEventListener('touchstart', (e) => { isDragging = true; previousX = e.touches[0].clientX; onPointerDown(e); });
-    window.addEventListener('mousemove', onPointerMove);
-    window.addEventListener('touchmove', onPointerMove);
-    window.addEventListener('mouseup', () => isDragging = false);
-    window.addEventListener('touchend', () => isDragging = false);
-    window.addEventListener('click', (e) => { if(!e.touches) onPointerDown(e); });
+function updateCamera() {
+    if (!player) return;
+    
+    const target = new THREE.Vector3();
+    target.copy(player.position);
+    target.y += 2;
+    
+    const offset = new THREE.Vector3(
+        Math.sin(playerYaw) * CAMERA_DISTANCE,
+        CAMERA_HEIGHT,
+        Math.cos(playerYaw) * CAMERA_DISTANCE
+    );
+    
+    camera.position.lerp(target.clone().add(offset), 0.1);
+    camera.lookAt(target);
+}
 
-    // --- ANIMATE ---
-    function animate() {
-        if (!isWorldActive) return;
-        requestAnimationFrame(animate);
+function getGroundHeight(x, z) {
+    const h = Math.sin(x * 0.05) * Math.cos(z * 0.05) * 1.5 + Math.sin(x * 0.02) * 2.5;
+    return h;
+}
 
-        const time = Date.now() * 0.001;
+function setupControls() {
+    window.addEventListener('keydown', (e) => {
+        if (e.code in keys) {
+            keys[e.code] = true;
+            e.preventDefault();
+        }
+    });
+    
+    window.addEventListener('keyup', (e) => {
+        if (e.code in keys) {
+            keys[e.code] = false;
+        }
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+        if (!isWorldActive || document.pointerLockElement !== renderer.domElement) return;
+        playerYaw -= e.movementX * 0.002;
+    });
+    
+    renderer.domElement.addEventListener('click', () => {
+        if (isWorldActive) renderer.domElement.requestPointerLock();
+    });
+    
+    document.addEventListener('pointerlockchange', () => {
+        if (document.pointerLockElement === renderer.domElement) {
+            worldContainer.style.cursor = 'none';
+        } else {
+            worldContainer.style.cursor = 'default';
+        }
+    });
+}
 
-        if (!isDragging) rotationY += 0.0015;
+function initAudio() {
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    window.audioCtx = new AudioContext();
+}
 
-        const px = (typeof globalMouse !== 'undefined') ? globalMouse.x * 3 : 0;
-        const py = (typeof globalMouse !== 'undefined') ? (globalMouse.y - 1) * 2 : 0;
+function playSound(type) {
+    if (!window.audioCtx) return;
+    const ctx = window.audioCtx;
+    if (ctx.state === 'suspended') ctx.resume();
+    
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    
+    if (type === 'jump') {
+        osc.frequency.setValueAtTime(300, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
+        osc.type = 'square';
+    } else if (type === 'coin') {
+        osc.frequency.setValueAtTime(800, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.05);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+        osc.type = 'sine';
+    } else if (type === 'block') {
+        osc.frequency.setValueAtTime(400, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+        osc.type = 'triangle';
+    }
+    
+    osc.start();
+    osc.stop(ctx.currentTime + 0.2);
+}
 
-        camera.position.x = Math.cos(rotationY) * 38 + px;
-        camera.position.z = Math.sin(rotationY) * 38;
-        camera.position.y = 12 + py; // Slightly lower camera for Zelda feel
-        camera.lookAt(px * 0.2, 4, 0);
-
-        // Animate clouds
-        if (!isDark) {
-            clouds.forEach(cloud => {
-                cloud.position.x += 0.02;
-                if (cloud.position.x > 150) cloud.position.x = -150;
+function animate() {
+    if (!isWorldActive) return;
+    requestAnimationFrame(animate);
+    
+    const delta = Math.min(1/60, 1/60); // Fixed timestep for consistency
+    const time = Date.now() * 0.001;
+    
+    updatePlayer(delta);
+    updateCamera();
+    
+    // Animate clouds
+    scene.children.forEach(child => {
+        if (child.userData?.speed) child.update();
+    });
+    
+    // Animate project collectibles
+    projectMonoliths.forEach(obj => {
+        if (obj.userData.collected || !obj.visible) return;
+        
+        if (obj.userData.type === 'zelda') {
+            obj.position.y = obj.userData.baseY + Math.sin(time * 2 + obj.userData.animOffset) * 0.6;
+            obj.rotation.y += obj.userData.rotationSpeed;
+            obj.material.emissiveIntensity = 0.5 + Math.sin(time * 3) * 0.2;
+        } else {
+            obj.position.y = obj.userData.baseY + Math.sin(time * 1.5 + obj.userData.animOffset) * 0.4;
+            if (obj.userData.isHovered) {
+                obj.rotation.y += 0.05;
+            }
+            // Pulse the question marks
+            obj.children.forEach(child => {
+                if (child.userData?.isMark) {
+                    child.scale.setScalar(1 + Math.sin(time * 4 + child.userData.faceAngle) * 0.1);
+                }
             });
         }
-
-        // Animate Objects
-        projectMonoliths.forEach((obj) => {
-            if (obj.userData.type === 'zelda') {
-                // Zelda rupees float and spin constantly
-                obj.position.y = obj.userData.baseY + Math.sin(time * 2 + obj.userData.animOffset) * 0.5;
-                obj.rotation.y += obj.userData.isHovered ? 0.1 : 0.02;
-            } else {
-                // Mario blocks float gently, shake on hover
-                if (obj.userData.isHovered) {
-                    obj.rotation.z = Math.sin(time * 20) * 0.1;
-                } else {
-                    obj.rotation.z = 0;
-                    obj.position.y = obj.userData.baseY + Math.sin(time * 1.5 + obj.userData.animOffset) * 0.3;
-                }
-            }
-        });
-
-        renderer.render(scene, camera);
-    }
-    animate();
+    });
+    
+    // Animate scattered coins
+    scene.children.forEach(child => {
+        if (child.userData?.type === 'coin' && !child.userData.collected) {
+            child.position.y = child.userData.baseY + Math.sin(time * 3 + child.userData.animOffset) * 0.3;
+            child.rotation.y += 0.03;
+        }
+    });
+    
+    renderer.render(scene, camera);
 }
+animate();
 
 
 window.addEventListener('resize', () => {
@@ -458,8 +793,22 @@ function toggle3DWorld() {
         world.style.display = 'block';
         scene3d.style.display = 'none';
         document.body.style.overflow = 'hidden';
-        if (!renderer) init3DWorld();
-        else animate();
+        
+        // Lazy load Three.js if not yet loaded
+        if (typeof THREE === 'undefined') {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+            script.onload = () => {
+                init3DWorld();
+                animate();
+            };
+            document.head.appendChild(script);
+        } else if (!renderer) {
+            init3DWorld();
+            animate();
+        } else {
+            animate();
+        }
     } else {
         world.style.display = 'none';
         scene3d.style.display = 'block';
@@ -549,32 +898,152 @@ function initSplashScreen() {
     }, 200);
 }
 
-// --- CONTACT FORM LOGIC ---
+// --- TOAST NOTIFICATION UTILITY ---
+function showToast(message, icon = 'fas fa-check-circle') {
+    let toast = document.querySelector('.toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<i class="${icon}" style="color: var(--accent);"></i> ${message}`;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// --- ACCENT COLOR PICKER LOGIC ---
+function initAccentPicker() {
+    const toggle = document.getElementById('accent-toggle');
+    const dropdown = document.getElementById('accent-dropdown');
+    if (!toggle || !dropdown) return;
+
+    // Load saved accent
+    const savedAccent = localStorage.getItem('accentColor');
+    if (savedAccent) {
+        document.documentElement.style.setProperty('--accent', savedAccent);
+        // Calculate hover approx or keep hover dynamic
+        document.documentElement.style.setProperty('--accent-hover', savedAccent);
+    }
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isVisible = dropdown.style.display === 'flex';
+        dropdown.style.display = isVisible ? 'none' : 'flex';
+    });
+
+    document.querySelectorAll('.accent-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const color = btn.getAttribute('data-color');
+            document.documentElement.style.setProperty('--accent', color);
+            document.documentElement.style.setProperty('--accent-hover', color);
+            localStorage.setItem('accentColor', color);
+            dropdown.style.display = 'none';
+        });
+    });
+
+    document.addEventListener('click', () => {
+        dropdown.style.display = 'none';
+    });
+}
+function initCopyEmail() {
+    const copyBtn = document.getElementById('copy-email-btn');
+    const emailText = document.getElementById('email-text');
+    if (copyBtn && emailText) {
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(emailText.textContent.trim()).then(() => {
+                const msg = currentLang === 'fr' 
+                    ? 'Email copié dans le presse-papier !' 
+                    : 'Email copied to clipboard!';
+                showToast(msg);
+            }).catch(err => {
+                console.error('Copy failed', err);
+            });
+        });
+    }
+}
 const contactForm = document.querySelector('.contact-form');
+const formStatus = document.querySelector('.form-status');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const btn = contactForm.querySelector('button');
+        const btn = contactForm.querySelector('button[type="submit"]');
         const originalText = btn.innerHTML;
-        
+        const lang = currentLang;
+        const t = window.portfolioTranslations[lang];
+
         btn.disabled = true;
-        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${window.portfolioTranslations[currentLang].contact_sending}`;
-        
-        // Simulate API Call
-        setTimeout(() => {
-            btn.innerHTML = `<i class="fas fa-check"></i> ${window.portfolioTranslations[currentLang].contact_sent}`;
-            btn.style.background = '#22c55e';
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${t.contact_sending}`;
+        if (formStatus) {
+            formStatus.style.display = 'block';
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+        }
+
+        const mailto = contactForm.dataset.mailto;
+        if (mailto) {
+            const formData = new FormData(contactForm);
+            const subject = currentLang === 'fr'
+                ? `Demande de contact — ${formData.get('name') || 'Portfolio'}`
+                : `Portfolio enquiry — ${formData.get('name') || 'Portfolio'}`;
+            const body = `${currentLang === 'fr' ? 'Nom' : 'Name'}: ${formData.get('name') || ''}\n${currentLang === 'fr' ? 'Email' : 'Email'}: ${formData.get('email') || ''}\n\n${formData.get('message') || ''}`;
+            window.location.href = `mailto:${mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+            if (formStatus) {
+                formStatus.textContent = currentLang === 'fr'
+                    ? 'Votre logiciel de messagerie va ouvrir un brouillon prérempli.'
+                    : 'Your email application will open a pre-filled draft.';
+                formStatus.style.color = '#22c55e';
+            }
+            return;
+        }
+
+        try {
+            const formData = new FormData(contactForm);
+            // Set redirect to current page with success anchor
+            formData.set('_next', window.location.href + '#contact-success');
             
-            // Premium Toast (Simple Alert for now, but stylized)
-            alert(currentLang === 'fr' ? "Message envoyé avec succès ! Herizo vous recontactera bientôt." : "Message sent successfully! Herizo will get back to you soon.");
-            
-            setTimeout(() => {
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-                btn.style.background = '';
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                btn.innerHTML = `<i class="fas fa-check"></i> ${t.contact_sent}`;
+                btn.style.background = '#22c55e';
+                if (formStatus) {
+                    formStatus.textContent = lang === 'fr' 
+                        ? 'Message envoyé avec succès ! Je vous recontacterai bientôt.' 
+                        : 'Message sent successfully! I\'ll get back to you soon.';
+                    formStatus.style.color = '#22c55e';
+                }
                 contactForm.reset();
-            }, 3000);
-        }, 2000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (err) {
+            console.error('Form error:', err);
+            btn.innerHTML = `<i class="fas fa-times"></i> Erreur`;
+            btn.style.background = '#ef4444';
+            if (formStatus) {
+                formStatus.textContent = lang === 'fr'
+                    ? 'Erreur lors de l\'envoi. Veuillez réessayer ou m\'écrire directement.'
+                    : 'Error sending message. Please try again or email me directly.';
+                formStatus.style.color = '#ef4444';
+            }
+        }
+
+        setTimeout(() => {
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            if (formStatus) {
+                formStatus.style.display = 'none';
+            }
+        }, 4000);
     });
 }
 
@@ -665,9 +1134,36 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+            // Trigger counter animation if element has data-target
+            if (entry.target.classList.contains('stats-grid')) {
+                animateStats();
+            }
         }
     });
 }, { threshold: 0.1 });
+
+function animateStats() {
+    document.querySelectorAll('.stat-circle[data-target]').forEach(el => {
+        if (el.dataset.animated) return;
+        el.dataset.animated = 'true';
+        const target = parseInt(el.getAttribute('data-target'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        let count = 0;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        
+        const updateCount = () => {
+            count += increment;
+            if (count < target) {
+                el.textContent = Math.floor(count) + suffix;
+                requestAnimationFrame(updateCount);
+            } else {
+                el.textContent = target + suffix;
+            }
+        };
+        updateCount();
+    });
+}
 
 function initReveals() {
     document.querySelectorAll('.reveal').forEach(el => {
@@ -678,8 +1174,10 @@ function initReveals() {
 document.addEventListener("DOMContentLoaded", () => {
     initSplashScreen();
     initAutoTheme();
+    initAccentPicker();
     initLangToggle();
     initProjectFilter();
+    initCopyEmail();
     updateLanguage(currentLang);
     initReveals();
     setTimeout(type, 1000);

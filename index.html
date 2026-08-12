@@ -31,10 +31,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
     <link rel="manifest" href="manifest.json">
-    <!-- Three.js for Low Poly 3D World -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Three.js dynamically loaded on 3D mode click for better initial page speed -->
 
     <!-- SEO / GEO / GSO Structured Data -->
     <script type="application/ld+json">
@@ -56,7 +55,102 @@
         "addressRegion": "Analamanga",
         "addressCountry": "MG"
       },
-      "knowsAbout": ["Gestion de projets IT", "ERP", "CRM", "Symfony", "ETL", "SQL Server", "Power Query", "Automatisation"]
+      "knowsAbout": ["Gestion de projets IT", "ERP", "CRM", "Symfony", "ETL", "SQL Server", "Power Query", "Automatisation", "Analyse des besoins", "Java", "Spring Boot", "Node.js", "Vue.js", "Flutter", "React", "Python", "OCR", "LLM", "Kubernetes", "Go"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Projets de Herizo Randrianaina",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "EspoCRM Customization",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Docker, Linux, Windows",
+            "description": "Instance EspoCRM avec outils admin custom, tests Playwright/PHPUnit et optimisation MySQL."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "crmfilament",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "description": "Application Laravel 12 + Filament PHP multi-portails avec génération documentaire."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Analyse des Besoins & Cadrage Fonctionnel",
+            "description": "Méthodologie de recueil, formalisation et priorisation des besoins métiers (BPMN, User Stories, MoSCoW) pour projets ERP/CRM."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "POEMS",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, Kubernetes",
+            "description": "Plateforme nationale d'admissions et gestion de la scolarité pour le Ministère de l'Enseignement Supérieur (Java/Spring Boot, Keycloak)."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Wizi Learn",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web, Mobile (Flutter), iOS, Android",
+            "description": "Migration Laravel vers architecture hybride Node.js/React/Flutter avec parité API 100% garantie."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Analyse des Besoins — Outil Collaboratif",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "description": "Application collaborative Node.js/Vue.js pour cadrage, BPMN interactif, user stories, traçabilité et export temps réel."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Générateur QR Code & URL Court",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Web, API",
+            "description": "Service stateless Node.js/Go pour QR codes paramétrables et URLs courtes avec expiration, sans tracking."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "OCR avec IA",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Linux, Docker, Kubernetes",
+            "description": "Pipeline OCR multi-moteurs (Tesseract, PaddleOCR, Vision API) + LLM pour extraction d'entités structurées."
+          }
+        }
+      ]
     }
     </script>
 </head>
@@ -85,6 +179,7 @@
         <div class="container nav-content">
             <a href="#" class="logo">HR.</a>
             <ul class="nav-links">
+                <li><a href="#methodology" class="nav-link" data-i18n="nav_metho">Méthodologie</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav_about">À propos</a></li>
                 <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Compétences</a></li>
                 <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projets</a></li>
@@ -92,18 +187,31 @@
                 <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
             <div class="nav-btns">
-                <button id="lang-toggle" class="theme-toggle" title="Switch Language">
+                <button id="lang-toggle" class="theme-toggle" title="Switch Language" aria-label="Changer de langue">
                     <span id="lang-text">EN</span>
                 </button>
-                <button id="mode-3d-toggle" class="theme-toggle" title="Mode 3D Immersion">
+                <button id="mode-3d-toggle" class="theme-toggle" title="Mode 3D Immersion" aria-label="Activer le mode 3D immersif">
                     <i class="fas fa-cube"></i>
                 </button>
-                <button id="theme-toggle" class="theme-toggle" title="Changer de thème">
+                <button id="theme-toggle" class="theme-toggle" title="Changer de thème" aria-label="Basculer entre thème clair et sombre">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="Profile.pdf" target="_blank" class="cv-btn" title="Télécharger le CV" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+                <div class="accent-picker" style="position: relative; display: inline-block;">
+                    <button id="accent-toggle" class="theme-toggle" title="Changer la couleur d'accent" aria-label="Changer la couleur d'accent">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div id="accent-dropdown" class="glass" style="display: none; position: absolute; right: 0; top: 120%; padding: 0.5rem; border-radius: 0.5rem; display: none; gap: 0.5rem; flex-direction: column; z-index: 1001; min-width: 140px;">
+                        <button class="accent-option" data-color="#1db954" style="background: none; border: none; color: inherit; padding: 0.4rem; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #1db954; display: inline-block;"></span> Spotify Green</button>
+                        <button class="accent-option" data-color="#a855f7" style="background: none; border: none; color: inherit; padding: 0.4rem; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #a855f7; display: inline-block;"></span> Cyberpunk</button>
+                        <button class="accent-option" data-color="#3b82f6" style="background: none; border: none; color: inherit; padding: 0.4rem; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3b82f6; display: inline-block;"></span> Nord Blue</button>
+                        <button class="accent-option" data-color="#f59e0b" style="background: none; border: none; color: inherit; padding: 0.4rem; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span> Amber Gold</button>
+                    </div>
+                </div>
+                <!-- CV Download button disabled for now
+                <button id="cv-download-btn" class="cv-btn" title="Télécharger le CV" style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; background: var(--accent); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer; transition: var(--transition);">
                     <i class="fas fa-file-pdf"></i> <span data-i18n="cv_btn">CV PDF</span>
-                </a>
+                </button>
+                -->
             </div>
         </div>
     </nav>
@@ -115,14 +223,40 @@
             <div class="container hero-content reveal">
                 <h1><span data-i18n="hero_hi">Bonjour, je suis</span> <br><span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
                 <p data-i18n="hero_subtitle">Chef de projet IT & Développeur Back-end. Solutions métiers ERP/CRM, automatisation, reporting, data et applications internes.</p>
+                <p class="availability" data-i18n="availability">Disponible pour des missions de pilotage IT, CRM/ERP, data et automatisation.</p>
                 <div class="hero-btns">
                     <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_projects">Explorer mes réalisations</a>
                     <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">Collaborer ensemble</a>
+                    <a href="Profile.pdf" class="btn btn-quiet" target="_blank" rel="noopener" data-i18n="cv_btn">CV PDF</a>
                 </div>
             </div>
         </header>
 
         <main>
+            <!-- Methodology Section -->
+            <section id="methodology" class="section" style="background: var(--bg-primary);">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 data-i18n="metho_title">Ma Méthodologie</h2>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="glass methodology-card reveal" style="padding: 2.5rem; text-align: center;">
+                        <p style="font-size: 1.2rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                            Je ne code pas seulement des fonctionnalités, je construis des systèmes durables. 
+                            Chaque projet est ancré dans une <strong>architecture conteneurisée</strong>, 
+                            protégé par une <strong>suite de tests automatisés</strong> (Playwright, PHPUnit), 
+                            et conçu pour une maintenabilité et une évolutivité à long terme.
+                        </p>
+                        <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                            <div style="padding: 1rem;"><i class="fas fa-docker fa-2x"></i><p>Conteneurisation</p></div>
+                            <div style="padding: 1rem;"><i class="fas fa-check-double fa-2x"></i><p>Tests Automatisés</p></div>
+                            <div style="padding: 1rem;"><i class="fas fa-sync-alt fa-2x"></i><p>CI/CD & Déploiement</p></div>
+                            <div style="padding: 1rem;"><i class="fas fa-code-branch fa-2x"></i><p>Clean Architecture</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- About Section -->
             <section id="about" class="section">
                 <div class="container">
@@ -160,34 +294,34 @@
                             </div>
                         </div>
                         <div class="skill-category">
-                            <h3 data-i18n="skills_db">Data & BI</h3>
+                            <h3 data-i18n="skills_db">Data & BI Expert</h3>
                             <div class="skill-list">
-                                <div class="skill-item"><i class="fas fa-database"></i> SQL Server, PostgreSQL, T-SQL</div>
-                                <div class="skill-item"><i class="fas fa-chart-line"></i> SSIS, ETL, Power Query, DAX</div>
-                                <div class="skill-item"><i class="fas fa-robot"></i> <span data-i18n="skill_auto">Automatisation & analytique de texte</span></div>
+                                <div class="skill-item"><i class="fas fa-database"></i> SQL Server (SSMS), T-SQL</div>
+                                <div class="skill-item"><i class="fas fa-project-diagram"></i> Pipelines ETL (SSIS/Python)</div>
+                                <div class="skill-item"><i class="fas fa-chart-line"></i> Power BI, DAX, Excel avancé</div>
                             </div>
                         </div>
                         <div class="skill-category">
-                            <h3 data-i18n="skills_infra">ERP, CRM & Infrastructure</h3>
+                            <h3 data-i18n="skills_infra">Qualité & Infrastructure</h3>
                             <div class="skill-list">
-                                <div class="skill-item"><i class="fas fa-building"></i> ERP 8sens, solutions métiers</div>
-                                <div class="skill-item"><i class="fas fa-server"></i> Proxmox, GLPI, admin serveur</div>
-                                <div class="skill-item"><i class="fas fa-network-wired"></i> <span data-i18n="skill_infra">Réseaux & production client</span></div>
+                                <div class="skill-item"><i class="fas fa-vial"></i> QA & Tests (Playwright, JUnit)</div>
+                                <div class="skill-item"><i class="fas fa-building"></i> ERP 8sens (Expert)</div>
+                                <div class="skill-item"><i class="fas fa-server"></i> Docker, Proxmox, admin serveur</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="stats-grid reveal">
                         <div class="stat-item">
-                            <div class="stat-circle">17+</div>
+                            <div class="stat-circle" data-target="17" data-suffix="+">0</div>
                             <p data-i18n="stat_projects">Projets Livrés</p>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-circle">8+</div>
+                            <div class="stat-circle" data-target="8" data-suffix="+">0</div>
                             <p data-i18n="stat_years">Ans d'expérience</p>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-circle">ERP</div>
+                            <div class="stat-circle" data-target="100" data-suffix="%">0%</div>
                             <p data-i18n="stat_erp">CRM & Data</p>
                         </div>
                     </div>
@@ -202,6 +336,24 @@
                         <div class="underline"></div>
                     </div>
 
+                    <div class="case-studies reveal" aria-label="Études de cas sélectionnées">
+                        <button type="button" class="case-study-card" onclick="openModal('proj2')">
+                            <span class="case-study-type" data-i18n="case_crm_type">CRM multi-portails</span>
+                            <strong data-i18n="case_crm_title">Unifier les opérations commerciales</strong>
+                            <span data-i18n="case_crm_text">Laravel, Filament, workflows, imports et gestion fine des droits.</span>
+                        </button>
+                        <button type="button" class="case-study-card" onclick="openModal('proj9')">
+                            <span class="case-study-type" data-i18n="case_data_type">Data & automatisation</span>
+                            <strong data-i18n="case_data_title">Qualifier des données entreprises</strong>
+                            <span data-i18n="case_data_text">Pipeline de collecte, enrichissement et exports prêts à exploiter.</span>
+                        </button>
+                        <button type="button" class="case-study-card" onclick="openModal('proj19')">
+                            <span class="case-study-type" data-i18n="case_ai_type">IA conversationnelle</span>
+                            <strong data-i18n="case_ai_title">Faire pratiquer une langue en situation</strong>
+                            <span data-i18n="case_ai_text">Expérience Gemini Live orientée conversation, feedback et progression.</span>
+                        </button>
+                    </div>
+
                     <!-- Project Filter Bar -->
                     <div class="filter-bar reveal">
                         <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tout</button>
@@ -213,82 +365,58 @@
                     <div class="project-grid">
                         <h3 class="project-category reveal" data-category="crm" data-i18n="proj_cat_crm">Projets CRM & Gestion d'Entreprise</h3>
                         <!-- CRM & Gestion d'Entreprise -->
-                        <div class="project-card reveal" data-category="crm" onclick="openModal('proj1')">
+                        <div class="project-card reveal" data-category="crm" data-project="proj1" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj1')">
                             <div class="project-img"><img src="image/annuaire.png" alt="EspoCRM"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj1_title">EspoCRM</h3>
-                                <p data-i18n="proj1_desc">Instance principale EspoCRM avec outils admin custom, tests Playwright/PHPUnit et scripts de migration.</p>
+                                <p data-i18n="proj1_desc">Instance principale EspoCRM avec outils admin custom, tests Playwright/PHPUnit et scripts de migration. Architecture optimisée pour éviter les limitations MySQL.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="crm" onclick="openModal('proj2')">
+                        <div class="project-card reveal" data-category="crm" data-project="proj2" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj2')">
                             <div class="project-img"><img src="image/blue.jpg" alt="crmfilament"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj2_title">crmfilament</h3>
-                                <p data-i18n="proj2_desc">Application Laravel 12 + Filament PHP multi-portails (NsConseil, AlloPro, SuperAdmin).</p>
+                                <p data-i18n="proj2_desc">Application Laravel 12 + Filament PHP multi-portails (NsConseil, AlloPro). Génération dynamique de documents et workflow automatisé.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="crm" onclick="openModal('proj3')">
-                            <div class="project-img"><img src="image/nature.jpg" alt="espoAOPIA"></div>
+                        <!-- Analyse des Besoins -->
+                        <div class="project-card reveal" data-category="crm" data-project="proj21" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj21')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="Analyse des Besoins"></div>
                             <div class="project-info">
-                                <h3 data-i18n="proj3_title">espoAOPIA</h3>
-                                <p data-i18n="proj3_desc">Instance EspoCRM dédiée au projet AOPIA avec règles d'implantation et spécifications métier.</p>
+                                <h3 data-i18n="proj21_title">Analyse des Besoins</h3>
+                                <p data-i18n="proj21_desc">Méthodologie structurée de recueil, formalisation et priorisation des besoins métiers pour projets ERP/CRM. Cadrage, spécifications fonctionnelles, user stories et critères d'acceptation.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="crm" onclick="openModal('proj4')">
-                            <div class="project-img"><img src="image/javascript.jpg" alt="SuiteCRM"></div>
+                        <!-- POEMS -->
+                        <div class="project-card reveal" data-category="webai" data-project="proj22" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj22')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="POEMS"></div>
                             <div class="project-info">
-                                <h3 data-i18n="proj4_title">SuiteCRM</h3>
-                                <p data-i18n="proj4_desc">Solution CRM open-source (fork SugarCRM) pour la gestion commerciale et relation client.</p>
+                                <h3 data-i18n="proj22_title">POEMS</h3>
+                                <p data-i18n="proj22_desc">Plateforme nationale d'admissions et gestion de la scolarité pour le Ministère de l'Enseignement Supérieur (Java/Spring Boot, Kubernetes, Keycloak).</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="crm" onclick="openModal('proj5')">
-                            <div class="project-img"><img src="image/tech_bg.png" alt="vtigercrm"></div>
-                            <div class="project-info">
-                                <h3 data-i18n="proj5_title">vtigercrm</h3>
-                                <p data-i18n="proj5_desc">CRM open-source traditionnel pour ventes, support et automatisation des processus métier.</p>
-                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
-                            </div>
-                        </div>
-                        <div class="project-card reveal" data-category="crm" onclick="openModal('proj6')">
-                            <div class="project-img"><img src="image/annuaire.png" alt="partner-connect-crm"></div>
-                            <div class="project-info">
-                                <h3 data-i18n="proj6_title">partner-connect-crm</h3>
-                                <p data-i18n="proj6_desc">Gestion de réseau de partenaires, suivi des relations et centralisation des données partenaires.</p>
-                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
-                            </div>
-                        </div>
-
                         <h3 class="project-category reveal" data-category="webai" data-i18n="proj_cat_webai">Projets Web, IA & Automation</h3>
-                        <!-- Web, IA & Automation -->
-                        <div class="project-card reveal" data-category="webai" onclick="openModal('proj7')">
+                        <div class="project-card reveal" data-category="webai" data-project="proj7" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj7')">
                             <div class="project-img"><img src="image/tech_bg.png" alt="AIQuizGenius"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj7_title">AIQuizGenius</h3>
-                                <p data-i18n="proj7_desc">Application de génération de quiz pédagogiques basée sur l'intelligence artificielle.</p>
+                                <p data-i18n="proj7_desc">Application SaaS de quiz IA utilisant TypeScript, Tailwind et Drizzle ORM avec SQLite.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="webai" onclick="openModal('proj8')">
-                            <div class="project-img"><img src="image/blue.jpg" alt="freellmapi"></div>
-                            <div class="project-info">
-                                <h3 data-i18n="proj8_title">freellmapi</h3>
-                                <p data-i18n="proj8_desc">API d'accès unifié aux Large Language Models pour intégration dans les applications métier.</p>
-                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
-                            </div>
-                        </div>
-                        <div class="project-card reveal" data-category="webai" onclick="openModal('proj9')">
+                        <div class="project-card reveal" data-category="webai" data-project="proj9" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj9')">
                             <div class="project-img"><img src="image/javascript.jpg" alt="pappers-collect"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj9_title">pappers-collect</h3>
-                                <p data-i18n="proj9_desc">Collecte et enrichissement de leads via l'API Pappers pour qualification de prospects B2B.</p>
+                                <p data-i18n="proj9_desc">Pipeline d'enrichissement de données B2B via API Pappers (Python/Node.js) en environnement conteneurisé Docker.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="webai" onclick="openModal('proj10')">
+                        <div class="project-card reveal" data-category="webai" data-project="proj10" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj10')">
                             <div class="project-img"><img src="image/nature.jpg" alt="pappers-locator"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj10_title">pappers-locator</h3>
@@ -296,7 +424,7 @@
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="webai" onclick="openModal('proj11')">
+                        <div class="project-card reveal" data-category="webai" data-project="proj11" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj11')">
                             <div class="project-img"><img src="image/tech_bg.png" alt="vision2html"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj11_title">vision2html</h3>
@@ -304,7 +432,7 @@
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="webai" onclick="openModal('proj12')">
+                        <div class="project-card reveal" data-category="webai" data-project="proj12" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj12')">
                             <div class="project-img"><img src="image/blue.jpg" alt="taskosaur"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj12_title">taskosaur</h3>
@@ -312,26 +440,54 @@
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="webai" onclick="openModal('proj13')">
-                            <div class="project-img"><img src="image/annuaire.png" alt="Leads-Allopro24"></div>
+                        <!-- Lingo Live -->
+                        <div class="project-card reveal" data-category="webai" data-project="proj19" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj19')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="Lingo Live"></div>
                             <div class="project-info">
-                                <h3 data-i18n="proj13_title">Leads-Allopro24</h3>
-                                <p data-i18n="proj13_desc">Gestionnaire de leads dédié à l'activité Allopro : capture, qualification et suivi commercial.</p>
+                                <h3 data-i18n="proj19_title">Lingo Live</h3>
+                                <p data-i18n="proj19_desc">App booster de langues basée sur Gemini. Architecture stateless haute performance, sans base de données, axée sur la session.</p>
+                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
+                            </div>
+                        </div>
+                        <!-- Wizi Learn -->
+                        <div class="project-card reveal" data-category="webai" data-project="proj23" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj23')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="Wizi Learn"></div>
+                            <div class="project-info">
+                                <h3 data-i18n="proj23_title">Wizi Learn</h3>
+                                <p data-i18n="proj23_desc">Migration Laravel vers architecture hybride Node.js/React/Flutter avec parité API 100% garantie par tests automatisés.</p>
+                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
+                            </div>
+                        </div>
+                        <!-- Analyse des Besoins — Outil Collaboratif -->
+                        <div class="project-card reveal" data-category="webai" data-project="proj24" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj24')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="Analyse des Besoins Outil"></div>
+                            <div class="project-info">
+                                <h3 data-i18n="proj24_title">Analyse des Besoins — Outil Collaboratif</h3>
+                                <p data-i18n="proj24_desc">Application collaborative Node.js/Vue.js pour cadrage, BPMN interactif, user stories, traçabilité et export Markdown/PDF en temps réel.</p>
+                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
+                            </div>
+                        </div>
+                        <!-- OCR avec IA -->
+                        <div class="project-card reveal" data-category="webai" data-project="proj26" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj26')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="OCR avec IA"></div>
+                            <div class="project-info">
+                                <h3 data-i18n="proj26_title">OCR avec IA</h3>
+                                <p data-i18n="proj26_desc">Pipeline OCR multi-moteurs (Tesseract, PaddleOCR, Vision API) + LLM pour extraction d'entités structurées (factures, contrats).</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
 
                         <h3 class="project-category reveal" data-category="tools" data-i18n="proj_cat_tools">Outils & Divers</h3>
-                        <!-- Outils & Divers -->
-                        <div class="project-card reveal" data-category="tools" onclick="openModal('proj14')">
-                            <div class="project-img"><img src="image/nature.jpg" alt="Active Noise Cancelling"></div>
+                        <!-- Automatisation Bureautique -->
+                        <div class="project-card reveal" data-category="tools" data-project="proj20" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj20')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="Sendmail Python"></div>
                             <div class="project-info">
-                                <h3 data-i18n="proj14_title">Active Noise Cancelling</h3>
-                                <p data-i18n="proj14_desc">Recherche et implémentation sur le traitement du signal et l'annulation de bruit actif (ANC).</p>
+                                <h3 data-i18n="proj20_title">Outlook Automation</h3>
+                                <p data-i18n="proj20_desc">Outil Python/Tkinter automatisant les envois d'e-mails via Outlook COM, optimisant la productivité quotidienne.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="tools" onclick="openModal('proj15')">
+                        <div class="project-card reveal" data-category="tools" data-project="proj15" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj15')">
                             <div class="project-img"><img src="image/blue.jpg" alt="allopro"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj15_title">allopro</h3>
@@ -339,7 +495,7 @@
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="tools" onclick="openModal('proj16')">
+                        <div class="project-card reveal" data-category="tools" data-project="proj16" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj16')">
                             <div class="project-img"><img src="image/javascript.jpg" alt="android"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj16_title">android</h3>
@@ -347,11 +503,20 @@
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
-                        <div class="project-card reveal" data-category="tools" onclick="openModal('proj17')">
+                        <div class="project-card reveal" data-category="tools" data-project="proj17" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj17')">
                             <div class="project-img"><img src="image/tech_bg.png" alt="monday-project-hub"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj17_title">monday-project-hub</h3>
                                 <p data-i18n="proj17_desc">Hub d'intégration Monday.com pour centraliser la gestion de projets et la collaboration d'équipe.</p>
+                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
+                            </div>
+                        </div>
+                        <!-- Générateur QR Code & URL Court -->
+                        <div class="project-card reveal" data-category="tools" data-project="proj25" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj25')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="QR Code Generator"></div>
+                            <div class="project-info">
+                                <h3 data-i18n="proj25_title">Générateur QR Code & URL Court</h3>
+                                <p data-i18n="proj25_desc">Service stateless Node.js/Go pour QR codes paramétrables et URLs courtes avec expiration, sans tracking utilisateur.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
@@ -371,21 +536,21 @@
                             <div class="glass experience-card">
                                 <div class="date" data-i18n="exp1_date">Mars 2025 - Présent</div>
                                 <h3 data-i18n="exp1_title">IT Project Manager — Offshore</h3>
-                                <p data-i18n="exp1_desc">Pilotage de projets IT, cadrage fonctionnel, coordination des équipes et suivi des livrables.</p>
+                                <p data-i18n="exp1_desc">Cadrage, planification et pilotage de projets digitaux en méthode Agile/Scrum. Coordination d'équipes pluridisciplinaires (Devs, Design, Marketing). Conception, développement, personnalisation et maintenance de sites WordPress de A à Z. Garant de la performance, sécurité, SEO technique, qualité d'intégration (HTML, CSS) et du suivi des KPIs dans le respect des délais.</p>
                             </div>
                         </div>
                         <div class="timeline-item reveal">
                             <div class="glass experience-card">
                                 <div class="date" data-i18n="exp2_date">Jan 2024 - Fév 2025</div>
-                                <h3 data-i18n="exp2_title">Analyste programmeur — Société de Distribution</h3>
-                                <p data-i18n="exp2_desc">ERP 8sens, modélisation SQL, ETL SSIS, tableaux de bord Power Query/DAX et applications internes.</p>
+                                <h3 data-i18n="exp2_title">Analyste programmeur & Business Analyst — Société de Distribution</h3>
+                                <p data-i18n="exp2_desc">Collecte, consolidation et analyse de données opérationnelles complexes. Élaboration et mise à jour de tableaux de bord Power BI, Power Query et rapports DAX pour piloter l'aide à la décision. Administration de l'ERP 8sens, modélisation SQL Server (SSMS), pipelines ETL SSIS, suivi des KPIs, détection des écarts de déploiement et garantie de la qualité de la donnée.</p>
                             </div>
                         </div>
                         <div class="timeline-item reveal">
                             <div class="glass experience-card">
                                 <div class="date" data-i18n="exp3_date">Avr - Nov 2023</div>
                                 <h3 data-i18n="exp3_title">Développeur chef de projet — Software Overseas Academy</h3>
-                                <p data-i18n="exp3_desc">Lead dev Symfony/C#/JHipster, méthode Agile, admin Proxmox/GLPI et cahiers des charges techniques.</p>
+                                <p data-i18n="exp3_desc">Lead dev Symfony/C#/JHipster. Méthode Agile. Pilotage de la parité d'API, conteneurisation Docker et automatisation des tests (Playwright, JUnit). Administration Proxmox/GLPI.</p>
                             </div>
                         </div>
                         <div class="timeline-item reveal">
@@ -427,6 +592,54 @@
                 </div>
             </section>
 
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="section" style="background: var(--bg-secondary);">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 data-i18n="testi_title">Témoignages</h2>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card reveal">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left"></i>
+                                <p data-i18n="testi1_text">Un expert technique capable de traduire des besoins complexes en solutions fluides.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"></div>
+                                <div class="author-info">
+                                    <h4 data-i18n="testi1_author">Directeur Opérationnel - Groupe EDL</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card reveal">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left"></i>
+                                <p data-i18n="testi2_text">Une approche structurée et rigoureuse qui a permis de livrer notre projet ERP dans les délais.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"></div>
+                                <div class="author-info">
+                                    <h4 data-i18n="testi2_author">CTO - Société de Distribution</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card reveal">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left"></i>
+                                <p data-i18n="testi3_text">Excellente communication technique et capacité à vulgariser des concepts complexes pour les parties prenantes.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"></div>
+                                <div class="author-info">
+                                    <h4 data-i18n="testi3_author">Product Owner - Software Overseas Academy</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Contact Section -->
             <section id="contact" class="section">
                 <div class="container">
@@ -447,7 +660,12 @@
                                 <i class="fas fa-envelope"></i>
                                 <div>
                                     <h4>Email</h4>
-                                    <p>menja.herizo@gmail.com</p>
+                                    <p style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                                        <span id="email-text">menja.herizo@gmail.com</span>
+                                        <button type="button" id="copy-email-btn" class="copy-btn" title="Copier l'email" aria-label="Copier l'adresse email">
+                                            <i class="far fa-copy"></i>
+                                        </button>
+                                    </p>
                                 </div>
                             </div>
                             <div class="contact-item">
@@ -458,20 +676,24 @@
                                 </div>
                             </div>
                         </div>
-                        <form class="contact-form">
+                        <form class="contact-form" id="contact-form" data-mailto="menja.herizo@gmail.com">
                             <div class="form-group">
                                 <label data-i18n="contact_name">Nom complet</label>
-                                <input type="text" required>
+                                <input type="text" name="name" required>
                             </div>
                             <div class="form-group">
                                 <label data-i18n="contact_email">Email</label>
-                                <input type="email" required>
+                                <input type="email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label data-i18n="contact_message">Message</label>
-                                <textarea rows="5" required></textarea>
+                                <textarea name="message" rows="5" required></textarea>
                             </div>
+                            <!-- Honeypot spam protection -->
+                            <input type="checkbox" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                            <input type="hidden" name="_next" value="">
                             <button type="submit" class="btn btn-primary" data-i18n="contact_send">Envoyer le message</button>
+                            <div class="form-status" style="margin-top: 1rem; display: none;"></div>
                         </form>
                     </div>
                 </div>
@@ -499,9 +721,9 @@
     </div>
 
     <!-- Modal Overlay -->
-    <div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal()" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="event.stopPropagation()">
+            <button type="button" class="close-modal" aria-label="Fermer la fenêtre" onclick="closeModal()">&times;</button>
             <div id="modal-data"></div>
         </div>
     </div>
@@ -526,7 +748,7 @@
             <a href="#contact" class="fab-option" title="Contact">
                 <i class="fas fa-envelope"></i>
             </a>
-            <button onclick="exportToPDF()" class="fab-option" title="Download CV">
+            <button onclick="generateCV()" class="fab-option" title="Download CV">
                 <i class="fas fa-file-pdf"></i>
             </button>
         </div>
@@ -538,7 +760,330 @@
     <!-- Back to Top -->
     <button id="back-to-top" class="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
-    <script src="js/translations.js"></script>
-    <script src="js/app.js"></script>
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script src="js/translations.js?v=3"></script>
+    <script src="js/app.js?v=3"></script>
+    
+    <script>
+    // CV Data for PDF Generation (Single Source of Truth)
+    const cvData = {
+        fr: {
+            name: "Herizo Randrianaina",
+            title: "Chef de Projet IT & Lead Back-end | Analyste Programmeur & Business Analyst",
+            contact: "menja.herizo@gmail.com | +261 34 97 26 70 | Antananarivo, Madagascar",
+            links: "linkedin.com/in/herizo-randrianaina | github.com/herizo-r",
+            summary: "Chef de Projet IT, Lead Back-end et Analyste de Données avec plus de 8 ans d'expérience. Double expertise unique combinant le pilotage de projets digitaux et de développements logiciels complexes (Laravel, Node.js, React, Flutter) avec l'analyse décisionnelle avancée (SQL Server, SSIS, Power BI, Excel). Expert de l'ERP 8sens et des architectures d'intégration, je sécurise chaque déploiement de bout en bout grâce à une conteneurisation stricte (Docker) et une automatisation rigoureuse de l'assurance qualité (Playwright, JUnit, PHPUnit).",
+            skills: [
+                { category: "Gestion de Projet & Méthodologie", items: ["Agile/Scrum", "Cadrage", "Cahiers des Charges", "Planification", "Recette Utilisateur", "Coordination d'Équipe", "Management Offshore"] },
+                { category: "Développement Logiciel", items: ["PHP (Symfony, Laravel 12 + Filament)", "Node.js", "Java", "C#", "TypeScript/React", "Flutter (Mobile)", "JHipster"] },
+                { category: "Data & Business Intelligence", items: ["SQL Server (SSMS)", "Requêtes Complexes & Modélisation", "Pipelines ETL (SSIS, Python)", "Power Query", "DAX", "Power BI", "Excel Avancé"] },
+                { category: "Systèmes, CMS & Infrastructure", items: ["ERP 8sens", "WordPress (Développement A à Z, SEO, Performances, Sécurité)", "Docker", "Proxmox", "GLPI"] },
+                { category: "Qualité & Tests (QA)", items: ["Tests E2E (Playwright)", "Tests Unitaires (JUnit, PHPUnit)"] }
+            ],
+            experience: [
+                {
+                    role: "IT Project Manager — Offshore",
+                    date: "Mars 2025 – Présent",
+                    location: "Antananarivo, Madagascar",
+                    details: [
+                        "Cadrage, planification et pilotage de projets digitaux en méthode Agile/Scrum pour des clients internationaux.",
+                        "Coordination d'équipes pluridisciplinaires (développeurs, graphistes, marketing) et suivi rigoureux des KPIs et des livrables.",
+                        "Conception, développement, personnalisation avancée de thèmes/plugins et maintenance de sites WordPress de A à Z.",
+                        "Garant de la performance globale, de la sécurité applicative, du référencement technique (SEO) et du respect strict des délais de livraison."
+                    ]
+                },
+                {
+                    role: "Analyste Programmeur & Business Analyst — Société de Distribution",
+                    date: "Janvier 2024 – Février 2025",
+                    location: "Antananarivo, Madagascar",
+                    details: [
+                        "Collecte, consolidation et interprétation de larges volumes de données opérationnelles pour l'aide à la décision de la Direction.",
+                        "Modélisation de données complexes sous SQL Server (SSMS) et implémentation de flux d'intégration de données (Pipelines ETL) avec SSIS et Python.",
+                        "Création et automatisation de tableaux de bord de pilotage décisionnels et rapports KPI sous Power BI et Power Query (formules DAX).",
+                        "Administration opérationnelle et développement spécifique sur l'ERP 8sens, détection des écarts de performance sur les déploiements et garantie de la qualité et fiabilité des données."
+                    ]
+                },
+                {
+                    role: "Développeur Chef de Projet — Software Overseas Academy",
+                    date: "Avril 2023 – Novembre 2023",
+                    location: "Antananarivo, Madagascar",
+                    details: [
+                        "Lead Developer sur des solutions multi-technologies (Symfony, C#, JHipster) et pilotage de l'équipe en méthode Agile.",
+                        "Conception d'architectures d'intégration et pilotage de migrations API critiques avec validation systématique de la parité de service.",
+                        "Conteneurisation des applications (Docker / Docker Compose) et mise en œuvre d'une suite de tests automatisés (Playwright, JUnit) garantissant zéro régression.",
+                        "Administration système des infrastructures d'hébergement locales et distantes (Proxmox, GLPI)."
+                    ]
+                },
+                {
+                    role: "Opérateur Sénior & Support Qualité — Oworkers / Outsourcia",
+                    date: "2017 – 2022",
+                    location: "Antananarivo, Madagascar",
+                    details: [
+                        "Traitement de données de production, contrôle qualité et validation fonctionnelle front-office pour des comptes clients majeurs (Cdiscount, Foxit)."
+                    ]
+                }
+            ],
+            education: [
+                { degree: "Master 1 en Base de Données & Génie Logiciel", school: "CNTEMAD Madagascar", year: "2024" },
+                { degree: "Concepteur Développeur d'Applications", school: "Inclusiv Academy", year: "2022 – 2023" },
+                { degree: "Licence (Bacc+3) en Informatique : Réseaux & Systèmes", school: "CNTEMAD Madagascar", year: "2012 – 2015" }
+            ]
+        },
+        en: {
+            name: "Herizo Randrianaina",
+            title: "IT Project Manager & Lead Back-End | Analyste Programmer & Business Analyst",
+            contact: "menja.herizo@gmail.com | +261 34 97 26 70 | Antananarivo, Madagascar",
+            links: "linkedin.com/in/herizo-randrianaina | github.com/herizo-r",
+            summary: "IT Project Manager, Lead Back-End Developer, and Data Analyst with over 8 years of experience. Possesses a unique dual expertise combining digital project coordination and complex software development (Laravel, Node.js, React, Flutter) with advanced business intelligence (SQL Server, SSIS, Power BI, Excel). Highly specialized in 8sens ERP and system integration architectures, securing end-to-end deployments through strict containerization (Docker) and rigorous automated quality assurance (Playwright, JUnit, PHPUnit).",
+            skills: [
+                { category: "Project Management & Methodology", items: ["Agile/Scrum", "Project Scoping", "Technical Requirement Specifications", "Timelines & Milestones", "User Acceptance Testing (UAT)", "Team Coordination", "Offshore Management"] },
+                { category: "Software Development", items: ["PHP (Symfony, Laravel 12 + Filament)", "Node.js", "Java", "C#", "TypeScript/React", "Flutter (Mobile)", "JHipster"] },
+                { category: "Data & Business Intelligence", items: ["SQL Server (SSMS)", "Complex Query Writing & Data Modeling", "ETL Pipelines (SSIS, Python)", "Power Query", "DAX", "Power BI", "Advanced Excel"] },
+                { category: "Systems, CMS & Infrastructure", items: ["8sens ERP", "WordPress (End-to-End Development, SEO, Performance, Security)", "Docker", "Proxmox", "GLPI"] },
+                { category: "Quality & Testing (QA)", items: ["E2E Testing (Playwright)", "Unit Testing (JUnit, PHPUnit)"] }
+            ],
+            experience: [
+                {
+                    role: "IT Project Manager — Offshore",
+                    date: "March 2025 – Present",
+                    location: "Antananarivo, Madagascar",
+                    details: [
+                        "Scoped, planned, and managed international digital projects using Agile/Scrum methodology.",
+                        "Coordinated multidisciplinary teams (developers, graphic designers, marketing) and closely monitored project KPIs and deliverables.",
+                        "Designed, developed, customized themes/plugins, and maintained WordPress websites from scratch (end-to-end).",
+                        "Guaranteed overall performance, application security, technical SEO, and strict adherence to delivery deadlines."
+                    ]
+                },
+                {
+                    role: "Analyst Programmer & Business Analyst — Distribution Company",
+                    date: "January 2024 – February 2025",
+                    location: "Antananarivo, Madagascar",
+                    details: [
+                        "Collected, consolidated, and interpreted large volumes of operational business data to deliver reliable insights to executive leadership.",
+                        "Modeled complex data structures under SQL Server (SSMS) and implemented robust ETL data integration pipelines using SSIS and Python.",
+                        "Created and automated interactive decision-making dashboards and KPI reports using Power BI and Power Query (DAX formulas).",
+                        "Provided database administration and custom development on 8sens ERP, tracked deployment performance gaps, and ensured data quality/reliability."
+                    ]
+                },
+                {
+                    role: "Project Manager & Lead Developer — Software Overseas Academy",
+                    date: "April 2023 – November 2023",
+                    location: "Antananarivo, Madagascar",
+                    details: [
+                        "Served as Lead Developer for multi-tech software solutions (Symfony, C#, JHipster) and managed the technical team using Agile methods.",
+                        "Designed system integration architectures and led critical API migrations, guaranteeing 100% service parity.",
+                        "Containerized software environments (Docker / Docker Compose) and implemented automated testing suites (Playwright, JUnit) achieving zero-regression releases.",
+                        "Maintained local and remote hosting infrastructures (Proxmox, GLPI)."
+                    ]
+                },
+                {
+                    role: "Senior Operator & Quality Support — Oworkers / Outsourcia",
+                    date: "2017 – 2022",
+                    location: "Antananarivo, Madagascar",
+                    details: [
+                        "Processed operational data, performed quality control, and conducted front-office functional validation for key accounts (Cdiscount, Foxit)."
+                    ]
+                }
+            ],
+            education: [
+                { degree: "Master 1 in Database Administration & Software Engineering", school: "CNTEMAD Madagascar", year: "2024" },
+                { degree: "Software Application Designer & Developer", school: "Inclusiv Academy", year: "2022 – 2023" },
+                { degree: "Bachelor's Degree (Bacc+3) in Computer Science: Networks & Systems", school: "CNTEMAD Madagascar", year: "2012 – 2015" }
+            ]
+        }
+    };
+
+    function generateCV() {
+        // PDF generation disabled for now
+        console.log('PDF generation is currently disabled');
+        return;
+        const lang = (typeof currentLang !== 'undefined') ? currentLang : 'fr';
+        const data = cvData[lang];
+        
+        // Create a temporary container for the PDF content
+        const container = document.createElement('div');
+        container.style.padding = '40px';
+        container.style.fontFamily = 'Arial, sans-serif';
+        container.style.lineHeight = '1.6';
+        container.style.color = '#333';
+        container.style.maxWidth = '800px';
+        container.style.margin = '0 auto';
+        container.style.background = 'white';
+        
+        // Helper to create sections
+        const addSection = (title, content) => {
+            const section = document.createElement('div');
+            section.style.marginBottom = '24px';
+            section.style.pageBreakInside = 'avoid';
+            
+            const h2 = document.createElement('h2');
+            h2.textContent = title;
+            h2.style.color = '#1db954';
+            h2.style.borderBottom = '2px solid #1db954';
+            h2.style.paddingBottom = '4px';
+            h2.style.marginBottom = '12px';
+            h2.style.fontSize = '1.3rem';
+            section.appendChild(h2);
+            
+            section.appendChild(content);
+            return section;
+        };
+        
+        // Helper for bullet lists
+        const createList = (items, isBullet = true) => {
+            const ul = document.createElement(isBullet ? 'ul' : 'div');
+            ul.style.margin = '0';
+            ul.style.paddingLeft = isBullet ? '20px' : '0';
+            items.forEach(item => {
+                const li = document.createElement(isBullet ? 'li' : 'div');
+                li.textContent = item;
+                li.style.marginBottom = '4px';
+                ul.appendChild(li);
+            });
+            return ul;
+        };
+        
+        // Header
+        const header = document.createElement('div');
+        header.style.textAlign = 'center';
+        header.style.marginBottom = '24px';
+        header.style.borderBottom = '1px solid #eee';
+        header.style.paddingBottom = '16px';
+        
+        const name = document.createElement('h1');
+        name.textContent = data.name;
+        name.style.margin = '0 0 4px 0';
+        name.style.fontSize = '2rem';
+        name.style.color = '#121212';
+        header.appendChild(name);
+        
+        const title = document.createElement('div');
+        title.textContent = data.title;
+        title.style.color = '#666';
+        title.style.fontSize = '1rem';
+        title.style.marginBottom = '8px';
+        header.appendChild(title);
+        
+        const contact = document.createElement('div');
+        contact.textContent = data.contact;
+        contact.style.fontSize = '0.85rem';
+        contact.style.color = '#888';
+        contact.style.marginBottom = '4px';
+        header.appendChild(contact);
+        
+        const links = document.createElement('div');
+        links.textContent = data.links;
+        links.style.fontSize = '0.85rem';
+        links.style.color = '#888';
+        header.appendChild(links);
+        
+        container.appendChild(header);
+        
+        // Summary
+        const summaryDiv = document.createElement('p');
+        summaryDiv.textContent = data.summary;
+        summaryDiv.style.textAlign = 'justify';
+        container.appendChild(addSection(lang === 'fr' ? 'Résumé Professionnel' : 'Professional Summary', summaryDiv));
+        
+        // Skills
+        const skillsContent = document.createElement('div');
+        data.skills.forEach(skill => {
+            const cat = document.createElement('div');
+            cat.style.marginBottom = '12px';
+            const catTitle = document.createElement('strong');
+            catTitle.textContent = skill.category + ' : ';
+            cat.appendChild(catTitle);
+            const catItems = document.createElement('span');
+            catItems.textContent = skill.items.join(' • ');
+            catItems.style.color = '#555';
+            cat.appendChild(catItems);
+            skillsContent.appendChild(cat);
+        });
+        container.appendChild(addSection(lang === 'fr' ? 'Compétences Techniques & Expertises' : 'Technical Skills & Expertise', skillsContent));
+        
+        // Experience
+        const expContent = document.createElement('div');
+        data.experience.forEach(exp => {
+            const job = document.createElement('div');
+            job.style.marginBottom = '16px';
+            job.style.pageBreakInside = 'avoid';
+            
+            const role = document.createElement('div');
+            role.innerHTML = `<strong>${exp.role}</strong> <span style="color:#888; font-weight:normal;">| ${exp.date} | ${exp.location}</span>`;
+            role.style.fontSize = '1rem';
+            role.style.marginBottom = '8px';
+            job.appendChild(role);
+            
+            const list = createList(exp.details);
+            job.appendChild(list);
+            expContent.appendChild(job);
+        });
+        container.appendChild(addSection(lang === 'fr' ? 'Expériences Professionnelles' : 'Professional Experience', expContent));
+        
+        // Education
+        const eduContent = document.createElement('div');
+        data.education.forEach(edu => {
+            const item = document.createElement('div');
+            item.style.marginBottom = '8px';
+            item.innerHTML = `<strong>${edu.degree}</strong> — ${edu.school} <span style="color:#888;">(${edu.year})</span>`;
+            eduContent.appendChild(item);
+        });
+        container.appendChild(addSection(lang === 'fr' ? 'Formations & Diplômes' : 'Education & Degrees', eduContent));
+
+                // Generate PDF
+                const opt = {
+                    margin:       0.5,
+                    filename:     `CV_Herizo_Randrianaina_${lang.toUpperCase()}.pdf`,
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 2, useCORS: true, logging: false },
+                    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+                    pagebreak:    { mode: 'avoid-all', avoid: ['h2', 'div'] }
+                };
+
+                // Add container to body for rendering (invisible but in flow)
+                container.style.position = 'fixed';
+                container.style.left = '0';
+                container.style.top = '0';
+                container.style.width = '210mm';
+                container.style.height = 'auto';
+                container.style.opacity = '0';
+                container.style.pointerEvents = 'none';
+                container.style.zIndex = '-1';
+                container.style.background = 'white';
+                document.body.appendChild(container);
+
+                // Force reflow
+                container.offsetHeight;
+
+                // Check library availability
+                const html2pdfLib = window.html2pdf || window.html2pdfDefault || window.Html2Pdf || (typeof html2pdf !== 'undefined' ? html2pdf : null);
+
+                if (!html2pdfLib) {
+                    console.error('html2pdf library not loaded!');
+                    alert('Erreur: La librairie PDF n\'a pas pu charger.\n\nSi vous ouvrez le fichier directement (file://), cela ne marchera pas.\nUtilisez http://localhost/Portfolio via Laragon.');
+                    document.body.removeChild(container);
+                    return;
+                }
+
+                html2pdfLib().set(opt).from(container).save().then(() => {
+                    document.body.removeChild(container);
+                }).catch(err => {
+                    console.error('PDF generation error:', err);
+                    alert('Erreur lors de la génération du PDF: ' + err.message);
+                    document.body.removeChild(container);
+                });
+    }
+    
+    // Also bind the nav button
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('cv-download-btn');
+        if (btn) btn.addEventListener('click', generateCV);
+    });
+    
+    // Expose for debugging
+    window.generateCV = generateCV;
+    </script>
 </body>
 </html>

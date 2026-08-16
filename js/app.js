@@ -19,10 +19,13 @@ const projectDetails = {
     proj17: { category: 'tools', fr: { title: "monday-project-hub", challenge: "Synchroniser la gestion de projets Monday.com avec les outils internes.", solution: "Hub d'intégration Monday.com : webhooks, synchronisation des boards et tableaux de bord unifiés.", stack: ["Monday.com API", "Webhooks", "Node.js/Python"] }, en: { title: "monday-project-hub", challenge: "Sync Monday.com project management with internal tools.", solution: "Monday.com integration hub: webhooks, board sync and unified dashboards.", stack: ["Monday.com API", "Webhooks", "Node.js/Python"] } },
     proj21: { category: 'crm', fr: { title: "Analyse des Besoins", challenge: "Structurer le recueil et la formalisation des besoins métiers pour garantir l'alignement entre parties prenantes et livrables techniques sur projets ERP/CRM.", solution: "Méthodologie complète : ateliers de cadrage, cartographie des processus, spécifications fonctionnelles détaillées, user stories avec critères d'acceptation, matrice de traçabilité et priorisation MoSCoW.", stack: ["Analyse métier", "Cadrage projet", "Spécifications fonctionnelles", "User Stories", "MoSCoW", "BPMN"] }, en: { title: "Requirements Analysis", challenge: "Structure the gathering and formalization of business requirements to ensure alignment between stakeholders and technical deliverables on ERP/CRM projects.", solution: "Complete methodology: framing workshops, process mapping, detailed functional specifications, user stories with acceptance criteria, traceability matrix and MoSCoW prioritization.", stack: ["Business Analysis", "Project Framing", "Functional Specifications", "User Stories", "MoSCoW", "BPMN"] } },
     proj22: { category: 'webai', fr: { title: "POEMS", challenge: "Développer un outil national de gestion des admissions et de la scolarité pour le Ministère de l'Enseignement Supérieur français.", solution: "Plateforme centralisée multi-établissements pour la gestion des candidatures, inscriptions, notes et diplômes. Architecture robuste garantissant la conformité RGPD et l'interopérabilité SI.", stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Keycloak"] }, en: { title: "POEMS", challenge: "Develop a national admissions and student management platform for the French Ministry of Higher Education.", solution: "Centralized multi-institution platform for applications, enrollment, grades and diplomas. Robust architecture ensuring GDPR compliance and system interoperability.", stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Keycloak"] } },
-    proj23: { category: 'webai', fr: { title: "Wizi Learn", challenge: "Migrer une architecture Laravel monolithique vers une solution hybride Node.js/React/Flutter avec parité API totale.", solution: "Migration par phases (1 à 4) avec tests automatisés de parité endpoints. Backend hybride Laravel + Node.js, frontend React (web) et Flutter (mobile). Documentation technique exhaustive.", stack: ["Laravel", "Node.js", "React", "Flutter", "Docker", "API Testing"] }, en: { title: "Wizi Learn", challenge: "Migrate a monolithic Laravel architecture to a hybrid Node.js/React/Flutter solution with full API parity.", solution: "Phased migration (1-4) with automated endpoint parity tests. Hybrid backend Laravel + Node.js, React frontend (web) and Flutter (mobile). Comprehensive technical documentation.", stack: ["Laravel", "Node.js", "React", "Flutter", "Docker", "API Testing"] } },
+    proj19: { category: 'webai', fr: { title: "LingoLive", challenge: "Créer une expérience d’apprentissage des langues qui combine conversation naturelle, feedback et progression personnalisée.", solution: "Application Next.js avec serveur Express, intégration Gemini pour les échanges guidés et Supabase pour la persistance des comptes, sessions et données de progression.", stack: ["Next.js", "Express", "Gemini", "Supabase", "TypeScript"] }, en: { title: "LingoLive", challenge: "Create a language-learning experience combining natural conversation, feedback and personalized progress.", solution: "Next.js application with an Express server, Gemini integration for guided exchanges and Supabase for accounts, sessions and progress data.", stack: ["Next.js", "Express", "Gemini", "Supabase", "TypeScript"] } },
+    proj23: { category: 'webai', fr: { title: "Wizi Learn", challenge: "Construire une application de quiz utilisable sur le web et sur mobile, avec une architecture capable d’évoluer entre plusieurs stacks.", solution: "Conception multiplateforme avec backend Laravel ou Node.js, interfaces web React ou Vue et applications Flutter pour iOS et Android. L’objectif est de partager les règles métier et l’expérience pédagogique entre les canaux.", stack: ["Laravel / Node.js", "React", "Vue.js", "Flutter", "iOS", "Android"] }, en: { title: "Wizi Learn", challenge: "Build a quiz application for web and mobile with an architecture that can evolve across several stacks.", solution: "Cross-platform design with a Laravel or Node.js backend, React or Vue web interfaces and Flutter apps for iOS and Android. The goal is to share business rules and the learning experience across channels.", stack: ["Laravel / Node.js", "React", "Vue.js", "Flutter", "iOS", "Android"] } },
     proj24: { category: 'webai', fr: { title: "Analyse des Besoins — Outil Collaboratif", challenge: "Créer un outil collaboratif de cadrage et spécification fonctionnelle pour équipes produit et métiers.", solution: "Application web Node.js + Vue.js permettant ateliers de cadrage, cartographie BPMN interactive, rédaction user stories, matrice de traçabilité et export Markdown/PDF. Temps réel via WebSockets.", stack: ["Node.js", "Vue.js", "WebSockets", "BPMN.js", "Socket.io", "Markdown"] }, en: { title: "Requirements Analysis — Collaborative Tool", challenge: "Build a collaborative framing and functional specification tool for product and business teams.", solution: "Node.js + Vue.js web app enabling framing workshops, interactive BPMN mapping, user story writing, traceability matrix and Markdown/PDF export. Real-time via WebSockets.", stack: ["Node.js", "Vue.js", "WebSockets", "BPMN.js", "Socket.io", "Markdown"] } },
     proj25: { category: 'tools', fr: { title: "Générateur QR Code & URL Court", challenge: "Fournir un service simple, rapide et sans tracking pour générer des QR codes et raccourcir des URLs.", solution: "Outil web stateless (Node.js/Go) avec API REST, génération QR code paramétrable (logo, couleurs, taille), redirection courte avec expiration optionnelle, sans base de données utilisateur.", stack: ["Node.js", "Go", "QR Code Library", "Redis", "Docker"] }, en: { title: "QR Code & Short URL Generator", challenge: "Provide a simple, fast, privacy-first service for QR code generation and URL shortening.", solution: "Stateless web tool (Node.js/Go) with REST API, customizable QR codes (logo, colors, size), short redirects with optional expiry, no user database.", stack: ["Node.js", "Go", "QR Code Library", "Redis", "Docker"] } },
-    proj26: { category: 'webai', fr: { title: "OCR avec IA", challenge: "Extraire et structurer intelligemment du texte depuis documents scannés, PDF ou images pour automatisation métiers.", solution: "Pipeline OCR multi-moteurs (Tesseract, PaddleOCR, Google Vision) + LLM pour correction contextuelle et extraction d'entités (factures, contrats, formulaires). API asynchrone avec webhooks.", stack: ["Python", "Tesseract", "PaddleOCR", "OpenAI/Anthropic API", "FastAPI", "Celery", "Redis"] }, en: { title: "AI-Powered OCR", challenge: "Intelligently extract and structure text from scanned documents, PDFs or images for business automation.", solution: "Multi-engine OCR pipeline (Tesseract, PaddleOCR, Google Vision) + LLM for contextual correction and entity extraction (invoices, contracts, forms). Async API with webhooks.", stack: ["Python", "Tesseract", "PaddleOCR", "OpenAI/Anthropic API", "FastAPI", "Celery", "Redis"] } }
+    proj26: { category: 'webai', fr: { title: "OCR avec IA", challenge: "Extraire et structurer intelligemment du texte depuis documents scannés, PDF ou images pour automatisation métiers.", solution: "Pipeline OCR multi-moteurs (Tesseract, PaddleOCR, Google Vision) + LLM pour correction contextuelle et extraction d'entités (factures, contrats, formulaires). API asynchrone avec webhooks.", stack: ["Python", "Tesseract", "PaddleOCR", "OpenAI/Anthropic API", "FastAPI", "Celery", "Redis"] }, en: { title: "AI-Powered OCR", challenge: "Intelligently extract and structure text from scanned documents, PDFs or images for business automation.", solution: "Multi-engine OCR pipeline (Tesseract, PaddleOCR, Google Vision) + LLM for contextual correction and entity extraction (invoices, contracts, forms). Async API with webhooks.", stack: ["Python", "Tesseract", "PaddleOCR", "OpenAI/Anthropic API", "FastAPI", "Celery", "Redis"] } },
+    proj27: { category: 'tools', fr: { title: "POS Flutter", challenge: "Fournir une application mobile simple pour vendre, suivre les produits et garder un inventaire fiable au quotidien.", solution: "Application de point de vente et d’inventaire conçue avec Flutter, avec catalogue produits, mouvements de stock, ventes et vues adaptées aux opérations terrain.", stack: ["Flutter", "Dart", "POS", "Inventaire", "iOS", "Android"] }, en: { title: "Flutter POS", challenge: "Provide a simple mobile application to sell products, track inventory and keep daily operations reliable.", solution: "Flutter point-of-sale and inventory application with product catalog, stock movements, sales and views designed for field operations.", stack: ["Flutter", "Dart", "POS", "Inventory", "iOS", "Android"] } },
+    proj28: { category: 'tools', fr: { title: "Do Not Disturb", challenge: "Permettre aux équipes de rester concentrées sans perdre les appels importants lorsqu’elles sont déjà occupées.", solution: "Plateforme Flutter de redirection d’appels qui adapte la prise en charge lorsque l’utilisateur est indisponible, afin de limiter les interruptions tout en maintenant la continuité de service pour l’entreprise.", stack: ["Flutter", "Dart", "Téléphonie", "Redirection d’appels", "iOS", "Android"] }, en: { title: "Do Not Disturb", challenge: "Help teams stay focused without missing important calls when they are already busy.", solution: "Flutter call-routing platform that adapts call handling when a user is unavailable, reducing interruptions while preserving business continuity.", stack: ["Flutter", "Dart", "Telephony", "Call routing", "iOS", "Android"] } }
 };
 
 // Keep the portfolio claims aligned with the applications present in the workspace.
@@ -89,29 +92,58 @@ Object.assign(window.portfolioTranslations.fr, {
     case_crm_type: "CRM multi-portails",
     case_crm_title: "Unifier les opérations commerciales",
     case_crm_text: "Laravel, Filament, workflows, imports et gestion fine des droits.",
+    case_crm_meta: "Laravel · Filament · RBAC",
     case_data_type: "Data & automatisation",
     case_data_title: "Qualifier des données entreprises",
     case_data_text: "Pipeline de collecte, enrichissement et exports prêts à exploiter.",
+    case_data_meta: "Python · API · Docker",
     case_ai_type: "IA conversationnelle",
     case_ai_title: "Faire pratiquer une langue en situation",
-    case_ai_text: "Expérience Gemini Live orientée conversation, feedback et progression."
+    case_ai_text: "Expérience Gemini Live orientée conversation, feedback et progression.",
+    case_ai_meta: "IA · UX · feedback",
+    metho_title: "Ma Méthodologie",
+    metho_intro_1: "Je ne code pas seulement des fonctionnalités, je construis des systèmes durables.",
+    metho_intro_2: "Chaque projet est ancré dans une",
+    metho_intro_3: "architecture conteneurisée",
+    metho_intro_4: "protégé par une",
+    metho_intro_5: "suite de tests automatisés",
+    metho_intro_6: "et conçu pour une maintenabilité et une évolutivité à long terme.",
+    metho_item_1: "Conteneurisation",
+    metho_item_2: "Tests automatisés",
+    metho_item_3: "CI/CD & déploiement",
+    metho_item_4: "Clean Architecture"
 });
 Object.assign(window.portfolioTranslations.en, {
     availability: "Available for IT project management, CRM/ERP, data and automation assignments.",
     case_crm_type: "Multi-portal CRM",
     case_crm_title: "Unifying sales operations",
     case_crm_text: "Laravel, Filament, workflows, imports and fine-grained permissions.",
+    case_crm_meta: "Laravel · Filament · RBAC",
     case_data_type: "Data & automation",
     case_data_title: "Qualifying company data",
     case_data_text: "Collection, enrichment and export pipeline ready for business use.",
+    case_data_meta: "Python · API · Docker",
     case_ai_type: "Conversational AI",
     case_ai_title: "Practising a language in real situations",
-    case_ai_text: "A Gemini Live experience focused on conversation, feedback and progress."
+    case_ai_text: "A Gemini Live experience focused on conversation, feedback and progress.",
+    case_ai_meta: "AI · UX · feedback",
+    metho_title: "My Method",
+    metho_intro_1: "I do not just build features; I build systems that last.",
+    metho_intro_2: "Every project is grounded in a",
+    metho_intro_3: "containerized architecture",
+    metho_intro_4: "protected by an",
+    metho_intro_5: "automated testing suite",
+    metho_intro_6: "and designed for long-term maintainability and scalability.",
+    metho_item_1: "Containerization",
+    metho_item_2: "Automated testing",
+    metho_item_3: "CI/CD & delivery",
+    metho_item_4: "Clean Architecture"
 });
 
 // i18n & Basic UI
-let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith('en') ? 'en' : 'fr');
+let currentLang = localStorage.getItem('lang') || 'fr';
 function updateLanguage(lang) {
+    if (!window.portfolioTranslations?.[lang]) lang = 'fr';
     currentLang = lang;
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
@@ -122,6 +154,31 @@ function updateLanguage(lang) {
     const langText = document.getElementById('lang-text');
     if (langText) langText.textContent = lang === 'fr' ? 'EN' : 'FR';
     updateTypedArray();
+}
+
+function initMobileNav() {
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.querySelector('.nav-links');
+    if (!toggle || !menu) return;
+
+    const closeMenu = () => {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.querySelector('i')?.classList.replace('fa-xmark', 'fa-bars');
+    };
+
+    toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+        toggle.querySelector('i')?.classList.toggle('fa-bars', !isOpen);
+        toggle.querySelector('i')?.classList.toggle('fa-xmark', isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+    });
 }
 
 function initLangToggle() {
@@ -855,6 +912,7 @@ function handleCommand(cmd) {
 }
 
 const typedTextSpan = document.querySelector(".typed-text");
+if (typedTextSpan) typedTextSpan.setAttribute('aria-live', 'polite');
 let textArray = currentLang === 'fr' ? ["Chef de Projet IT", "Développeur Back-end", "Expert ERP/CRM & Data"] : ["IT Project Manager", "Back-end Developer", "ERP/CRM & Data Expert"];
 let textArrayIndex = 0, charIndex = 0;
 function type() {
@@ -1175,6 +1233,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initSplashScreen();
     initAutoTheme();
     initAccentPicker();
+    initMobileNav();
     initLangToggle();
     initProjectFilter();
     initCopyEmail();

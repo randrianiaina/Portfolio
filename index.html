@@ -8,19 +8,26 @@
     <meta name="keywords" content="Chef de projet IT, Développeur Back-end, ERP, CRM, Symfony, SSIS, Power Query, SQL Server, ETL, Proxmox, GLPI">
     <meta name="author" content="Herizo Randrianaina">
     <meta name="theme-color" content="#0d9488">
+    <link rel="canonical" href="https://herizo.netlify.app/">
+    <link rel="alternate" hreflang="fr" href="https://herizo.netlify.app/">
+    <link rel="alternate" hreflang="en" href="https://herizo.netlify.app/?lang=en">
+    <meta name="robots" content="index, follow">
+    <meta property="og:locale" content="fr_FR">
     
     <!-- Open Graph (Facebook, LinkedIn) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Herizo Randrianaina | Chef de projet IT & Développeur Back-end">
     <meta property="og:description" content="Portfolio immersif 3D. Solutions métiers ERP/CRM, data, automatisation et gestion de projets IT.">
     <meta property="og:image" content="image/herizo.png">
-    <meta property="og:url" content="https://herizo-randrianaina.com">
+    <meta property="og:site_name" content="Herizo Randrianaina — Portfolio">
+    <meta property="og:url" content="https://herizo.netlify.app/">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Herizo Randrianaina | IT Project Manager & Back-end">
     <meta name="twitter:description" content="ERP, CRM, data & automatisation. Explore mon portfolio immersif en 3D Low Poly.">
     <meta name="twitter:image" content="image/herizo.png">
+    <meta name="twitter:url" content="https://herizo.netlify.app/">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +38,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=7">
     <link rel="manifest" href="manifest.json">
     <!-- Three.js dynamically loaded on 3D mode click for better initial page speed -->
 
@@ -42,7 +49,7 @@
       "@type": "Person",
       "name": "Herizo Randrianaina",
       "jobTitle": "Chef de projet IT & Développeur Back-end",
-      "url": "https://herizo-randrianaina.com",
+      "url": "https://herizo.netlify.app/",
       "email": "menja.herizo@gmail.com",
       "sameAs": [
         "https://linkedin.com/in/herizo-randrianaina",
@@ -155,6 +162,7 @@
     </script>
 </head>
 <body data-theme="light">
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
     <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-content">
@@ -178,15 +186,20 @@
     <nav class="navbar">
         <div class="container nav-content">
             <a href="#" class="logo">HR.</a>
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="#methodology" class="nav-link" data-i18n="nav_metho">Méthodologie</a></li>
+                <li><a href="#services" class="nav-link" data-i18n="nav_services">Services</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav_about">À propos</a></li>
                 <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Compétences</a></li>
                 <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projets</a></li>
                 <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Parcours</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
-            <div class="nav-btns">
+                            <div class="nav-btns">
+
                 <button id="lang-toggle" class="theme-toggle" title="Switch Language" aria-label="Changer de langue">
                     <span id="lang-text">EN</span>
                 </button>
@@ -229,10 +242,22 @@
                     <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">Collaborer ensemble</a>
                     <a href="Profile.pdf" class="btn btn-quiet" target="_blank" rel="noopener" data-i18n="cv_btn">CV PDF</a>
                 </div>
+                <aside class="hero-proof glass reveal" aria-label="Preuves de valeur">
+                    <div class="hero-proof-topline"><span class="status-dot"></span><span data-i18n="hero_proof_status">Disponible pour de nouveaux projets</span></div>
+                    <div class="hero-proof-heading"><span data-i18n="hero_proof_label">Tableau de bord</span><strong>2025—26</strong></div>
+                    <div class="hero-proof-grid">
+                        <div><strong>17+</strong><span data-i18n="hero_proof_projects">projets livrés</span></div>
+                        <div><strong>8+</strong><span data-i18n="hero_proof_years">ans d’expérience</span></div>
+                        <div><strong>360°</strong><span data-i18n="hero_proof_scope">du cadrage à la prod</span></div>
+                        <div><strong>QA</strong><span data-i18n="hero_proof_quality">qualité intégrée</span></div>
+                    </div>
+                    <div class="hero-proof-stack"><span>ERP / CRM</span><span>DATA</span><span>BACK-END</span><span>AGILE</span></div>
+                    <div class="hero-proof-note"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i><span data-i18n="hero_proof_note">Des systèmes utiles, mesurables et maintenables.</span></div>
+                </aside>
             </div>
         </header>
 
-        <main>
+        <main id="main-content">
             <!-- Methodology Section -->
             <section id="methodology" class="section" style="background: var(--bg-primary);">
                 <div class="container">
@@ -242,17 +267,34 @@
                     </div>
                     <div class="glass methodology-card reveal" style="padding: 2.5rem; text-align: center;">
                         <p style="font-size: 1.2rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-                            Je ne code pas seulement des fonctionnalités, je construis des systèmes durables. 
-                            Chaque projet est ancré dans une <strong>architecture conteneurisée</strong>, 
-                            protégé par une <strong>suite de tests automatisés</strong> (Playwright, PHPUnit), 
-                            et conçu pour une maintenabilité et une évolutivité à long terme.
+                            <span data-i18n="metho_intro_1">Je ne code pas seulement des fonctionnalités, je construis des systèmes durables.</span>
+                            <span data-i18n="metho_intro_2">Chaque projet est ancré dans une</span> <strong data-i18n="metho_intro_3">architecture conteneurisée</strong>,
+                            <span data-i18n="metho_intro_4">protégé par une</span> <strong data-i18n="metho_intro_5">suite de tests automatisés</strong> (Playwright, PHPUnit),
+                            <span data-i18n="metho_intro_6">et conçu pour une maintenabilité et une évolutivité à long terme.</span>
                         </p>
                         <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
-                            <div style="padding: 1rem;"><i class="fas fa-docker fa-2x"></i><p>Conteneurisation</p></div>
-                            <div style="padding: 1rem;"><i class="fas fa-check-double fa-2x"></i><p>Tests Automatisés</p></div>
-                            <div style="padding: 1rem;"><i class="fas fa-sync-alt fa-2x"></i><p>CI/CD & Déploiement</p></div>
-                            <div style="padding: 1rem;"><i class="fas fa-code-branch fa-2x"></i><p>Clean Architecture</p></div>
+                            <div style="padding: 1rem;"><i class="fas fa-docker fa-2x"></i><p data-i18n="metho_item_1">Conteneurisation</p></div>
+                            <div style="padding: 1rem;"><i class="fas fa-check-double fa-2x"></i><p data-i18n="metho_item_2">Tests Automatisés</p></div>
+                            <div style="padding: 1rem;"><i class="fas fa-sync-alt fa-2x"></i><p data-i18n="metho_item_3">CI/CD & Déploiement</p></div>
+                            <div style="padding: 1rem;"><i class="fas fa-code-branch fa-2x"></i><p data-i18n="metho_item_4">Clean Architecture</p></div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="section services-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <span class="eyebrow" data-i18n="services_eyebrow">Ce que j’apporte</span>
+                        <h2 data-i18n="services_title">Un partenaire technique orienté résultat</h2>
+                        <p class="section-lead" data-i18n="services_lead">Du besoin métier à la mise en production, je réduis la complexité et je rends les décisions plus simples.</p>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="services-grid reveal">
+                        <article class="service-card"><div class="service-icon"><i class="fas fa-compass-drafting" aria-hidden="true"></i></div><span class="service-index">01</span><h3 data-i18n="service_1_title">Cadrer & prioriser</h3><p data-i18n="service_1_text">Clarifier les objectifs, les workflows et les critères de succès avant d’engager le développement.</p><a href="#contact" class="service-link"><span data-i18n="service_link_1">Discuter du besoin</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a></article>
+                        <article class="service-card"><div class="service-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div><span class="service-index">02</span><h3 data-i18n="service_2_title">Construire le socle</h3><p data-i18n="service_2_text">Concevoir des applications ERP/CRM, des API et des pipelines data robustes, documentés et évolutifs.</p><a href="#projects" class="service-link"><span data-i18n="service_link_2">Voir les réalisations</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a></article>
+                        <article class="service-card"><div class="service-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div><span class="service-index">03</span><h3 data-i18n="service_3_title">Piloter l’impact</h3><p data-i18n="service_3_text">Suivre la qualité, les livrables et l’adoption pour transformer un projet technique en valeur métier.</p><a href="#contact" class="service-link"><span data-i18n="service_link_3">Parlons de vos enjeux</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a></article>
                     </div>
                 </div>
             </section>
@@ -270,7 +312,7 @@
                             <p style="font-size: 1.1rem;" data-i18n="about_p2">Mon expérience couvre le développement PHP/Symfony, Java, C#, React/Ionic, la modélisation de données, les requêtes SQL complexes, les traitements ETL avec SSIS, ainsi que la création de tableaux de bord avec Power Query et DAX.</p>
                         </div>
                         <div style="width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 5px solid var(--accent); margin: 0 auto;">
-                            <img src="image/herizo.png" alt="Herizo Randrianaina" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="image/herizo.png" alt="Herizo Randrianaina, chef de projet IT et développeur back-end" width="250" height="250" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -313,16 +355,16 @@
 
                     <div class="stats-grid reveal">
                         <div class="stat-item">
-                            <div class="stat-circle" data-target="17" data-suffix="+">0</div>
+                            <div class="stat-circle" data-target="17" data-suffix="+">17+</div>
                             <p data-i18n="stat_projects">Projets Livrés</p>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-circle" data-target="8" data-suffix="+">0</div>
+                            <div class="stat-circle" data-target="8" data-suffix="+">8+</div>
                             <p data-i18n="stat_years">Ans d'expérience</p>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-circle" data-target="100" data-suffix="%">0%</div>
-                            <p data-i18n="stat_erp">CRM & Data</p>
+                            <div class="stat-circle" data-target="3" data-suffix="">3</div>
+                            <p data-i18n="stat_domains">Domaines clés</p>
                         </div>
                     </div>
                 </div>
@@ -341,16 +383,19 @@
                             <span class="case-study-type" data-i18n="case_crm_type">CRM multi-portails</span>
                             <strong data-i18n="case_crm_title">Unifier les opérations commerciales</strong>
                             <span data-i18n="case_crm_text">Laravel, Filament, workflows, imports et gestion fine des droits.</span>
+                            <span class="case-study-meta"><i class="fas fa-layer-group" aria-hidden="true"></i><span data-i18n="case_crm_meta">Laravel · Filament · RBAC</span></span>
                         </button>
                         <button type="button" class="case-study-card" onclick="openModal('proj9')">
                             <span class="case-study-type" data-i18n="case_data_type">Data & automatisation</span>
                             <strong data-i18n="case_data_title">Qualifier des données entreprises</strong>
                             <span data-i18n="case_data_text">Pipeline de collecte, enrichissement et exports prêts à exploiter.</span>
+                            <span class="case-study-meta"><i class="fas fa-database" aria-hidden="true"></i><span data-i18n="case_data_meta">Python · API · Docker</span></span>
                         </button>
                         <button type="button" class="case-study-card" onclick="openModal('proj19')">
                             <span class="case-study-type" data-i18n="case_ai_type">IA conversationnelle</span>
                             <strong data-i18n="case_ai_title">Faire pratiquer une langue en situation</strong>
                             <span data-i18n="case_ai_text">Expérience Gemini Live orientée conversation, feedback et progression.</span>
+                            <span class="case-study-meta"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span data-i18n="case_ai_meta">IA · UX · feedback</span></span>
                         </button>
                     </div>
 
@@ -445,7 +490,7 @@
                             <div class="project-img"><img src="image/tech_bg.png" alt="Lingo Live"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj19_title">Lingo Live</h3>
-                                <p data-i18n="proj19_desc">App booster de langues basée sur Gemini. Architecture stateless haute performance, sans base de données, axée sur la session.</p>
+                                <p data-i18n="proj19_desc">Application d’apprentissage des langues avec Gemini, Next.js, Express et Supabase.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
@@ -454,7 +499,7 @@
                             <div class="project-img"><img src="image/tech_bg.png" alt="Wizi Learn"></div>
                             <div class="project-info">
                                 <h3 data-i18n="proj23_title">Wizi Learn</h3>
-                                <p data-i18n="proj23_desc">Migration Laravel vers architecture hybride Node.js/React/Flutter avec parité API 100% garantie par tests automatisés.</p>
+                                <p data-i18n="proj23_desc">Application multiplateforme de quiz avec backend Laravel ou Node.js, interface React/Vue et applications Flutter iOS/Android.</p>
                                 <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
                             </div>
                         </div>
@@ -478,6 +523,24 @@
                         </div>
 
                         <h3 class="project-category reveal" data-category="tools" data-i18n="proj_cat_tools">Outils & Divers</h3>
+                        <!-- POS Flutter -->
+                        <div class="project-card reveal" data-category="tools" data-project="proj27" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj27')">
+                            <div class="project-img"><img src="image/blue.jpg" alt="POS Flutter"></div>
+                            <div class="project-info">
+                                <h3 data-i18n="proj27_title">POS Flutter</h3>
+                                <p data-i18n="proj27_desc">Application de point de vente et d’inventaire pour suivre les produits, les ventes et les stocks sur mobile.</p>
+                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
+                            </div>
+                        </div>
+                        <!-- Do Not Disturb -->
+                        <div class="project-card reveal" data-category="tools" data-project="proj28" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj28')">
+                            <div class="project-img"><img src="image/tech_bg.png" alt="Do Not Disturb"></div>
+                            <div class="project-info">
+                                <h3 data-i18n="proj28_title">Do Not Disturb</h3>
+                                <p data-i18n="proj28_desc">Plateforme Flutter de redirection d’appel pour rester concentré sans manquer les appels importants de l’entreprise.</p>
+                                <button class="btn btn-outline" data-i18n="proj_more">En savoir plus</button>
+                            </div>
+                        </div>
                         <!-- Automatisation Bureautique -->
                         <div class="project-card reveal" data-category="tools" data-project="proj20" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('proj20')">
                             <div class="project-img"><img src="image/tech_bg.png" alt="Sendmail Python"></div>
@@ -536,7 +599,7 @@
                             <div class="glass experience-card">
                                 <div class="date" data-i18n="exp1_date">Mars 2025 - Présent</div>
                                 <h3 data-i18n="exp1_title">IT Project Manager — Offshore</h3>
-                                <p data-i18n="exp1_desc">Cadrage, planification et pilotage de projets digitaux en méthode Agile/Scrum. Coordination d'équipes pluridisciplinaires (Devs, Design, Marketing). Conception, développement, personnalisation et maintenance de sites WordPress de A à Z. Garant de la performance, sécurité, SEO technique, qualité d'intégration (HTML, CSS) et du suivi des KPIs dans le respect des délais.</p>
+                                <p data-i18n="exp1_desc">Pilotage de projets IT de bout en bout : analyse des besoins métiers, rédaction des spécifications, coordination des équipes de développement et suivi des livrables, de la qualité et des délais.</p>
                             </div>
                         </div>
                         <div class="timeline-item reveal">
@@ -593,46 +656,46 @@
             </section>
 
             <!-- Testimonials Section -->
-            <section id="testimonials" class="section" style="background: var(--bg-secondary);">
+            <section id="approach" class="section" style="background: var(--bg-secondary);">
                 <div class="container">
                     <div class="section-header reveal">
-                        <h2 data-i18n="testi_title">Témoignages</h2>
+                        <h2 data-i18n="approach_title">Principes de collaboration</h2>
                         <div class="underline"></div>
                     </div>
                     <div class="testimonials-grid">
                         <div class="testimonial-card reveal">
                             <div class="testimonial-content">
                                 <i class="fas fa-quote-left"></i>
-                                <p data-i18n="testi1_text">Un expert technique capable de traduire des besoins complexes en solutions fluides.</p>
+                                <p data-i18n="approach1_text">Transformer un besoin métier complexe en périmètre clair, priorisé et actionnable.</p>
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-avatar"></div>
                                 <div class="author-info">
-                                    <h4 data-i18n="testi1_author">Directeur Opérationnel - Groupe EDL</h4>
+                                    <h4 data-i18n="approach1_author">Cadrage & alignement</h4>
                                 </div>
                             </div>
                         </div>
                         <div class="testimonial-card reveal">
                             <div class="testimonial-content">
                                 <i class="fas fa-quote-left"></i>
-                                <p data-i18n="testi2_text">Une approche structurée et rigoureuse qui a permis de livrer notre projet ERP dans les délais.</p>
+                                <p data-i18n="approach2_text">Construire des solutions maintenables, testées et documentées, plutôt que des fonctionnalités isolées.</p>
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-avatar"></div>
                                 <div class="author-info">
-                                    <h4 data-i18n="testi2_author">CTO - Société de Distribution</h4>
+                                    <h4 data-i18n="approach2_author">Qualité & pérennité</h4>
                                 </div>
                             </div>
                         </div>
                         <div class="testimonial-card reveal">
                             <div class="testimonial-content">
                                 <i class="fas fa-quote-left"></i>
-                                <p data-i18n="testi3_text">Excellente communication technique et capacité à vulgariser des concepts complexes pour les parties prenantes.</p>
+                                <p data-i18n="approach3_text">Faire circuler l’information entre métiers, équipe technique et décideurs avec un langage accessible.</p>
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-avatar"></div>
                                 <div class="author-info">
-                                    <h4 data-i18n="testi3_author">Product Owner - Software Overseas Academy</h4>
+                                    <h4 data-i18n="approach3_author">Communication & suivi</h4>
                                 </div>
                             </div>
                         </div>
@@ -763,8 +826,8 @@
     <!-- PDF Generation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <script src="js/translations.js?v=3"></script>
-    <script src="js/app.js?v=3"></script>
+    <script src="js/translations.js?v=7"></script>
+    <script src="js/app.js?v=7"></script>
     
     <script>
     // CV Data for PDF Generation (Single Source of Truth)

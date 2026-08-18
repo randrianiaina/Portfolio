@@ -47,8 +47,20 @@
     const html = `<!doctype html><html lang="${value}"><head><meta charset="utf-8"><title>${isEn ? 'ATS Resume' : 'CV ATS'} - Herizo Randrianaina</title><style>body{font-family:Arial,sans-serif;max-width:800px;margin:40px auto;color:#111;line-height:1.45}h1{font-size:28px}h2{font-size:15px;border-bottom:1px solid #111;padding-bottom:4px;margin-top:22px}p,li{font-size:11pt}</style></head><body><h1>Herizo Randrianaina</h1><p><strong>${isEn ? 'IT Project Manager · Back-end Developer' : 'Chef de projet IT · Développeur back-end'}</strong></p><p>Antananarivo, Madagascar · menja.herizo@gmail.com · linkedin.com/in/herizo-randrianaina</p><h2>${isEn ? 'PROFILE' : 'PROFIL'}</h2><p>${isEn ? 'IT project manager and back-end developer connecting business needs, technical delivery and operational usage across CRM, ERP, APIs, data flows and AI-enabled products.' : 'Chef de projet IT et développeur back-end, j’interviens sur les CRM, ERP, API, flux data et produits intégrant l’intelligence artificielle.'}</p>${associated ? `<h2>${isEn ? 'ASSOCIATED PROJECT' : 'PROJET ASSOCIÉ'}</h2><p><strong>${associated.title}</strong> — ${associated.text}</p>` : ''}<h2>${isEn ? 'SKILLS' : 'COMPÉTENCES'}</h2><p>IT project management · Agile · Back-end · REST APIs · CRM / ERP · SQL · ETL · Power BI · GenAI / LLM · Docker · React · Vue · Flutter</p><h2>${isEn ? 'SELECTED PROJECTS' : 'PROJETS SÉLECTIONNÉS'}</h2><ul>${projects.map((item) => `<li><strong>${item.title}</strong> — ${item.text}</li>`).join('')}</ul></body></html>`;
     const blob = new Blob([html], { type: 'application/msword;charset=utf-8' }); const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = `Herizo_Randrianaina_ATS_${value}${projectTitle ? '_' + projectTitle.replace(/[^a-z0-9]+/gi, '-') : ''}.doc`; link.click(); URL.revokeObjectURL(url);
   };
+  const updateAtsInfo = (value) => {
+    let section = document.querySelector('#ats-info');
+    if (!section) {
+      const projectsSection = document.querySelector('#projets');
+      if (!projectsSection) return;
+      section = document.createElement('section'); section.id = 'ats-info'; section.className = 'section-wrap section-block ats-info';
+      projectsSection.insertAdjacentElement('afterend', section);
+    }
+    const isEn = value === 'en';
+    section.innerHTML = `<div class="section-heading"><p class="eyebrow">${isEn ? 'CV & language' : 'CV & langue'}</p><h2>${isEn ? 'One clear ATS resume,<br><em>in the visitor’s language.</em>' : 'Un CV ATS clair,<br><em>dans la langue du visiteur.</em>'}</h2></div><div class="contact-side"><p>${isEn ? 'Use the single “Generate my ATS CV” button in the navigation. The downloaded document adapts to French or English and includes the selected projects and skills.' : 'Utilisez le bouton unique « Générer mon CV ATS » dans la navigation. Le document téléchargé s’adapte au français ou à l’anglais et inclut les projets et compétences sélectionnés.'}</p><div class="contact-meta"><span>${isEn ? 'FR / EN' : 'FR / EN'}</span><span>${isEn ? 'Word-compatible ATS document' : 'Document ATS compatible Word'}</span></div></div>`;
+  };
   const applyLocale = (value) => {
     document.querySelectorAll('[data-i18n]').forEach((node) => { const key = node.dataset.i18n; if (copy[value][key]) node.textContent = copy[value][key]; });
+    updateAtsInfo(value);
     if (value === 'en') translateTextNodes(value); else location.reload();
     updateProjectCards(value);
     const toggle = document.querySelector('#portfolio-language'); if (toggle) toggle.textContent = value.toUpperCase();
@@ -59,6 +71,7 @@
     if (!document.querySelector('#portfolio-language')) { const lang = document.createElement('button'); lang.id = 'portfolio-language'; lang.type = 'button'; lang.className = 'nav-action'; lang.textContent = locale().toUpperCase(); lang.title = copy[locale()].lang; lang.addEventListener('click', () => setLocale(locale() === 'fr' ? 'en' : 'fr')); nav.appendChild(lang); }
     if (!document.querySelector('#portfolio-ats')) { const button = document.createElement('button'); button.id = 'portfolio-ats'; button.type = 'button'; button.className = 'nav-action'; button.textContent = copy[locale()].ats; button.addEventListener('click', () => ats()); nav.appendChild(button); }
     updateProjectCards(locale());
+    updateAtsInfo(locale());
   };
   document.addEventListener('DOMContentLoaded', enhance); const observer = new MutationObserver(enhance); observer.observe(document.body, { childList: true, subtree: true });
 })();

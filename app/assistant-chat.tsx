@@ -9,6 +9,8 @@ type ChatMessage = {
   text: string;
 };
 
+type ConversationMessage = Pick<ChatMessage, "role" | "text">;
+
 type AssistantChatProps = {
   locale: Locale;
   labels: {
@@ -63,6 +65,16 @@ export default function AssistantChat({
     window.requestAnimationFrame(() => launcherRef.current?.focus());
   }
 
+  function getRecentConversation(): ConversationMessage[] {
+    const lastCompleteReply = messages.findLastIndex(
+      (message) => message.role === "assistant",
+    );
+    if (lastCompleteReply < 0) return [];
+
+    const recent = messages.slice(Math.max(0, lastCompleteReply - 5), lastCompleteReply + 1);
+    return recent[0]?.role === "assistant" ? recent.slice(1) : recent;
+  }
+
   async function sendQuestion(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const message = question.trim();
@@ -80,7 +92,11 @@ export default function AssistantChat({
       const response = await fetch("/.netlify/functions/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, locale }),
+        body: JSON.stringify({
+          message,
+          locale,
+          history: getRecentConversation(),
+        }),
       });
       const result: unknown = await response.json();
       const reply =

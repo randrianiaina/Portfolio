@@ -10,6 +10,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.bak
 
 # Next.js
 .next/

@@ -32,6 +32,10 @@ Le changement de langue français/anglais, le filtrage des projets, l’ouvertur
 
 Les boutons du CV professionnel et du CV ATS génèrent désormais de vrais PDF en français ou en anglais, selon la langue sélectionnée. Le CV professionnel utilise une mise en page graphique ; la version ATS privilégie une structure simple, à une colonne, facile à analyser par les logiciels de recrutement. Les deux documents incluent les coordonnées, le profil, les compétences, les expériences, une sélection de projets, la formation et les langues. Pendant la génération, les boutons signalent le chargement et se désactivent ; une erreur est annoncée explicitement.
 
+## Assistant IA du portfolio
+
+Un chat bilingue répond aux questions sur les projets, les compétences et le parcours à partir des données du portfolio. Pour une recherche précise, Gemini peut appeler l’outil en lecture seule `search_projects`, qui cherche dans la liste publique des projets et retourne au plus cinq résultats ; aucune autre action ni modification n’est disponible. Les messages sont envoyés à une Netlify Function, qui appelle Gemini avec une clé conservée côté serveur ; aucun historique de conversation n’est persisté. Le widget propose aussi un accès direct à WhatsApp et à l’e-mail. Pour l’activer en production, configurer `GEMINI_API_KEY` dans les variables d’environnement du site Netlify et limiter les quotas de la clé Gemini ; `.env.example` indique le nom de la variable sans contenir de secret. Pour tester le chat en local, utiliser Netlify Dev (`npx netlify dev`) avec `GEMINI_API_KEY` configurée dans l’environnement. Le déploiement Netlify publie `out/` et les fonctions dans `netlify/functions/`.
+
 ## Prévisualisation locale
 
 Depuis le dossier du projet, lancer un serveur statique puis ouvrir `http://127.0.0.1:8000/`. Le portfolio ne nécessite pas de compilation : les fichiers HTML, CSS et JavaScript peuvent être déployés directement sur un hébergement statique.

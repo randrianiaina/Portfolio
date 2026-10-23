@@ -120,6 +120,21 @@ export const translations = {
     email: "menja.herizo@gmail.com",
     phone: "+261 34 97 26 70",
     whatsapp: "WhatsApp · +261 32 68 44 949 ↗",
+    assistantOpen: "Poser une question",
+    assistantClose: "Fermer l’assistant",
+    assistantTitle: "Assistant du portfolio",
+    assistantIntroduction:
+      "Bonjour ! Pose une question sur les projets, les compétences ou le parcours de Herizo.",
+    assistantPrivacy:
+      "Les questions sont transmises à Google Gemini pour générer les réponses. Évite d’envoyer des informations personnelles.",
+    assistantPlaceholder: "Ex. : Quels projets utilisent Laravel ?",
+    assistantSend: "Envoyer",
+    assistantThinking: "Réflexion…",
+    assistantError:
+      "L’assistant est momentanément indisponible. Réessaie plus tard ou contacte Herizo directement.",
+    assistantContact: "Contacter Herizo :",
+    assistantWhatsApp: "WhatsApp",
+    assistantEmail: "E-mail",
     city: "Antananarivo, Madagascar",
     footer: "Gestion de projet · Développement · Data",
     backToTop: "Retour en haut ↑",
@@ -247,6 +262,21 @@ export const translations = {
     email: "menja.herizo@gmail.com",
     phone: "+261 34 97 26 70",
     whatsapp: "WhatsApp · +261 32 68 44 949 ↗",
+    assistantOpen: "Ask a question",
+    assistantClose: "Close assistant",
+    assistantTitle: "Portfolio assistant",
+    assistantIntroduction:
+      "Hello! Ask me about Herizo’s projects, skills or experience.",
+    assistantPrivacy:
+      "Questions are sent to Google Gemini to generate replies. Please do not share personal information.",
+    assistantPlaceholder: "e.g. Which projects use Laravel?",
+    assistantSend: "Send",
+    assistantThinking: "Thinking…",
+    assistantError:
+      "The assistant is temporarily unavailable. Try again later or contact Herizo directly.",
+    assistantContact: "Contact Herizo:",
+    assistantWhatsApp: "WhatsApp",
+    assistantEmail: "Email",
     city: "Antananarivo, Madagascar",
     footer: "Project management · Development · Data",
     backToTop: "Back to top ↑",

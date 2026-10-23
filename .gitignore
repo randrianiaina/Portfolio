@@ -16,3 +16,7 @@ $RECYCLE.BIN/
 out/
 node_modules/
 tsconfig.tsbuildinfo
+
+# Environment variables
+.env*
+!.env.example

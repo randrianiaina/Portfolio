@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
+import AssistantChat from "./assistant-chat";
 import { projects, type ProjectCategory } from "./projects";
 import { downloadResumePdf, type ResumeVariant } from "./resume-pdf";
 import { translations, type Locale } from "./translations";
@@ -504,6 +505,23 @@ export default function Portfolio() {
         <span>{t.footer}</span>
         <a href="#top">{t.backToTop}</a>
       </footer>
+      <AssistantChat
+        labels={{
+          open: t.assistantOpen,
+          close: t.assistantClose,
+          title: t.assistantTitle,
+          introduction: t.assistantIntroduction,
+          privacy: t.assistantPrivacy,
+          placeholder: t.assistantPlaceholder,
+          send: t.assistantSend,
+          thinking: t.assistantThinking,
+          error: t.assistantError,
+          contact: t.assistantContact,
+          whatsapp: t.assistantWhatsApp,
+          email: t.assistantEmail,
+        }}
+        locale={locale}
+      />
     </>
   );
 }

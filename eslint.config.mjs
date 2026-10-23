@@ -17,4 +17,11 @@ export default defineConfig([
     },
     rules: reactHooks.configs.flat.recommended.rules,
   },
+  {
+    files: ["netlify/functions/**/*.ts"],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    languageOptions: {
+    globals: globals.node,
+    },
+  },
 ]);

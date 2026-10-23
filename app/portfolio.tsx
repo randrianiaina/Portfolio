@@ -194,15 +194,6 @@ export default function Portfolio() {
           >
             {locale.toUpperCase()}
           </button>
-          <button
-            aria-busy={downloadingVariant === "ats"}
-            className="nav-action"
-            disabled={downloadingVariant !== null}
-            onClick={() => void downloadResume("ats")}
-            type="button"
-          >
-            {downloadingVariant === "ats" ? t.generatingCv : t.atsTitle}
-          </button>
         </nav>
         <button
           aria-busy={downloadingVariant === "professional"}
@@ -471,6 +462,20 @@ export default function Portfolio() {
             >
               {t.email} <span>↗</span>
             </a>
+            <div className="resume-format">
+              <p>{t.atsDescription}</p>
+              <button
+                aria-busy={downloadingVariant === "ats"}
+                className="ats-download"
+                disabled={downloadingVariant !== null}
+                onClick={() => void downloadResume("ats")}
+                type="button"
+              >
+                {downloadingVariant === "ats"
+                  ? t.generatingCv
+                  : t.atsTitle}
+              </button>
+            </div>
             <div className="contact-meta">
               <a
                 href="https://www.linkedin.com/in/herizo-randrianiaina/"

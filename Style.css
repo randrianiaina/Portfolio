@@ -69,6 +69,11 @@ section[id]{scroll-margin-top:100px}
 .header-cta{cursor:pointer}
 .download-error{width:min(1180px,calc(100% - 56px));margin:12px auto;color:#9c2f3c;font-size:14px}
 .header-cta:disabled,.nav-action:disabled{cursor:wait;opacity:.7}
+.resume-format{margin-top:16px}
+.resume-format p{margin:0 0 6px;color:var(--muted);font-size:12px}
+.ats-download{padding:0;border:0;border-bottom:1px solid currentColor;background:none;color:var(--ink);font:500 11px var(--mono);cursor:pointer}
+.ats-download:hover{color:#566d1f}
+.ats-download:disabled{cursor:wait;opacity:.7}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .assistant-chat{position:fixed;right:24px;bottom:24px;z-index:30;font-family:var(--sans)}
 .assistant-launcher{border:0;border-radius:999px;background:var(--dark);color:white;padding:14px 20px;box-shadow:0 8px 28px #14211435;font:600 12px var(--mono);cursor:pointer}

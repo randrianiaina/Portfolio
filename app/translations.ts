@@ -138,7 +138,9 @@ export const translations = {
     city: "Antananarivo, Madagascar",
     footer: "Gestion de projet · Développement · Data",
     backToTop: "Retour en haut ↑",
-    atsTitle: "CV ATS · PDF",
+    atsTitle: "Version ATS · PDF",
+    atsDescription:
+      "Pour les candidatures déposées sur des plateformes de recrutement.",
     generatingCv: "Génération du PDF…",
     downloadError:
       "Le téléchargement du CV a échoué. Réessaie ou contacte-moi par e-mail.",
@@ -280,7 +282,9 @@ export const translations = {
     city: "Antananarivo, Madagascar",
     footer: "Project management · Development · Data",
     backToTop: "Back to top ↑",
-    atsTitle: "ATS Resume · PDF",
+    atsTitle: "ATS-friendly CV · PDF",
+    atsDescription:
+      "A simpler format for applications submitted through recruitment platforms.",
     generatingCv: "Generating PDF…",
     downloadError:
       "CV download failed. Please try again or contact me by email.",

@@ -30,7 +30,7 @@ Le changement de langue français/anglais, le filtrage des projets, l’ouvertur
 
 ## Téléchargements du CV
 
-Les boutons du CV professionnel et du CV ATS génèrent désormais de vrais PDF en français ou en anglais, selon la langue sélectionnée. Le CV professionnel utilise une mise en page graphique ; la version ATS privilégie une structure simple, à une colonne, facile à analyser par les logiciels de recrutement. Les deux documents incluent les coordonnées, le profil, les compétences, les expériences, une sélection de projets, la formation et les langues. Pendant la génération, les boutons signalent le chargement et se désactivent ; une erreur est annoncée explicitement.
+Le CV professionnel est l’action principale dans l’en-tête. La version ATS, au contenu similaire mais à la structure plus simple pour les plateformes de recrutement, est proposée comme option secondaire dans la section Contact afin de réduire la redondance visuelle. Les deux boutons génèrent de vrais PDF en français ou en anglais, selon la langue sélectionnée, et signalent le chargement ; une erreur est annoncée explicitement.
 
 ## Assistant IA du portfolio
 

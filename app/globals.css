@@ -1,0 +1,5 @@
+:root {
+  --serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --sans: var(--font-ibm-plex-sans), Arial, sans-serif;
+  --mono: var(--font-dm-mono), monospace;
+}

@@ -1,0 +1,46 @@
+const projects = [
+  {name:'EspoCRM',type:'crm',label:'CRM & gestion',desc:'Instance CRM principale avec administration customisée, tests automatisés et scripts de migration.',stack:['PHP','Docker','Playwright']},
+  {name:'crmfilament',type:'crm',label:'CRM & gestion',desc:'Application multi-portails pour la gestion documentaire et les workflows de NsConseil, AlloPro et SuperAdmin.',stack:['Laravel 12','Filament','Workflows']},
+  {name:'CRM / crmAi / crmfila',type:'crm',label:'CRM & gestion',desc:'Explorations et évolutions locales autour du CRM, de l’assistance IA et des processus commerciaux.',stack:['CRM','IA','PHP']},
+  {name:'partner-connect-crm',type:'crm',label:'CRM & gestion',desc:'Espace de connexion partenaires pensé pour fluidifier le partage d’informations commerciales.',stack:['CRM','API','Portail']},
+  {name:'freellmapi',type:'ia',label:'IA & automation',desc:'API d’accès unifié aux Large Language Models pour intégrer l’IA aux applications métier.',stack:['API','LLM','Backend']},
+  {name:'AIQuizGenius',type:'ia',label:'IA & automation',desc:'Application de génération de quiz pédagogiques basée sur l’intelligence artificielle.',stack:['GenAI','Web app','Éducation']},
+  {name:'vision2html',type:'ia',label:'IA & automation',desc:'Conversion et génération d’interfaces web assistées par vision et intelligence artificielle.',stack:['Vision','IA','UI']},
+  {name:'review-genie',type:'ia',label:'IA & automation',desc:'Outil d’aide à l’analyse et à la génération de contenus de retour utilisateur.',stack:['IA','Automation','Web']},
+  {name:'pappers-collect',type:'data',label:'Data & outils',desc:'Collecte et enrichissement de leads via l’API Pappers pour qualifier des prospects B2B.',stack:['API Pappers','B2B','Data']},
+  {name:'pappers-locator',type:'data',label:'Data & outils',desc:'Recherche et localisation de données entreprises pour accélérer la prospection.',stack:['API','Data','Recherche']},
+  {name:'Lingo-live',type:'ia',label:'IA & automation',desc:'Expérience web orientée apprentissage et interaction, conservée parmi les projets historiques.',stack:['Web','Live','Produit']},
+  {name:'POEMS',type:'data',label:'Data & outils',desc:'Outil métier historique pour structurer les informations et les opérations d’équipe.',stack:['Outil métier','Data']},
+  {name:'QR Shortener',type:'data',label:'Data & outils',desc:'Génération et gestion de liens courts et QR codes pour partager une information rapidement.',stack:['Web','QR','Utility']},
+  {name:'NSCONSEILS / AOPIA',type:'desktop',label:'Bureau / local',desc:'Projets repérés sur le bureau : conseil, automatisation et expérimentations applicatives.',stack:['Projet local','Conseil']},
+  {name:'AlloPro24',type:'desktop',label:'Bureau / local',desc:'Suite locale comprenant un espace admin, des flux opérationnels et un traitement d’équipe.',stack:['Projet local','Admin','Ops']},
+  {name:'Pointage',type:'desktop',label:'Bureau / local',desc:'Application locale de suivi du temps et des présences pour les équipes.',stack:['Projet local','Suivi']},
+  {name:'Active Noise Cancelling',type:'desktop',label:'Bureau / local',desc:'Exploration technique autour de l’audio et de la réduction active du bruit.',stack:['Projet local','Audio']},
+];
+
+const grid = document.getElementById('project-grid');
+const filters = document.querySelectorAll('.filter');
+function render(filter='all') {
+  const visible = filter === 'all' ? projects : projects.filter(project => project.type === filter);
+  grid.innerHTML = visible.map((project, index) => `
+    <article class="project-card" data-type="${project.type}">
+      <span class="project-index">${String(index + 1).padStart(2,'0')} / ${String(visible.length).padStart(2,'0')}</span>
+      <h3>${project.name}</h3>
+      <p>${project.desc}</p>
+      <div class="project-bottom"><div class="project-stack">${project.stack.map(item => `<span>${item}</span>`).join('')}</div><span class="project-type">${project.label}</span></div>
+    </article>`).join('');
+}
+filters.forEach(button => button.addEventListener('click', () => {
+  filters.forEach(item => item.classList.remove('active'));
+  button.classList.add('active');
+  render(button.dataset.filter);
+}));
+render();
+
+const menu = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
+menu?.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  nav.setAttribute('aria-hidden', String(!open));
+});
+nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => nav.classList.remove('open')));

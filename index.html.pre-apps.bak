@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de Herizo Randrianaina — chef de projet IT, développeur back-end et intégrateur IA.">
+  <title>Herizo Randrianaina — IT Project Manager & Back-end Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Retour en haut"><span>HR</span><strong>Herizo<br>Randrianaina</strong></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#expertise">Expertise</a><a href="#projets">Projets</a><a href="#parcours">Parcours</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="Profile.pdf" download>Télécharger le CV <span>↗</span></a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i> Disponible pour de nouveaux défis</p>
+        <h1>Je transforme les <em>besoins métiers</em> en produits numériques fiables.</h1>
+        <p class="hero-lead">Chef de projet IT et développeur back-end, j’assemble API, data, automatisation et IA pour construire des outils qui font réellement avancer les équipes.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#projets">Voir mes projets <span>↓</span></a><a class="text-link" href="mailto:menja.herizo@gmail.com">Parlons de votre projet <span>↗</span></a></div>
+        <div class="hero-proof"><div><strong>8+</strong><span>ans d’expérience</span></div><div><strong>17+</strong><span>projets livrés</span></div><div><strong>ERP · CRM</strong><span>data & IA appliquée</span></div></div>
+      </div>
+      <div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="profile-card"><div class="card-top"><span class="status-dot"></span><span>profil / 2026</span><span class="card-code">01—04</span></div><div class="avatar"><img src="image/herizo.png" alt="Portrait de Herizo Randrianaina"></div><h2>Herizo<br><span>Randrianaina</span></h2><p>Back-end · Data · IA</p><div class="card-footer"><span>Antananarivo, MG</span><span>● online</span></div></div><div class="floating-chip chip-one">API + IA</div><div class="floating-chip chip-two">ERP / CRM</div></div>
+    </section>
+
+    <section id="expertise" class="section-wrap section-block">
+      <div class="section-heading"><p class="eyebrow">01 — Ce que je fais</p><h2>Une vision produit,<br><em>une exécution technique.</em></h2><p>De l’analyse des besoins au déploiement, je relie les enjeux opérationnels aux choix techniques qui rendent les solutions durables.</p></div>
+      <div class="expertise-grid"><article><span class="number">01</span><h3>Piloter & structurer</h3><p>Recueillir les besoins, rédiger les spécifications, coordonner les équipes et sécuriser les livrables dans un cadre Agile.</p><div class="tags"><span>Agile / Scrum</span><span>Roadmap</span><span>Spécifications</span></div></article><article><span class="number">02</span><h3>Construire le back-end</h3><p>Concevoir des APIs et applications métiers robustes avec PHP/Symfony, Laravel, C#, Java et des bases SQL.</p><div class="tags"><span>PHP · Symfony</span><span>REST API</span><span>Docker</span></div></article><article><span class="number">03</span><h3>Exploiter la data & l’IA</h3><p>Automatiser les flux, fiabiliser les données et intégrer des modèles de langage dans des expériences utiles et mesurables.</p><div class="tags"><span>SQL · ETL</span><span>Power BI</span><span>LLM / GenAI</span></div></article></div>
+    </section>
+
+    <section id="projets" class="section-wrap section-block projects-section">
+      <div class="section-heading projects-heading"><div><p class="eyebrow">02 — Sélection de travaux</p><h2>Des projets qui répondent<br><em>à de vrais problèmes.</em></h2></div><p>Les projets historiques sont conservés et enrichis par les applications repérées dans `C:\laragon\www`, sur le bureau et dans mes dépôts GitHub.</p></div>
+      <div class="filters" role="tablist" aria-label="Filtrer les projets"><button class="filter active" data-filter="all">Tous <b id="project-count">0</b></button><button class="filter" data-filter="crm">CRM & gestion</button><button class="filter" data-filter="ia">IA & automation</button><button class="filter" data-filter="data">Data & outils</button><button class="filter" data-filter="desktop">Bureau / local</button><button class="filter" data-filter="github">GitHub</button></div>
+      <div id="project-grid" class="project-grid"></div>
+    </section>
+
+    <section id="parcours" class="section-wrap section-block journey"><div class="section-heading"><p class="eyebrow">03 — Parcours</p><h2>Construire avec méthode,<br><em>apprendre en continu.</em></h2></div><div class="timeline"><div class="timeline-item"><span>03.2025 — aujourd’hui</span><h3>IT Project Manager · Offshore</h3><p>Pilotage de projets applicatifs, coordination Agile et supervision de solutions ERP/CRM, reporting et data.</p></div><div class="timeline-item"><span>01.2024 — 02.2025</span><h3>Analyste programmeur · Société de Distribution</h3><p>ERP 8sens, modélisation SQL, ETL SSIS, dashboards Power Query / DAX et applications Symfony, C#, React & Ionic.</p></div><div class="timeline-item"><span>04.2023 — 11.2023</span><h3>Développeur chef de projet · Software Overseas Academy</h3><p>Développements Symfony, C# et JHipster, administration Proxmox / GLPI et accompagnement Agile.</p></div></div></section>
+
+    <section id="contact" class="contact section-wrap"><div><p class="eyebrow">04 — On échange ?</p><h2>Un besoin métier,<br><em>une idée à concrétiser ?</em></h2></div><div class="contact-side"><p>Je suis disponible pour discuter de projets back-end, d’automatisation, d’outils internes et d’intégration IA.</p><a class="button button-primary" href="mailto:menja.herizo@gmail.com">menja.herizo@gmail.com <span>↗</span></a><div class="contact-meta"><span>+261 34 97 26 70</span><span>Antananarivo, Madagascar</span></div></div></section>
+  </main>
+  <footer class="footer section-wrap"><span>© 2026 Herizo Randrianaina</span><span>Back-end · Data · IA</span><a href="#top">Retour en haut ↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>

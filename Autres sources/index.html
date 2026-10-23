@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio professionnel — développement full-stack, CRM, infrastructures Linux et IA locale.">
+<title>Portfolio | IT & Software Engineering</title>
+<style>
+:root{--bg:#0b1020;--panel:#111a2d;--panel2:#0e1729;--line:#24334d;--text:#e7eefc;--muted:#9aaac4;--cyan:#67e8f9;--green:#9ae6b4;--violet:#c4b5fd;--orange:#fbbf77}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#162747 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:5;background:#0b1020eF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0}.brand{font-weight:800;letter-spacing:.02em}.brand span{color:var(--cyan)}.navlinks{display:flex;gap:20px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+main{padding:54px 0 80px}.eyebrow{font:13px ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--green);letter-spacing:.08em;text-transform:uppercase}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center;padding:45px 0 64px}.hero h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.05;letter-spacing:-.055em;margin:16px 0}.hero h1 span{color:var(--cyan)}.lead{font-size:1.12rem;color:#c4d0e4;max-width:700px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-block;border:1px solid #3d5677;border-radius:9px;padding:10px 16px;color:var(--text);font-weight:650}.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#06121e}.editor{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#080e1a;box-shadow:0 24px 80px #0005}.editorbar{display:flex;align-items:center;gap:7px;padding:12px 15px;background:#111a2d;border-bottom:1px solid var(--line);font:12px ui-monospace,monospace;color:var(--muted)}.dot{width:9px;height:9px;border-radius:50%;background:#f87171}.dot:nth-child(2){background:#fbbf24}.dot:nth-child(3){background:#4ade80}.editor pre{margin:0;padding:22px;overflow:auto;font:13px/1.9 ui-monospace,SFMono-Regular,Consolas,monospace;color:#cbd5e1}.key{color:var(--violet)}.str{color:var(--green)}.comment{color:#7386a4}
+section{padding:30px 0 22px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}.section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin:4px 0;letter-spacing:-.035em}.section-head p{color:var(--muted);max-width:500px;margin:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:linear-gradient(140deg,#121d32,#0f1728);border:1px solid var(--line);border-radius:14px;padding:23px}.card:hover{border-color:#4c719b}.card-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.tag{font:11px ui-monospace,monospace;color:var(--green);border:1px solid #315a52;padding:4px 7px;border-radius:5px}.card h3{margin:12px 0 7px;font-size:1.28rem}.card p{color:#b4c2d8;margin:0 0 14px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{font-size:.76rem;color:#b9c9e0;background:#1a2942;padding:4px 8px;border-radius:5px}.status{font-size:.78rem;color:var(--orange)}.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.skill{padding:18px;border:1px solid var(--line);border-radius:11px;background:#10192b}.skill h3{margin:0 0 7px;font-size:1rem}.skill p{margin:0;color:var(--muted);font-size:.92rem}.timeline{border-left:1px solid #3a506e;margin-left:8px;padding-left:22px;display:grid;gap:20px}.timeline-item{position:relative}.timeline-item:before{content:"";position:absolute;left:-28px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px #11213a}.timeline-item h3{margin:0 0 4px}.timeline-item p{margin:0;color:var(--muted)}.contact{background:linear-gradient(120deg,#132540,#111a2d);border:1px solid #304969;border-radius:16px;padding:30px;display:flex;justify-content:space-between;gap:24px;align-items:center}.contact h2{margin:0 0 8px}.contact p{margin:0;color:var(--muted)}footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:.85rem}.small{font-size:.83rem;color:var(--muted)}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:25px}.grid,.skills{grid-template-columns:1fr}.navlinks{gap:10px}.navlinks a:nth-child(2){display:none}.contact{display:block}.contact .actions{margin-top:18px}.section-head{display:block}.section-head p{margin-top:8px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav><a class="brand" href="#top">&lt;<span>portfolio</span>/&gt;</a><div class="navlinks"><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#approche">Approche</a><a href="#contact">Contact</a></div></nav></div></header>
+<main class="wrap" id="top">
+<section class="hero">
+<div><div class="eyebrow">// IT • développement • infrastructure • IA</div>
+<h1>Construire des outils<br>qui <span>font avancer</span><br>les métiers.</h1>
+<p class="lead">Profil orienté informatique et solutions métier : développement full-stack, plateformes de formation, CRM, administration Linux et virtualisation, déploiement applicatif et exploration de l’IA locale.</p>
+<div class="actions"><a class="btn primary" href="#projets">Explorer les projets ↓</a><a class="btn" href="#contact">Échanger sur un projet</a></div>
+<p class="small">Portfolio basé sur des projets et travaux évoqués. Les statuts indiquent des réalisations ou domaines explorés, sans revendiquer de résultats non confirmés.</p>
+</div>
+<div class="editor"><div class="editorbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px">profile.ts</span></div>
+<pre><span class="key">const</span> profile = {
+  focus: [
+    <span class="str">"Full-stack"</span>,
+    <span class="str">"CRM & outils métier"</span>,
+    <span class="str">"Linux / Proxmox"</span>,
+    <span class="str">"IA locale"</span>
+  ],
+  stack: {
+    backend: [<span class="str">"Laravel"</span>, <span class="str">"Node.js"</span>],
+    frontend: [<span class="str">"React"</span>, <span class="str">"Vue"</span>, <span class="str">"Flutter"</span>],
+    data: [<span class="str">"PostgreSQL"</span>, <span class="str">"MySQL"</span>],
+    ops: [<span class="str">"Docker"</span>, <span class="str">"Linux"</span>]
+  },
+  mindset: <span class="str">"Comprendre, construire, fiabiliser."</span>
+};</pre></div>
+</section>
+<section id="projets"><div class="section-head"><div><div class="eyebrow">// 01 — projets</div><h2>Des solutions concrètes</h2></div><p>Du produit numérique à l’infrastructure qui le fait fonctionner : conception, développement, intégration et exploitation.</p></div>
+<div class="grid">
+<article class="card"><div class="card-top"><span class="tag">EDTECH / MOBILE</span><span class="status">Projet produit</span></div><h3>Wizi-Learn</h3><p>Plateforme d’apprentissage inspirée des parcours adaptatifs : évaluations initiales, orientation par niveau, règles pédagogiques et parcours personnalisés. Écosystème évoqué : Laravel, React/Vite, Flutter et PostgreSQL.</p><div class="chips"><span class="chip">Laravel</span><span class="chip">React / Vite</span><span class="chip">Flutter</span><span class="chip">PostgreSQL</span><span class="chip">API</span></div></article>
+<article class="card"><div class="card-top"><span class="tag">CRM / AUTOMATISATION</span><span class="status">Évolution métier</span></div><h3>AOPIA CRM</h3><p>Personnalisation d’un CRM orienté prospection et téléphonie : distribution des prospects, statuts, reporting, intégration Ringover et exploration d’outils d’analyse assistés par IA.</p><div class="chips"><span class="chip">EspoCRM</span><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Ringover</span><span class="chip">Reporting</span></div></article>
+<article class="card"><div class="card-top"><span class="tag">SERVICE / WEB</span><span class="status">Projet métier</span></div><h3>Allo Pro 24</h3><p>Écosystème de services pour la mise en relation, la gestion d’activité et les opérations : site WordPress, réflexion CRM, agenda, facturation, prospection et coordination entre équipes.</p><div class="chips"><span class="chip">WordPress</span><span class="chip">CRM</span><span class="chip">Processus métier</span><span class="chip">Téléphonie</span></div></article>
+<article class="card"><div class="card-top"><span class="tag">INFRA / DEVOPS</span><span class="status">Administration & diagnostic</span></div><h3>Infrastructure Linux & Proxmox</h3><p>Administration et dépannage de serveurs et machines virtuelles : réseau, stockage, volumes LVM, certificats SSL, Apache, services applicatifs, PostgreSQL et procédures de restauration.</p><div class="chips"><span class="chip">Linux</span><span class="chip">Proxmox</span><span class="chip">Apache</span><span class="chip">LVM</span><span class="chip">SSL</span></div></article>
+<article class="card"><div class="card-top"><span class="tag">CONTAINERS / DATA</span><span class="status">Déploiement applicatif</span></div><h3>Applications conteneurisées & données</h3><p>Travaux de déploiement et de maintenance autour de Docker, bases PostgreSQL/MySQL, configuration d’environnements, migrations, builds et diagnostic d’erreurs applicatives.</p><div class="chips"><span class="chip">Docker</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">PM2</span><span class="chip">GitHub</span></div></article>
+<article class="card"><div class="card-top"><span class="tag">IA / R&D</span><span class="status">Exploration</span></div><h3>IA locale & reporting</h3><p>Exploration de modèles de langage locaux avec Ollama et de scénarios d’intégration dans les outils métier, notamment pour l’analyse, le reporting et l’assistance au développement.</p><div class="chips"><span class="chip">Ollama</span><span class="chip">LLM locaux</span><span class="chip">Automatisation</span><span class="chip">Reporting</span></div></article>
+</div></section>
+<section id="competences"><div class="section-head"><div><div class="eyebrow">// 02 — compétences</div><h2>Une approche transversale</h2></div><p>Compétences présentées selon les technologies et activités abordées dans les projets cités.</p></div>
+<div class="skills">
+<div class="skill"><h3>Développement web & mobile</h3><p>Laravel, React/Vite, Vue, Flutter, Node.js/NestJS, API REST et intégration applicative.</p></div>
+<div class="skill"><h3>Données & logique métier</h3><p>PostgreSQL, MySQL, règles métier, migrations, modélisation et analyse de données applicatives.</p></div>
+<div class="skill"><h3>Systèmes & exploitation</h3><p>Linux/Ubuntu, Proxmox, Docker, Apache, PM2, certificats TLS/SSL et diagnostic d’incidents.</p></div>
+<div class="skill"><h3>CRM & outils opérationnels</h3><p>EspoCRM, téléphonie Ringover, gestion de prospects, campagnes, workflows et tableaux de bord.</p></div>
+<div class="skill"><h3>Déploiement & maintenance</h3><p>Git/GitHub, builds, configuration d’environnements, restauration et résolution de problèmes.</p></div>
+<div class="skill"><h3>IA appliquée</h3><p>Découverte de modèles locaux, usages d’assistance et pistes d’automatisation dans les processus métier.</p></div>
+</div></section>
+<section id="approche"><div class="section-head"><div><div class="eyebrow">// 03 — méthode</div><h2>Du besoin à la mise en service</h2></div></div>
+<div class="timeline">
+<div class="timeline-item"><h3>01. Comprendre le besoin</h3><p>Clarifier les utilisateurs, les processus métier, les contraintes techniques et le résultat attendu.</p></div>
+<div class="timeline-item"><h3>02. Concevoir une solution adaptée</h3><p>Choisir une architecture pragmatique, structurer les données et identifier les intégrations nécessaires.</p></div>
+<div class="timeline-item"><h3>03. Développer et intégrer</h3><p>Faire évoluer les interfaces, API, workflows et connexions avec les systèmes existants.</p></div>
+<div class="timeline-item"><h3>04. Déployer et fiabiliser</h3><p>Configurer l’environnement, tester, diagnostiquer les erreurs et documenter les opérations importantes.</p></div>
+</div></section>
+<section id="contact"><div class="contact"><div><div class="eyebrow">// 04 — contact</div><h2>Parlons de votre prochain projet.</h2><p>Développement d’outils métier, évolution CRM, infrastructure ou intégration d’IA.</p><p class="small">Coordonnées à compléter avant publication.</p></div><div class="actions"><a class="btn primary" href="mailto:contact@example.com?subject=Échange%20sur%20un%20projet">Me contacter</a><a class="btn" href="#top">Retour en haut ↑</a></div></div></section>
+</main>
+<footer><div class="wrap">© <span id="year"></span> — Portfolio professionnel · Développement, systèmes & solutions métier <span style="float:right">Conçu comme un espace de projets, pas une liste de titres.</span></div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body></html>

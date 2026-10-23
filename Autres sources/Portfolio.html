@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio — Développeur Full‑Stack &amp; IA locale</title>
+<style>
+:root{--bg:#fafaf7;--card:#fff;--tx:#1b1d1f;--mut:#5d6470;--ac:#0f766e;--ac2:#e6f4f1;--bd:#e3e5e8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111416;--card:#1a1e21;--tx:#eceef0;--mut:#9aa3ad;--ac:#4fd1c0;--ac2:#18302d;--bd:#2a3035}}
+:root[data-theme="dark"]{--bg:#111416;--card:#1a1e21;--tx:#eceef0;--mut:#9aa3ad;--ac:#4fd1c0;--ac2:#18302d;--bd:#2a3035}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+.w{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:72px 0 40px}
+.tag{display:inline-block;background:var(--ac2);color:var(--ac);padding:4px 12px;border-radius:99px;font-size:.85rem;font-weight:600}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin:16px 0 12px}
+header p{color:var(--mut);max-width:620px;font-size:1.1rem}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.b{padding:10px 18px;border-radius:8px;border:1px solid var(--ac);color:var(--ac);text-decoration:none;font-weight:600}
+.b.p{background:var(--ac);color:var(--bg)}
+section{padding:36px 0}
+h2{font-size:1.5rem;margin:0 0 20px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px}
+.c h3{margin:0 0 6px;font-size:1.1rem}
+.c p{margin:0 0 12px;color:var(--mut);font-size:.95rem}
+.t{display:flex;flex-wrap:wrap;gap:6px}
+.t span{background:var(--ac2);color:var(--ac);font-size:.78rem;padding:2px 9px;border-radius:6px;font-weight:600}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.sk h3{font-size:.95rem;margin:0 0 8px;color:var(--ac)}
+.sk ul{margin:0;padding-left:18px;color:var(--mut);font-size:.95rem}
+footer{padding:40px 0 60px;color:var(--mut);border-top:1px solid var(--bd);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="w">
+<header>
+  <span class="tag">Développeur Full‑Stack · IA locale · DevOps</span>
+  <h1>Je conçois des CRM, des apps mobiles et des outils d’IA qui tournent sur du matériel du quotidien.</h1>
+  <p>De la conception d’un CRM sur mesure à l’intégration de LLM en local, en passant par l’automatisation de tests et l’administration de serveurs : je livre des solutions concrètes, de bout en bout.</p>
+  <div class="btns"><a class="b p" href="#projets">Voir mes projets</a><a class="b" href="#contact">Me contacter</a></div>
+</header>
+
+<section id="projets">
+<h2>Projets</h2>
+<div class="g">
+  <div class="c"><h3>CRM AlloPro + app mobile artisan</h3>
+    <p>CRM piloté par un cahier des charges détaillé (PRO-OPS-007) couvrant 8 cas d’appels, avec une application mobile pour les artisans. Mise en place de serveurs MCP pour accélérer le développement assisté par IA.</p>
+    <div class="t"><span>Laravel</span><span>Flutter</span><span>MySQL</span><span>MCP</span><span>OpenCode</span></div></div>
+  <div class="c"><h3>CRM sur mesure avec LLM local</h3>
+    <p>CRM développé from scratch intégrant un LLM local pour l’analyse de données. Architecture à deux niveaux : un modèle rapide pour la qualification, un serveur llama.cpp pour la génération de texte. Déploiement VPS envisagé et lien avec un CRM d’appels.</p>
+    <div class="t"><span>Laravel</span><span>llama.cpp</span><span>Qwen</span><span>VPS</span></div></div>
+  <div class="c"><h3>Outil de transcription &amp; compte rendu de réunions</h3>
+    <p>Application desktop en Rust qui transcrit et résume appels et réunions grâce à des LLM légers, pensée pour tourner sur un portable sans GPU. Livrée sous forme d’exécutable pour Windows et macOS.</p>
+    <div class="t"><span>Rust</span><span>llama.cpp</span><span>LLM légers</span><span>Windows / macOS</span></div></div>
+  <div class="c"><h3>Suite de tests E2E pour plateforme de formations</h3>
+    <p>Tests Playwright générés par formation, par niveau CECRL et par parcours (positionnement, résultats), avec captures d’écran automatiques pour documenter chaque scénario.</p>
+    <div class="t"><span>Playwright</span><span>Tests E2E</span><span>Automatisation</span></div></div>
+  <div class="c"><h3>Infrastructure mail &amp; DNS</h3>
+    <p>Mise en place et dépannage d’un serveur mail et webmail administré avec HestiaCP, gestion de la zone DNS chez OVH (enregistrements A, MX).</p>
+    <div class="t"><span>HestiaCP</span><span>OVH DNS</span><span>Serveur mail</span></div></div>
+  <div class="c"><h3>Site vitrine — Villa Solara (Koh Samui)</h3>
+    <p>Conception de l’architecture d’un site de villa de luxe : organigramme de 7 pages (accueil, villa, galerie, expériences, île, tarifs &amp; disponibilités…) affiné pour une navigation claire et intuitive.</p>
+    <div class="t"><span>Architecture de l’information</span><span>UX</span><span>HTML</span></div></div>
+</div>
+</section>
+
+<section>
+<h2>Compétences</h2>
+<div class="sk">
+  <div class="c sk"><div><h3>Développement</h3><ul><li>Laravel / PHP</li><li>Flutter</li><li>Rust</li><li>MySQL</li></ul></div></div>
+  <div class="c sk"><div><h3>IA &amp; LLM locaux</h3><ul><li>llama.cpp</li><li>Modèles GGUF quantifiés</li><li>Qualification + génération</li><li>Serveurs MCP</li></ul></div></div>
+  <div class="c sk"><div><h3>Qualité</h3><ul><li>Playwright</li><li>Tests E2E paramétrés</li><li>Captures automatisées</li></ul></div></div>
+  <div class="c sk"><div><h3>Infra</h3><ul><li>VPS</li><li>HestiaCP</li><li>DNS (OVH)</li><li>Serveur mail</li></ul></div></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="c"><p>Un projet de CRM, d’application mobile ou d’IA embarquée ? Parlons‑en.</p>
+<p style="margin:0"><strong>[Votre nom]</strong> · [votre@email.com] · [LinkedIn / GitHub]</p></div>
+</section>
+</div>
+<footer><div class="w">© 2026 — [Votre nom]</div></footer>
+</body>
+</html>

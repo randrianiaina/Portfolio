@@ -1,5 +1,19 @@
 # Améliorations du portfolio
 
+## Migration vers Next.js
+
+Le portfolio dispose désormais d’une application **Next.js App Router** en TypeScript. Les anciens fichiers HTML/JavaScript sont conservés à titre de référence ; la version Next.js est la version à déployer afin de bénéficier des fonctionnalités à jour, notamment des téléchargements de CV. Les projets, traductions et interfaces React sont séparés dans `app/`; la photo, le CV PDF et la démo Wizi Learn sont servis depuis `public/`.
+
+Pour démarrer en local : `npm install`, puis `npm run dev`. Vérifications : `npm run lint`, `npm run typecheck` et `npm run build`. Le build génère une version statique dans `out/`, à publier comme dossier de site sur Netlify ou un autre hébergeur statique.
+
+## Mise à jour — contenu et présentation
+
+Le portfolio met maintenant en avant une sélection de 14 projets documentés à partir des éléments du dossier `Autres sources` et des projets déjà présentés. Les descriptions privilégient les réalisations et explorations vérifiables, sans détails internes de clients ni statistiques non confirmées. Les filtres regroupent les projets par CRM, web/mobile, data/qualité, infrastructure et IA appliquée.
+
+La page d’accueil a été recentrée sur le lien entre besoins métier et livraison technique. La présentation adopte une palette claire, des titres à empattement, des cartes plus lisibles et une navigation mobile accessible. Une section « Approche » complète le parcours, et les expériences professionnelles ainsi que la génération du CV ATS ont été alignées sur les projets sélectionnés.
+
+Les cartes projet sont traduites en français et en anglais avec leurs filtres. Les contrôles de filtre exposent leur état aux technologies d’assistance, le menu indique son état et peut être fermé avec Échap. Le changement de langue ne dépend plus d’un observateur DOM permanent.
+
 Cette version modernise le portfolio de Herizo Randrianaina tout en conservant sa structure statique et ses interactions existantes.
 
 ## Contenu et positionnement
@@ -13,6 +27,10 @@ La feuille de styles adopte une palette bleu nuit/teal, des surfaces plus lisibl
 ## Fonctionnalités vérifiées
 
 Le changement de langue français/anglais, le filtrage des projets, l’ouverture et la fermeture des fiches projet, le basculement clair/sombre, le formulaire de contact et les scripts JavaScript ont été vérifiés dans la prévisualisation locale. Les références principales vers les scripts et les assets locaux ont également été contrôlées.
+
+## Téléchargements du CV
+
+Les boutons du CV professionnel et du CV ATS génèrent désormais de vrais PDF en français ou en anglais, selon la langue sélectionnée. Le CV professionnel utilise une mise en page graphique ; la version ATS privilégie une structure simple, à une colonne, facile à analyser par les logiciels de recrutement. Les deux documents incluent les coordonnées, le profil, les compétences, les expériences, une sélection de projets, la formation et les langues. Pendant la génération, les boutons signalent le chargement et se désactivent ; une erreur est annoncée explicitement.
 
 ## Prévisualisation locale
 

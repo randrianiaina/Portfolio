@@ -10,3 +10,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Next.js
+.next/
+out/
+node_modules/
+tsconfig.tsbuildinfo

@@ -21,3 +21,6 @@ tsconfig.tsbuildinfo
 # Environment variables
 .env*
 !.env.example
+# CV personnels (coordonnées)
+/source/
+/cv/

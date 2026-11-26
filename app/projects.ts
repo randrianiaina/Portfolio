@@ -125,6 +125,42 @@ export const projects: PortfolioProject[] = [
     stack: ["Rust", "llama.cpp", "LLM légers"],
   },
   {
+    name: "RustChat — CRM vocal avec IA",
+    nameEn: "RustChat — AI voice CRM",
+    category: "ia",
+    label: "IA · TEMPS RÉEL",
+    labelEn: "AI · REAL TIME",
+    description:
+      "Back-end Rust de chat en temps réel pour un CRM vocal : streaming WebSocket avec Mistral et Gemini, moteur RAG sur documents et planification d’actions multi-étapes, intégré à Laravel.",
+    descriptionEn:
+      "Rust real-time chat back end for a voice CRM: WebSocket streaming with Mistral and Gemini, a document RAG engine and multi-step action planning, integrated with Laravel.",
+    stack: ["Rust", "WebSocket", "RAG", "Next.js", "Laravel"],
+  },
+  {
+    name: "Correcteur d’accent en temps réel",
+    nameEn: "Real-time accent corrector",
+    category: "ia",
+    label: "APPLICATION DESKTOP · AUDIO",
+    labelEn: "DESKTOP APPLICATION · AUDIO",
+    description:
+      "Application Windows qui capte le micro, passe par l’API Live de Gemini et renvoie une voix à accent neutre vers Teams, Meet ou Zoom, avec sous-titres en direct et serveur MCP.",
+    descriptionEn:
+      "Windows app that captures the microphone, goes through the Gemini Live API and outputs a neutral-accent voice to Teams, Meet or Zoom, with live captions and an MCP server.",
+    stack: ["Rust", "Tauri", "Gemini Live", "MCP"],
+  },
+  {
+    name: "Collecte de données entreprises",
+    nameEn: "Business data collection",
+    category: "data",
+    label: "DATA · AUTOMATISATION",
+    labelEn: "DATA · AUTOMATION",
+    description:
+      "Outils de collecte et de qualification de prospects B2B (entreprises, artisans) à partir de sources publiques, avec rapprochement SIREN/SIRET, tableau de bord et export Excel/CSV.",
+    descriptionEn:
+      "B2B lead collection and qualification tools (companies, tradespeople) from public sources, with SIREN/SIRET matching, a dashboard and Excel/CSV export.",
+    stack: ["Python", "Node.js", "Playwright", "Crawlee", "Docker"],
+  },
+  {
     name: "Boutique e-commerce",
     nameEn: "E-commerce storefront",
     category: "product",

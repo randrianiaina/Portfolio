@@ -53,6 +53,18 @@ export const projects: PortfolioProject[] = [
     stack: ["EspoCRM", "PHP", "MySQL", "Ringover"],
   },
   {
+    name: "Intégration Dolibarr & CRM internes",
+    nameEn: "Dolibarr & internal CRM integration",
+    category: "crm",
+    label: "ERP · INTÉGRATION",
+    labelEn: "ERP · INTEGRATION",
+    description:
+      "Pour NS Conseil : connexion de Dolibarr aux outils internes (CRM Laravel, EspoCRM, vTiger) via son API REST, pour faire circuler les données sans double saisie.",
+    descriptionEn:
+      "For NS Conseil: connecting Dolibarr to internal tools (Laravel CRM, EspoCRM, vTiger) through its REST API so data flows without double entry.",
+    stack: ["Dolibarr", "API REST", "Laravel", "EspoCRM", "vTiger"],
+  },
+  {
     name: "Allo Pro 24",
     nameEn: "Allo Pro 24",
     category: "crm",

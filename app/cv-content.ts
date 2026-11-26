@@ -80,8 +80,9 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
         ],
       },
       {
-        title: "VoIP et téléphonie",
+        title: "CRM, ERP et téléphonie",
         items: [
+          "Intégration de Dolibarr avec les CRM internes (Laravel, EspoCRM, vTiger) via API REST",
           "Mise en place de solutions VoIP et de téléphonie d’entreprise",
           "Couplage téléphonie-CRM (Ringover), campagnes de phoning, routage et suivi des appels",
         ],
@@ -116,6 +117,7 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
         bullets: [
           "Développement full-stack d’applications web et d’outils métier en production : back-end Laravel, Filament et NestJS, front-end React et Vue.js.",
           "Mise en place de solutions VoIP et de téléphonie, couplées au CRM (Ringover) pour les campagnes d’appels, le routage et le suivi.",
+          "NS Conseil : intégration de Dolibarr avec les outils internes (CRM Laravel, EspoCRM, vTiger) via son API REST.",
           "Intégration de l’IA dans des CRM : back-end temps réel WebSocket avec Gemini et Mistral, moteur RAG, assistance à l’analyse d’appels.",
           "Cadrage des besoins, rédaction des spécifications, découpage en tickets et suivi des priorités en Agile, en échange direct avec le client.",
           "Interlocuteur entre les équipes métier et les développeurs : reformulation des besoins non techniques en fonctionnalités et en outils.",
@@ -238,8 +240,9 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
         ],
       },
       {
-        title: "VoIP & Telephony",
+        title: "CRM, ERP & Telephony",
         items: [
+          "Dolibarr integration with internal CRMs (Laravel, EspoCRM, vTiger) via REST API",
           "Business VoIP and telephony solution setup",
           "Telephony-CRM integration (Ringover), phone campaigns, call routing and tracking",
         ],
@@ -274,6 +277,7 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
         bullets: [
           "Full-stack development of production web applications and business tools: Laravel, Filament and NestJS back ends, React and Vue.js front ends.",
           "Set up VoIP and telephony solutions connected to the CRM (Ringover) for call campaigns, routing and tracking.",
+          "NS Conseil: integrated Dolibarr with internal tools (Laravel CRM, EspoCRM, vTiger) through its REST API.",
           "Integrate AI into CRMs: real-time WebSocket back end with Gemini and Mistral, RAG engine, AI-assisted call analysis.",
           "Scope requirements, write specifications, break work into tickets and manage priorities in Agile, working directly with the client.",
           "Act as the go-between for business teams and developers, turning non-technical needs into features and tools.",

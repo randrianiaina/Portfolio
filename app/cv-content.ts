@@ -91,6 +91,8 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
         title: "Intégration IA",
         items: [
           "API Gemini, Mistral, RAG, MCP, Ollama, llama.cpp, analyse et transcription d’appels",
+          "Python : extraction structurée par LLM, évaluation (F1, nDCG, équité), garde-fous (injection de prompt, hallucinations) ; notions PyTorch et Hugging Face PEFT/LoRA",
+          "IA responsable : pseudonymisation RGPD, exigences AI Act, revue humaine des décisions",
           "Claude Code et Cursor au quotidien (prototypage, revue de code, documentation)",
         ],
       },
@@ -173,6 +175,11 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
           "Chat temps réel WebSocket avec Gemini et Mistral, RAG sur documents et planification d’actions, intégré à Laravel. Rust, Next.js.",
       },
       {
+        name: "TalentMatch — matching CV / offre responsable",
+        description:
+          "Pipeline IA de recrutement : pseudonymisation RGPD, extraction de CV par LLM, détection d’injection et d’hallucinations, score explicable avec revue humaine, tests d’équité et script de fine-tuning LoRA de Mistral pour SageMaker. Python, PEFT, FastAPI.",
+      },
+      {
         name: "CRM de campagne de phoning & CRM AOPIA",
         description:
           "Segmentation, routage des prospects, suivi des rappels et intégration Ringover, avec analyse d’appels par LLM local. Laravel, Filament, EspoCRM, llama.cpp.",
@@ -251,6 +258,8 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
         title: "AI Integration",
         items: [
           "Gemini API, Mistral, RAG, MCP, Ollama, llama.cpp, call analysis and transcription",
+          "Python: LLM structured extraction, evaluation (F1, nDCG, fairness), guardrails (prompt injection, hallucinations); working knowledge of PyTorch and Hugging Face PEFT/LoRA",
+          "Responsible AI: GDPR pseudonymization, EU AI Act requirements, human review of decisions",
           "Daily use of Claude Code and Cursor (prototyping, code review, documentation)",
         ],
       },
@@ -331,6 +340,11 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
         name: "RustChat — AI voice CRM",
         description:
           "Real-time WebSocket chat with Gemini and Mistral, document RAG and action planning, integrated with Laravel. Rust, Next.js.",
+      },
+      {
+        name: "TalentMatch — responsible CV / job matching",
+        description:
+          "Recruitment AI pipeline: GDPR pseudonymization, LLM CV extraction, prompt-injection and hallucination detection, explainable scoring with human review, fairness tests and a Mistral LoRA fine-tuning script for SageMaker. Python, PEFT, FastAPI.",
       },
       {
         name: "Phone campaign CRM & AOPIA CRM",

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workflow de demande d'achat — Démo</title>
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<main class="shell">
+  <a class="back" href="/">← Portfolio</a>
+  <p class="eyebrow">Mini-projet · Analyse &amp; conception</p>
+  <h1>Workflow de demande d'achat</h1>
+  <p class="lead">Changez de rôle pour faire avancer une demande. Chaque rôle ne voit que ses actions autorisées ; au-delà de 5 000 €, la direction valide après le manager ; tout refus exige un motif ; chaque étape est tracée. Les données sont enregistrées dans votre navigateur.</p>
+
+  <div class="toolbar">
+    <label>Rôle actif
+      <select id="role">
+        <option value="demandeur">Demandeur</option>
+        <option value="manager">Manager</option>
+        <option value="direction">Direction</option>
+        <option value="achats">Service achats</option>
+      </select>
+    </label>
+    <button class="btn ghost" id="reset" type="button">Réinitialiser</button>
+  </div>
+
+  <form class="card" id="new">
+    <label>Objet <input type="text" id="title" required maxlength="80" placeholder="Ordinateurs portables"></label>
+    <label>Montant (€) <input type="number" id="amount" required min="1" step="1" placeholder="3200"></label>
+    <button class="btn" type="submit">Créer la demande</button>
+  </form>
+  <p id="error" class="errors" role="alert"></p>
+
+  <section class="card">
+    <table>
+      <thead><tr><th>Demande</th><th>Montant</th><th>État</th><th>Actions</th></tr></thead>
+      <tbody id="list"></tbody>
+    </table>
+  </section>
+
+  <section class="card wide">
+    <h2>Journal d'audit</h2>
+    <ol class="log" id="log"></ol>
+  </section>
+</main>
+<script src="workflow.js"></script>
+<script>
+const KEY = "demo-workflow-achat";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const eur = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+const LABELS = { soumettre: "Soumettre", valider: "Valider", refuser: "Refuser", commander: "Commander", receptionner: "Réceptionner" };
+
+let requests;
+try { requests = JSON.parse(localStorage.getItem(KEY)) || []; } catch { requests = []; }
+if (!requests.length) {
+  requests = [Workflow.create(1, "Licences logiciel CRM", 1800, "demandeur"), Workflow.create(2, "Serveur Proxmox", 7400, "demandeur")];
+}
+
+function save() { localStorage.setItem(KEY, JSON.stringify(requests)); }
+
+function render() {
+  const role = $("role").value;
+  $("list").innerHTML = requests.map((r) => {
+    const actions = Workflow.allowedActions(r, role)
+      .map((a) => `<button class="btn ${a === "refuser" ? "ghost" : ""}" data-id="${r.id}" data-action="${a}">${LABELS[a]}</button>`).join("");
+    return `<tr><td>${esc(r.title)}</td><td>${eur.format(r.amount)}</td>
+      <td><span class="pill ${r.state}">${r.state.replace("_", " ")}</span></td>
+      <td class="actions">${actions || "<span class='muted'>Rien à faire pour ce rôle</span>"}</td></tr>`;
+  }).join("");
+  $("log").innerHTML = requests.flatMap((r) => r.log.map((l) => ({ ...l, title: r.title })))
+    .sort((a, b) => b.at.localeCompare(a.at))
+    .map((l) => `<li>${l.at.slice(11, 19)} · ${esc(l.by)} · ${esc(l.action)} « ${esc(l.title)} » → ${l.to}${l.comment ? ` (motif : ${esc(l.comment)})` : ""}</li>`).join("");
+}
+
+function fail(e) { $("error").textContent = e.message; }
+
+$("list").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-action]");
+  if (!b) return;
+  const i = requests.findIndex((r) => r.id === Number(b.dataset.id));
+  const comment = b.dataset.action === "refuser" ? prompt("Motif du refus :") || "" : "";
+  try { requests[i] = Workflow.apply(requests[i], b.dataset.action, $("role").value, comment); $("error").textContent = ""; save(); render(); }
+  catch (err) { fail(err); }
+});
+
+$("new").addEventListener("submit", (e) => {
+  e.preventDefault();
+  try {
+    const id = Math.max(0, ...requests.map((r) => r.id)) + 1;
+    requests.push(Workflow.create(id, $("title").value, Number($("amount").value), $("role").value));
+    e.target.reset(); $("error").textContent = ""; save(); render();
+  } catch (err) { fail(err); }
+});
+
+$("role").addEventListener("change", render);
+$("reset").addEventListener("click", () => { localStorage.removeItem(KEY); location.reload(); });
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tableau de bord KPI ventes — Démo</title>
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<main class="shell">
+  <a class="back" href="/">← Portfolio</a>
+  <p class="eyebrow">Mini-projet · Data &amp; interface métier</p>
+  <h1>Tableau de bord KPI ventes</h1>
+  <p class="lead">Importez un CSV (<code>date, region, produit, montant</code>) : les données restent dans votre navigateur. Les lignes invalides sont signalées au lieu d'être ignorées en silence.</p>
+
+  <div class="toolbar">
+    <label class="btn">Importer un CSV<input id="file" type="file" accept=".csv,text/csv" hidden></label>
+    <button class="btn ghost" id="sample" type="button">Charger un exemple</button>
+    <label>Région
+      <select id="region"><option value="">Toutes</option></select>
+    </label>
+  </div>
+
+  <section class="grid" aria-live="polite">
+    <article class="card"><span>Chiffre d'affaires</span><strong id="k-total">—</strong></article>
+    <article class="card"><span>Ventes</span><strong id="k-count">—</strong></article>
+    <article class="card"><span>Panier moyen</span><strong id="k-avg">—</strong></article>
+    <article class="card"><span>Top région / produit</span><strong id="k-top">—</strong></article>
+  </section>
+
+  <section class="card wide">
+    <h2>CA par mois</h2>
+    <div id="chart" role="img" aria-label="Histogramme du chiffre d'affaires par mois"></div>
+  </section>
+  <ul id="errors" class="errors"></ul>
+</main>
+<script src="kpi.js"></script>
+<script>
+const SAMPLE = `date;region;produit;montant
+2026-01-12;Analamanga;Formation;1200
+2026-01-20;Vakinankaratra;Licence CRM;850
+2026-02-03;Analamanga;Licence CRM;1700
+2026-02-17;Atsinanana;Formation;640
+2026-03-02;Analamanga;Audit;2300
+2026-03-15;Vakinankaratra;Formation;980
+2026-03-28;Atsinanana;Audit;1500
+2026-04-09;Analamanga;Formation;1100
+date-invalide;Analamanga;Audit;300`;
+
+const eur = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+let data = { rows: [], errors: [] };
+const $ = (id) => document.getElementById(id);
+
+function render() {
+  const region = $("region").value;
+  const rows = region ? data.rows.filter((r) => r.region === region) : data.rows;
+  const k = Kpi.kpis(rows);
+  $("k-total").textContent = eur.format(k.total);
+  $("k-count").textContent = k.count;
+  $("k-avg").textContent = eur.format(k.average);
+  $("k-top").textContent = `${k.topRegion} · ${k.topProduct}`;
+  const max = Math.max(1, ...k.byMonth.map(([, v]) => v));
+  $("chart").innerHTML = k.byMonth.map(([m, v]) =>
+    `<div class="bar"><i style="height:${(v / max) * 100}%" title="${eur.format(v)}"></i><b>${eur.format(v)}</b><span>${m}</span></div>`
+  ).join("") || "<p class='muted'>Aucune donnée</p>";
+  $("errors").innerHTML = data.errors.map((e) => `<li>${e.replace(/</g, "&lt;")}</li>`).join("");
+}
+
+function load(text) {
+  data = Kpi.parseSales(text);
+  const regions = [...new Set(data.rows.map((r) => r.region))].sort();
+  $("region").innerHTML = `<option value="">Toutes</option>` +
+    regions.map((r) => `<option>${r.replace(/</g, "&lt;")}</option>`).join("");
+  render();
+}
+
+$("file").addEventListener("change", async (e) => e.target.files[0] && load(await e.target.files[0].text()));
+$("sample").addEventListener("click", () => load(SAMPLE));
+$("region").addEventListener("change", render);
+load(SAMPLE);
+</script>
+</body>
+</html>

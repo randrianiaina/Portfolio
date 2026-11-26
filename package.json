@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint app netlify/functions",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --test projects/demos-tests/demos.test.js"
   },
   "dependencies": {
     "jspdf": "^4.2.1",

@@ -138,6 +138,47 @@ export const projects: PortfolioProject[] = [
     github: "https://github.com/randrianiaina/Portfolio/tree/main/projects/talentmatch",
   },
   {
+    name: "Tableau de bord KPI ventes",
+    nameEn: "Sales KPI dashboard",
+    category: "data",
+    label: "MINI-PROJET · DÉMO EN LIGNE",
+    labelEn: "MINI PROJECT · LIVE DEMO",
+    description:
+      "Import d’un CSV de ventes directement dans le navigateur : CA, panier moyen, meilleure région et meilleur produit, histogramme mensuel et filtre par région. Les lignes invalides sont signalées, pas ignorées. Logique couverte par des tests Node.",
+    descriptionEn:
+      "Sales CSV import straight in the browser: revenue, average basket, top region and product, monthly chart and region filter. Invalid rows are reported, not silently dropped. Logic covered by Node tests.",
+    stack: ["JavaScript", "CSV", "Data visualisation", "node:test"],
+    github: "https://github.com/randrianiaina/Portfolio/tree/main/public/demos",
+    demo: "/demos/kpi-dashboard.html",
+  },
+  {
+    name: "Workflow de demande d’achat",
+    nameEn: "Purchase request workflow",
+    category: "product",
+    label: "MINI-PROJET · ANALYSE & CONCEPTION",
+    labelEn: "MINI PROJECT · ANALYSIS & DESIGN",
+    description:
+      "Interface métier pilotée par une machine à états : rôles (demandeur, manager, direction, achats), validation par la direction au-delà de 5 000 €, motif de refus obligatoire et journal d’audit complet. Chaque règle de gestion est testée.",
+    descriptionEn:
+      "Business interface driven by a state machine: roles (requester, manager, management, purchasing), management approval above €5,000, mandatory rejection reason and a full audit trail. Every business rule is tested.",
+    stack: ["JavaScript", "Machine à états", "Règles de gestion", "node:test"],
+    github: "https://github.com/randrianiaina/Portfolio/tree/main/public/demos",
+    demo: "/demos/workflow-achat.html",
+  },
+  {
+    name: "Dédoublonnage de fichier clients",
+    nameEn: "Customer file deduplication",
+    category: "data",
+    label: "MINI-PROJET · QUALITÉ DE DONNÉES",
+    labelEn: "MINI PROJECT · DATA QUALITY",
+    description:
+      "Outil Python qui fiabilise un fichier clients avant import CRM : contrôle SIREN/SIRET par clé de Luhn, normalisation des raisons sociales et regroupement des doublons exacts ou probables, sans rien supprimer, pour une validation humaine.",
+    descriptionEn:
+      "Python tool that cleans a customer file before CRM import: SIREN/SIRET Luhn check, company-name normalization and grouping of exact or likely duplicates, without deleting anything, for human review.",
+    stack: ["Python", "CSV", "Qualité de données", "unittest"],
+    github: "https://github.com/randrianiaina/Portfolio/tree/main/projects/dedup-clients",
+  },
+  {
     name: "RustChat — CRM vocal avec IA",
     nameEn: "RustChat — AI voice CRM",
     category: "ia",

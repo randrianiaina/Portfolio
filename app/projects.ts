@@ -150,6 +150,32 @@ export const projects: PortfolioProject[] = [
     github: "https://github.com/randrianiaina/Portfolio/tree/main/projects/talentmatch",
   },
   {
+    name: "Questions-réponses sur documents (RAG)",
+    nameEn: "Document Q&A (RAG)",
+    category: "ia",
+    label: "MINI-PROJET · DÉMO EN LIGNE",
+    labelEn: "MINI PROJECT · LIVE DEMO",
+    description:
+      "Moteur RAG dans le navigateur : découpage du document, recherche BM25 et réponse composée uniquement de phrases du texte, avec citations. Sous un seuil de pertinence, il refuse de répondre plutôt que d’inventer. Logique testée.",
+    descriptionEn:
+      "In-browser RAG engine: document chunking, BM25 retrieval and answers built only from sentences in the text, with citations. Below a relevance threshold it declines to answer instead of making things up. Logic tested.",
+    stack: ["JavaScript", "RAG", "BM25", "node:test"],
+    github: "https://github.com/randrianiaina/Portfolio/tree/main/public/demos",
+    demo: "/demos/rag-qa.html",
+  },
+  {
+    name: "Site Monitor — supervision de sites web",
+    nameEn: "Site Monitor — website monitoring",
+    category: "infra",
+    label: "SUPERVISION · DJANGO",
+    labelEn: "MONITORING · DJANGO",
+    description:
+      "Application Django qui contrôle en parallèle un parc de sites : code HTTP, temps de réponse, historique, date de dernière mise à jour détectée et repérage des sites e-commerce. Alerte e-mail après plusieurs pannes consécutives, puis au rétablissement.",
+    descriptionEn:
+      "Django app that checks a fleet of websites in parallel: HTTP status, response time, history, detected last-update date and e-commerce detection. Email alert after repeated consecutive failures, then on recovery.",
+    stack: ["Python", "Django", "Requests", "SMTP", "Cron"],
+  },
+  {
     name: "Tableau de bord KPI ventes",
     nameEn: "Sales KPI dashboard",
     category: "data",

@@ -61,3 +61,33 @@ test("Workflow : rôle, motif de refus et saisie contrôlés, demande d'origine 
   assert.throws(() => W.create(4, "", 10, "demandeur"), /Objet/);
   assert.throws(() => W.create(4, "X", -5, "demandeur"), /Montant/);
 });
+
+const Rag = require("../../public/demos/rag.js");
+const POLICY = `Les salariés peuvent télétravailler jusqu'à trois jours par semaine. Le télétravail n'est pas ouvert pendant la période d'essai.
+Une indemnité de 30 euros par mois couvre les frais de connexion.
+Toute perte de matériel doit être signalée au service informatique sous 24 heures.`;
+
+test("RAG : tokenisation sans accents ni mots vides", () => {
+  assert.deepEqual(Rag.tokenize("Quelle est l'indemnité des salariés ?"), ["indemnite", "salari"]);
+});
+
+test("RAG : découpage sans couper les phrases", () => {
+  const c = Rag.chunk(POLICY, 10);
+  assert.ok(c.length >= 2);
+  assert.ok(c.every((x) => /[.!?]$/.test(x.text)));
+});
+
+test("RAG : la bonne source est retrouvée et citée", () => {
+  const chunks = Rag.chunk(POLICY, 5);
+  const r = Rag.answer(chunks, "Quel est le montant de l'indemnité ?");
+  assert.match(r.answer[0].sentence, /30 euros/);
+  assert.equal(r.citations[0].id, r.answer[0].source);
+  assert.match(Rag.answer(chunks, "Que faire en cas de perte de matériel ?").answer[0].sentence, /24 heures/);
+});
+
+test("RAG : refuse de répondre hors du document", () => {
+  const r = Rag.answer(Rag.chunk(POLICY, 5), "Quel est le salaire de départ ?");
+  assert.equal(r.answer, null);
+  assert.match(r.reason, /pas de réponse fiable/);
+  assert.deepEqual(Rag.search([], "x"), []);
+});

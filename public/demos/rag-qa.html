@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Questions-réponses sur documents (RAG) — Démo</title>
+<link rel="stylesheet" href="demo.css">
+<style>
+textarea{width:100%;min-height:200px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}
+.ask{display:flex;gap:10px;margin:14px 0}.ask input{flex:1}
+.answer{font-size:17px}.answer sup{color:var(--accent);font-weight:600}
+mark{background:rgba(201,239,98,.25);color:inherit;border-radius:3px}
+.src{border-left:3px solid var(--line);padding:6px 12px;margin:10px 0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips .btn{padding:5px 12px;font-size:13px}
+</style>
+</head>
+<body>
+<main class="shell">
+  <a class="back" href="/">← Portfolio</a>
+  <p class="eyebrow">Mini-projet · IA</p>
+  <h1>Questions-réponses sur documents</h1>
+  <p class="lead">Collez un document et posez une question. Le moteur découpe le texte, retrouve les passages pertinents (BM25) et répond uniquement avec des phrases du document, citées. S'il ne trouve rien de fiable, il le dit au lieu d'inventer. Tout tourne dans votre navigateur.</p>
+
+  <section class="card">
+    <label for="doc" style="display:block;margin-bottom:8px">Document</label>
+    <textarea id="doc"></textarea>
+    <form class="ask" id="ask">
+      <label class="sr" for="q" hidden>Question</label>
+      <input type="text" id="q" placeholder="Votre question…" required maxlength="200" aria-label="Question">
+      <button class="btn" type="submit">Demander</button>
+    </form>
+    <div class="chips" id="examples"></div>
+  </section>
+
+  <section class="card wide" aria-live="polite">
+    <h2>Réponse</h2>
+    <div id="out" class="muted">Posez une question.</div>
+  </section>
+</main>
+<script src="rag.js"></script>
+<script>
+const DOC = `Politique de télétravail — version 2026.
+
+Les salariés en CDI peuvent télétravailler jusqu'à trois jours par semaine, après accord de leur manager. Le télétravail n'est pas ouvert pendant la période d'essai.
+
+L'entreprise fournit un ordinateur portable et un casque. Une indemnité forfaitaire de 30 euros par mois couvre les frais de connexion et d'électricité.
+
+Les plages de disponibilité obligatoires sont de 10 h à 12 h et de 14 h à 16 h, heure d'Antananarivo. En dehors de ces plages, le salarié organise librement sa journée.
+
+Les données clients ne doivent jamais être stockées sur un appareil personnel. Toute perte de matériel doit être signalée au service informatique sous 24 heures.
+
+Une réunion d'équipe sur site a lieu le premier lundi de chaque mois.`;
+
+const EXAMPLES = ["Combien de jours de télétravail par semaine ?", "Quel est le montant de l'indemnité ?",
+  "Que faire en cas de perte de matériel ?", "Quel est le salaire de départ ?"];
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
+function highlight(text, query) {
+  const terms = new Set(Rag.tokenize(query));
+  return text.split(/(\s+)/).map((w) => (Rag.tokenize(w).some((t) => terms.has(t)) ? `<mark>${esc(w)}</mark>` : esc(w))).join("");
+}
+
+function run(query) {
+  const chunks = Rag.chunk($("doc").value, 40);
+  const r = Rag.answer(chunks, query);
+  const sources = r.citations.map((c) =>
+    `<div class="src"><strong>[${c.id}]</strong> score ${c.score.toFixed(2)} — ${highlight(c.text, query)}</div>`).join("");
+  $("out").className = "";
+  $("out").innerHTML = r.answer
+    ? `<p class="answer">${r.answer.map((a) => `${esc(a.sentence)} <sup>[${a.source}]</sup>`).join(" ")}</p>
+       <p class="muted">Couverture de la question : ${Math.round(r.coverage * 100)} % · ${chunks.length} passages indexés</p>
+       <h2>Sources</h2>${sources}`
+    : `<p class="answer errors">${r.reason}</p>${sources ? `<h2>Passages les plus proches</h2>${sources}` : ""}`;
+}
+
+$("doc").value = DOC;
+$("examples").innerHTML = EXAMPLES.map((q) => `<button class="btn ghost" type="button">${esc(q)}</button>`).join("");
+$("examples").addEventListener("click", (e) => { if (e.target.matches("button")) { $("q").value = e.target.textContent; run($("q").value); } });
+$("ask").addEventListener("submit", (e) => { e.preventDefault(); run($("q").value); });
+</script>
+</body>
+</html>

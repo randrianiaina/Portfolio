@@ -36,10 +36,10 @@ export type ResumeContent = {
 export const resumeContent: Record<ResumeLocale, ResumeContent> = {
   fr: {
     title:
-      "Chef de projet IT & Développeur full-stack | PHP/Laravel · TypeScript/Node.js · Intégration IA",
+      "Développeur full-stack & Analyste concepteur | Laravel · Node.js · React · VoIP & intégration IA",
     summaryHeading: "PROFIL",
     summary:
-      "Chef de projet IT et développeur full-stack avec plus de 8 ans d’expérience en informatique, dont plusieurs années sur des applications métier en production. Back-end PHP/Laravel et Symfony, services Node.js / NestJS, front-end React, Vue.js et Next.js, bases SQL et conteneurisation Docker. Intègre des modèles d’IA (Gemini, Mistral, LLM locaux) dans des outils métier : streaming, RAG, serveurs MCP. Utilise au quotidien Claude Code, Cursor et MCP pour le prototypage, la revue de code et la documentation. Habitué au cadrage des besoins, à l’Agile et au code testé (PHPUnit, Playwright).",
+      "Analyste concepteur, développeur full-stack et chef de projet IT avec plus de 8 ans d’expérience en informatique, dont plusieurs années sur des applications métier en production. Back-end PHP/Laravel et Symfony, services Node.js / NestJS, front-end React, Vue.js et Next.js, bases SQL et conteneurisation Docker. Met en place des solutions VoIP et de téléphonie couplées aux CRM, et intègre des modèles d’IA (Gemini, Mistral, LLM locaux) dans les outils métier : streaming, RAG, serveurs MCP, analyse d’appels. Utilise au quotidien Claude Code, Cursor et MCP pour le prototypage, la revue de code et la documentation. Habitué au cadrage des besoins, à l’Agile et au code testé (PHPUnit, Playwright). Fait le lien entre équipes métier et équipes techniques : traduit des besoins exprimés sans jargon en outils concrets, forme les utilisateurs métier et les assiste au quotidien.",
     experienceHeading: "EXPÉRIENCE PROFESSIONNELLE",
     skillsHeading: "COMPÉTENCES",
     projectsHeading: "PROJETS SÉLECTIONNÉS",
@@ -48,26 +48,48 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
     contactHeading: "COORDONNÉES",
     skills: [
       {
-        title: "Gestion de projet",
+        title: "Interface métier & formation",
         items: [
-          "Analyse des besoins, cadrage et rédaction de spécifications",
+          "Intermédiaire entre équipes non techniques et équipes de développement",
+          "Analyse des besoins métier et transformation en outils concrets",
+          "Formation des utilisateurs métier, guides et manuels",
+          "Assistance et accompagnement des utilisateurs au quotidien",
+        ],
+      },
+      {
+        title: "Analyse, conception et pilotage",
+        items: [
+          "Analyse fonctionnelle, conception d’architecture applicative et modélisation de données",
+          "Cadrage, rédaction de spécifications et de cahiers des charges",
           "Planification, coordination d’équipe et suivi des livrables",
           "Méthodes Agile / Scrum et recette fonctionnelle",
         ],
       },
       {
-        title: "Développement et intégration",
+        title: "Full-stack — back-end",
         items: [
-          "PHP, Symfony, Laravel, Filament, C#, Java, JHipster",
-          "React, Vue.js, Ionic, Flutter, TypeScript, JavaScript et API REST",
-          "Node.js, Express, NestJS, TypeORM, BullMQ, Next.js, Rust",
-          "Maintenance applicative, reprise de code existant et migrations PHP 8",
+          "PHP 8, Laravel, Symfony, Filament, Node.js, Express, NestJS, C#, Java, Rust",
+          "API REST, WebSocket, TypeORM, files BullMQ, maintenance et reprise de code existant",
         ],
       },
       {
-        title: "IA et LLM",
+        title: "Full-stack — front-end et mobile",
         items: [
-          "API Gemini, Mistral, RAG, MCP, Ollama, llama.cpp",
+          "React, Next.js, Vue.js, Vite, TypeScript, JavaScript, HTML/CSS",
+          "Flutter et Ionic pour les applications mobiles",
+        ],
+      },
+      {
+        title: "VoIP et téléphonie",
+        items: [
+          "Mise en place de solutions VoIP et de téléphonie d’entreprise",
+          "Couplage téléphonie-CRM (Ringover), campagnes de phoning, routage et suivi des appels",
+        ],
+      },
+      {
+        title: "Intégration IA",
+        items: [
+          "API Gemini, Mistral, RAG, MCP, Ollama, llama.cpp, analyse et transcription d’appels",
           "Claude Code et Cursor au quotidien (prototypage, revue de code, documentation)",
         ],
       },
@@ -88,14 +110,16 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
     ],
     experience: [
       {
-        role: "Chef de projet IT et développeur back-end",
+        role: "Chef de projet IT, analyste concepteur et développeur full-stack",
         organization: "Offshore",
         dates: "Mars 2025 – aujourd’hui",
         bullets: [
-          "Développement et maintenance d’applications web et d’outils métier en production (Laravel, Filament, NestJS, React, Vue.js).",
+          "Développement full-stack d’applications web et d’outils métier en production : back-end Laravel, Filament et NestJS, front-end React et Vue.js.",
+          "Mise en place de solutions VoIP et de téléphonie, couplées au CRM (Ringover) pour les campagnes d’appels, le routage et le suivi.",
           "Intégration de l’IA dans des CRM : back-end temps réel WebSocket avec Gemini et Mistral, moteur RAG, assistance à l’analyse d’appels.",
           "Cadrage des besoins, rédaction des spécifications, découpage en tickets et suivi des priorités en Agile, en échange direct avec le client.",
-          "Documentation des systèmes pour faciliter la maintenance et la transmission des connaissances.",
+          "Interlocuteur entre les équipes métier et les développeurs : reformulation des besoins non techniques en fonctionnalités et en outils.",
+          "Formation et assistance des utilisateurs métier ; documentation des systèmes pour la maintenance et la transmission des connaissances.",
         ],
       },
       {
@@ -106,7 +130,8 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
           "Administration et développements spécifiques autour de l’ERP 8sens.",
           "Modélisation SQL Server, requêtes T-SQL complexes, flux ETL avec SSIS et tableaux de bord Power Query / DAX.",
           "Développement d’applications internes avec Symfony, C#, React et Ionic, consommant des API REST.",
-          "Correction d’anomalies, analyse des données et support aux utilisateurs métier.",
+          "Recueil des besoins auprès des équipes métier et transformation en outils et tableaux de bord adaptés.",
+          "Formation des utilisateurs métier, correction d’anomalies et assistance au quotidien.",
         ],
       },
       {
@@ -169,10 +194,10 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
   },
   en: {
     title:
-      "IT Project Manager & Full-stack Developer | PHP/Laravel · TypeScript/Node.js · AI Integration",
+      "Full-stack Developer & Analyst-Designer | Laravel · Node.js · React · VoIP & AI Integration",
     summaryHeading: "PROFESSIONAL SUMMARY",
     summary:
-      "IT project manager and full-stack developer with over 8 years of experience in IT, including several years on business applications in production. PHP/Laravel and Symfony back ends, Node.js / NestJS services, React, Vue.js and Next.js front ends, SQL databases and Docker. Integrates AI models (Gemini, Mistral, local LLMs) into business tools: streaming, RAG, MCP servers. Uses Claude Code, Cursor and MCP daily for prototyping, code review and documentation. Experienced in requirements scoping, Agile delivery and tested code (PHPUnit, Playwright).",
+      "Analyst-designer, full-stack developer and IT project manager with over 8 years of experience in IT, including several years on business applications in production. PHP/Laravel and Symfony back ends, Node.js / NestJS services, React, Vue.js and Next.js front ends, SQL databases and Docker. Sets up VoIP and telephony solutions connected to CRMs, and integrates AI models (Gemini, Mistral, local LLMs) into business tools: streaming, RAG, MCP servers, call analysis. Uses Claude Code, Cursor and MCP daily for prototyping, code review and documentation. Experienced in requirements scoping, Agile delivery and tested code (PHPUnit, Playwright). Bridges business and technical teams: turns needs expressed in plain language into concrete tools, trains business users and supports them day to day.",
     experienceHeading: "PROFESSIONAL EXPERIENCE",
     skillsHeading: "TECHNICAL SKILLS",
     projectsHeading: "SELECTED PROJECTS",
@@ -181,26 +206,48 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
     contactHeading: "CONTACT",
     skills: [
       {
-        title: "Project Management",
+        title: "Business Liaison & Training",
         items: [
-          "Requirements analysis, scoping and specification writing",
+          "Bridge between non-technical teams and development teams",
+          "Business needs analysis and translation into concrete tools",
+          "Business user training, guides and manuals",
+          "Day-to-day user assistance and support",
+        ],
+      },
+      {
+        title: "Analysis, Design & Project Management",
+        items: [
+          "Functional analysis, application architecture design and data modeling",
+          "Scoping, specifications and requirements documents",
           "Planning, team coordination and delivery tracking",
           "Agile / Scrum and functional acceptance testing",
         ],
       },
       {
-        title: "Development & Integration",
+        title: "Full-stack — Back End",
         items: [
-          "PHP, Symfony, Laravel, Filament, C#, Java, JHipster",
-          "React, Vue.js, Ionic, Flutter, TypeScript, JavaScript and REST APIs",
-          "Node.js, Express, NestJS, TypeORM, BullMQ, Next.js, Rust",
-          "Application maintenance, legacy code takeover and PHP 8 migrations",
+          "PHP 8, Laravel, Symfony, Filament, Node.js, Express, NestJS, C#, Java, Rust",
+          "REST APIs, WebSocket, TypeORM, BullMQ queues, maintenance and legacy code takeover",
         ],
       },
       {
-        title: "AI & LLMs",
+        title: "Full-stack — Front End & Mobile",
         items: [
-          "Gemini API, Mistral, RAG, MCP, Ollama, llama.cpp",
+          "React, Next.js, Vue.js, Vite, TypeScript, JavaScript, HTML/CSS",
+          "Flutter and Ionic for mobile apps",
+        ],
+      },
+      {
+        title: "VoIP & Telephony",
+        items: [
+          "Business VoIP and telephony solution setup",
+          "Telephony-CRM integration (Ringover), phone campaigns, call routing and tracking",
+        ],
+      },
+      {
+        title: "AI Integration",
+        items: [
+          "Gemini API, Mistral, RAG, MCP, Ollama, llama.cpp, call analysis and transcription",
           "Daily use of Claude Code and Cursor (prototyping, code review, documentation)",
         ],
       },
@@ -221,14 +268,16 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
     ],
     experience: [
       {
-        role: "IT Project Manager & Back-end Developer",
+        role: "IT Project Manager, Analyst-Designer & Full-stack Developer",
         organization: "Offshore",
         dates: "March 2025 – present",
         bullets: [
-          "Develop and maintain production web applications and business tools (Laravel, Filament, NestJS, React, Vue.js).",
+          "Full-stack development of production web applications and business tools: Laravel, Filament and NestJS back ends, React and Vue.js front ends.",
+          "Set up VoIP and telephony solutions connected to the CRM (Ringover) for call campaigns, routing and tracking.",
           "Integrate AI into CRMs: real-time WebSocket back end with Gemini and Mistral, RAG engine, AI-assisted call analysis.",
           "Scope requirements, write specifications, break work into tickets and manage priorities in Agile, working directly with the client.",
-          "Document systems to ease maintenance and knowledge transfer.",
+          "Act as the go-between for business teams and developers, turning non-technical needs into features and tools.",
+          "Train and support business users; document systems to ease maintenance and knowledge transfer.",
         ],
       },
       {
@@ -239,7 +288,8 @@ export const resumeContent: Record<ResumeLocale, ResumeContent> = {
           "Administered and delivered tailored development around 8sens ERP.",
           "Modeled SQL Server databases, wrote complex T-SQL queries, built SSIS ETL flows and Power Query / DAX dashboards.",
           "Developed internal applications using Symfony, C#, React and Ionic, consuming REST APIs.",
-          "Fixed defects, analyzed data and supported business users.",
+          "Gathered needs from business teams and turned them into suitable tools and dashboards.",
+          "Trained business users, fixed defects and provided day-to-day assistance.",
         ],
       },
       {

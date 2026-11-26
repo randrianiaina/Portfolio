@@ -4,7 +4,7 @@ import { projects } from "../../app/projects";
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_HISTORY_MESSAGES = 6;
 const MAX_BODY_LENGTH = 28_672;
-const GEMINI_MODEL = "gemini-2.5-flash";
+const GEMINI_MODEL = "gemini-3.5-flash-lite";
 
 type Locale = "fr" | "en";
 type ConversationMessage = {

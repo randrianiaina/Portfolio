@@ -18,14 +18,14 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Herizo Randrianaina — Chef de projet IT & Développeur",
+  title: "Herizo Randrianaina — Développeur full-stack & Analyste concepteur",
   description:
-    "Portfolio de Herizo Randrianaina — chef de projet IT et développeur d’applications métier, CRM, data et outils web.",
+    "Portfolio de Herizo Randrianaina — analyste concepteur et développeur full-stack : applications métier, CRM, solutions VoIP et téléphonie, intégration IA.",
   metadataBase: new URL("https://herizo.netlify.app"),
   openGraph: {
-    title: "Herizo Randrianaina — Chef de projet IT & Développeur",
+    title: "Herizo Randrianaina — Développeur full-stack & Analyste concepteur",
     description:
-      "Projets web et mobile, CRM, données et solutions métier.",
+      "Développement full-stack web et mobile, CRM, VoIP et téléphonie, intégration IA.",
     type: "website",
     locale: "fr_FR",
   },

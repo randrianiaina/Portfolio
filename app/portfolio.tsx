@@ -141,22 +141,11 @@ export default function Portfolio() {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
-  // Pointer-driven effects: page glow, card spotlight, profile card tilt.
+  // Pointer-driven profile card tilt.
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const root = document.documentElement;
     const onMove = (event: PointerEvent) => {
-      root.style.setProperty("--mx", `${event.clientX}px`);
-      root.style.setProperty("--my", `${event.clientY}px`);
       const target = event.target as Element;
-      const card = target.closest<HTMLElement>(
-        ".project-card, .expertise-grid article, .approach-grid article",
-      );
-      if (card) {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty("--x", `${event.clientX - rect.left}px`);
-        card.style.setProperty("--y", `${event.clientY - rect.top}px`);
-      }
       const profile = document.querySelector<HTMLElement>(".profile-card");
       if (profile) {
         const inVisual = target.closest(".hero-visual");

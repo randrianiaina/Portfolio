@@ -125,6 +125,19 @@ export const projects: PortfolioProject[] = [
     stack: ["Rust", "llama.cpp", "LLM légers"],
   },
   {
+    name: "TalentMatch — matching CV / offre responsable",
+    nameEn: "TalentMatch — responsible CV / job matching",
+    category: "ia",
+    label: "IA · RECRUTEMENT",
+    labelEn: "AI · RECRUITMENT",
+    description:
+      "Pipeline IA de recrutement conforme RGPD / AI Act : pseudonymisation, extraction structurée de CV par LLM, détection d’injection de prompt et d’hallucinations, score explicable avec revue humaine, métriques d’équité et fine-tuning LoRA de Mistral prêt pour SageMaker.",
+    descriptionEn:
+      "GDPR / AI Act compliant recruitment AI pipeline: pseudonymization, LLM-based structured CV extraction, prompt-injection and hallucination detection, explainable scoring with human review, fairness metrics and Mistral LoRA fine-tuning ready for SageMaker.",
+    stack: ["Python", "PyTorch", "Hugging Face PEFT", "Mistral", "AWS SageMaker", "FastAPI"],
+    github: "https://github.com/randrianiaina/Portfolio/tree/main/projects/talentmatch",
+  },
+  {
     name: "RustChat — CRM vocal avec IA",
     nameEn: "RustChat — AI voice CRM",
     category: "ia",

@@ -24,3 +24,6 @@ tsconfig.tsbuildinfo
 # CV personnels (coordonnées)
 /source/
 /cv/
+
+# Python
+__pycache__/

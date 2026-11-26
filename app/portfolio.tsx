@@ -80,7 +80,21 @@ const experience = [
   },
 ] as const;
 
-const localeChangeEvent = "portfolio-locale-change";
+const marquee = [
+  "Laravel",
+  "Symfony",
+  "React",
+  "Next.js",
+  "Flutter",
+  "SQL Server",
+  "Power BI",
+  "Docker",
+  "Proxmox",
+  "Playwright",
+  "LLM / RAG",
+];
+
+const localeChangeEvent ="portfolio-locale-change";
 
 function subscribeToLocaleChange(onChange: () => void) {
   window.addEventListener(localeChangeEvent, onChange);
@@ -125,6 +139,61 @@ export default function Portfolio() {
 
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  // Pointer-driven effects: page glow, card spotlight, profile card tilt.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const root = document.documentElement;
+    const onMove = (event: PointerEvent) => {
+      root.style.setProperty("--mx", `${event.clientX}px`);
+      root.style.setProperty("--my", `${event.clientY}px`);
+      const target = event.target as Element;
+      const card = target.closest<HTMLElement>(
+        ".project-card, .expertise-grid article, .approach-grid article",
+      );
+      if (card) {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--x", `${event.clientX - rect.left}px`);
+        card.style.setProperty("--y", `${event.clientY - rect.top}px`);
+      }
+      const profile = document.querySelector<HTMLElement>(".profile-card");
+      if (profile) {
+        const inVisual = target.closest(".hero-visual");
+        const rect = profile.getBoundingClientRect();
+        const dx = (event.clientX - rect.left - rect.width / 2) / rect.width;
+        const dy = (event.clientY - rect.top - rect.height / 2) / rect.height;
+        profile.style.setProperty("--rx", inVisual ? `${dx * 18}deg` : "0deg");
+        profile.style.setProperty("--ry", inVisual ? `${-dy * 18}deg` : "0deg");
+      }
+    };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onMove);
+  }, []);
+
+  // Scroll reveal (project cards use their own CSS entry animation).
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>(
+      ".section-heading, .expertise-grid article, .approach-grid article, .timeline-item, .contact, .marquee",
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.12 },
+    );
+    elements.forEach((element, index) => {
+      if (element.classList.contains("in")) return;
+      element.classList.add("reveal");
+      element.style.setProperty("--i", String(index % 4));
+      observer.observe(element);
+    });
+    document.documentElement.classList.add("motion");
+    return () => observer.disconnect();
   }, []);
 
   function changeLocale() {
@@ -291,6 +360,14 @@ export default function Portfolio() {
             <div className="floating-chip chip-two">{t.chipBusinessTools}</div>
           </div>
         </section>
+
+        <div aria-hidden="true" className="marquee">
+          <div>
+            {[...marquee, ...marquee].map((item, index) => (
+              <span key={index}>{item}</span>
+            ))}
+          </div>
+        </div>
 
         <section className="section-wrap section-block" id="expertise">
           <div className="section-heading">
